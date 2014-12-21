@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Moonshine Test Runner</title>
+
+		<script src="../vm/src/init.js"></script>
+		<script src="../vm/src/gc.js"></script>
+		<script src="../vm/src/EventEmitter.js"></script>
+		<script src="../vm/src/FileManager.js"></script>
+		<script src="../vm/src/VM.js"></script>
+		<script src="../vm/src/Register.js"></script>
+		<script src="../vm/src/Closure.js"></script>
+		<script src="../vm/src/Function.js"></script>
+		<script src="../vm/src/Coroutine.js"></script>
+		<script src="../vm/src/Table.js"></script>
+		<script src="../vm/src/Error.js"></script>
+		<script src="../vm/src/File.js"></script>
+		<script src="../vm/src/operations.js"></script>
+		<script src="../vm/src/jit.js"></script>
+		<script src="../vm/src/lib.js"></script>
+		<script src="../vm/src/utils.js"></script>
+		<script src="../vm/src/output.js"></script>
+		
+		<script src="http://paulcuth.me.uk/lichen/lichen.js.php?accept=shine,vm,onReady,__flash__arrayToXML,__flash__argumentsToXML,__flash__objectToXML,__flash__escapeXML,__flash__toXML,__flash__request,__flash__addCallback,__flash__removeCallback,0,runner&amp;position=top-left"></script>
+
+		<style>
+			body {
+				padding: 0;
+			}
+
+			.vm {
+				width: 360px;
+				margin: 20px;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.vm header {
+				margin: 4px;
+				font-weight: bold;
+				font-size: 24px;
+			}
+
+			.vm .expectation {
+				margin: 4px;
+			}
+
+			.vm .output {
+				width: 352px;
+				height: 352px;
+				padding: 4px;
+				overflow-y: auto;
+				background-color: black;
+				color: white;
+				font-family: 'Monaco';
+				font-size: 10px;
+				color: #ddd;
+			}
+
+			#flashContent {
+				overflow: hidden;
+				padding: 2px;
+			}
+
+			pre {
+				margin: 0;
+			}
+
+			p {
+				margin: 0;
+				padding: 0;
+			}			
+
+			p.error {
+				color: red;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<section class="vm">
+			<header>JavaScript</header>
+			<p class="expectation">Expected: Pass</p>
+			<pre class="output" id="output"></pre>
+		</section>
+
+		<section class="vm">
+			<header>ActionScript</header>
+			<p class="expectation">Expected: 5 fails.</p>
+			<div class="output" id="flashContent">
+				<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="360" height="360" id="runner" align="middle">
+					<param name="movie" value="./as/runner.swf" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#000000" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="wmode" value="window" />
+					<param name="scale" value="showall" />
+					<param name="menu" value="true" />
+					<param name="devicefont" value="false" />
+					<param name="salign" value="" />
+					<param name="allowScriptAccess" value="always" />
+					<!--[if !IE]>-->
+					<object type="application/x-shockwave-flash" data="./as/runner.swf" width="360" height="360">
+						<param name="movie" value="./as/runner.swf" />
+						<param name="quality" value="high" />
+						<param name="bgcolor" value="#000000" />
+						<param name="play" value="true" />
+						<param name="loop" value="true" />
+						<param name="wmode" value="window" />
+						<param name="scale" value="showall" />
+						<param name="menu" value="true" />
+						<param name="devicefont" value="false" />
+						<param name="salign" value="" />
+						<param name="allowScriptAccess" value="always" />
+					<!--<![endif]-->
+						<a href="http://www.adobe.com/go/getflash">Get Adobe Flash player</a>
+					<!--[if !IE]>-->
+					</object>
+					<!--<![endif]-->
+				</object>
+			</div>
+		</section>
+
+		<script>
+
+			function onReady () {
+				var url = './scripts/test-no-require.lua.json',
+					swf = document.querySelector('#runner object');
+
+				window.setTimeout(function () {
+					swf.loadScript(url);
+				}, 3000);
+			}
+
+
+			(function () {
+				
+				var elOutput = document.getElementById('output'),
+					output = '',
+					api;
+				
+				function escapeHTML(text) {
+				    return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+				}	
+
+				shine.stdout.write = function (message) {
+					output += escapeHTML(message) + '\n';
+				};
+
+				window.setInterval(function () {
+					elOutput.innerHTML = output;
+				},250);
+
+
+				api = {
+					getTimestamp: function () {
+						return Date.now();
+					}
+				};
+	
+				// shine.jit.enabled = true;
+				window.vm = new shine.VM(api);
+				vm.load('./test-package.json');
+			})();
+		</script>
+	</body>
+</html>

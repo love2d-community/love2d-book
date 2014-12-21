@@ -1,0 +1,3 @@
+= LÖVE for Newbies
+
+A book about LÖVE, games and Lua.

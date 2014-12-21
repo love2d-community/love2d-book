@@ -1,0 +1,33 @@
+[IMPORTANT]
+Find consensus on a license
+
+=== Libraries & Tools:
+
+* https://github.com/asciidoctor/asciidoctor[AsciiDoctor] renders this book
+* http://moonshinejs.org/[Moonshine], licensed under the GNU GPL License, and
+* https://github.com/TannerRogalsky/punchdrunk[punchdrunk] by Tanner Rogalsky make LÖVE run in *your* browser
+* ...as does of course https://love2d.org/[LÖVE], which this book is all about
+
+wherever not listed above, these are licensed under the MIT License:
+.The MIT License
+....
+Copyright (C) held by the respective authors, see the LICENSEs in the links provided above
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+....

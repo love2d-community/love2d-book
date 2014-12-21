@@ -1,0 +1,54 @@
+= LÖVE for Newbies
+Sol Bekic <s0lll0s@blinkenshell.org>
+:source-highlighter: pygments
+:docinfo1: docinfo.html
+:description: A book about LÖVE, Games and Lua.
+:toc: right
+
+[toc]
+
+== Introduction
+
+* item 1
+* item 2
+
+== Drawing Primitives
+[source,lua]
+--
+function love.draw()
+    love.graphics.color( 255, 0, 0 )
+    love.graphics.circle( 200, 200, 10 )
+end
+--
+
+[source,lua]
+--
+function love.draw()
+    love.graphics.color( 255, 0, 0 )
+    love.graphics.circle( 200, 200, 10 )
+end
+--
+
+=== Drawing a circle
+[livecode,ex-1]
+++++
+function love.draw()
+    love.graphics.setColor( 255, 0, 0, 255 )
+    love.graphics.circle( "fill", 200, 200, 100 )
+end
+++++
+
+=== Adding a tad of complexity (and rects)
+[livecode,ex-2]
+++++
+function rect()
+    return 200, 200, 100, 100
+end
+
+function love.draw()
+    love.graphics.rectangle( "fill", rect() )
+end
+++++
+
+== License
+include::LICENSE.adoc[]
