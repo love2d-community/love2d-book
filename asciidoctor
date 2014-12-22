@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'rubygems' if RUBY_VERSION < '1.9'
 
+require 'asciidoctor-pdf'
 require 'asciidoctor'
 require 'asciidoctor/cli'
 require 'asciidoctor/extensions'

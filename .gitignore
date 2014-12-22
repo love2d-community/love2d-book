@@ -1,5 +1,8 @@
 public/*.html
+public/*pdf*
+paged
 tmp
 
 vendor
 
+Gemfile.lock
