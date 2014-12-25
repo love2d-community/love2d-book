@@ -19,5 +19,5 @@ WARNING: When we want to store textual information (strings, in technical term) 
  
 In this small piece of code we are assigning the given "Joseph" to the variable *name* and 18 to the variable *age*. We use this syntax in Lua to allocate space in memory. In the left side of the equal symbol specify the variable name and the right hand, the data. The last line tells the computer that it should show the data contained in the variable name. _print_ is a *tool* from Lua. The language have a lot of useful tools. Test and see the result.
 
-TIP: How about trying to make the computer show the buddy?
+TIP: How about trying to make the computer show the buddy's age?
 
