@@ -5,6 +5,7 @@ Sol Bekic <s0lll0s@blinkenshell.org>
 :docinfo1: docinfo.html
 :description: A book about LÖVE, Games and Lua.
 :nopagination:
+:sectanchors:
 :toc: right
 :attribute-missing: skip
 :numbered:
