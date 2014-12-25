@@ -1,5 +1,19 @@
+=== Introduction
+
+So you want to make games, right? +
+Basically, every computer program (yes, games are also included) are made using a *programming language*. But what is it?
+Similarly when we want to talk to someone from another country and we choose a common language between the two, a programming language is a language in which both humans and computers understand. This is how we tell the computer what it should do. +
+Computer programs are basically a bunch of instructions that a programmer wrote and distributed. Thus, the computer will follow the instructions' guide and begin to perform them.
+
+In this first world, we will study the basics of Lua programming language, which we use to make games using the LÖVE framework.
+
 === What is Lua?
 
-[IMPORTANT]
-Write Level
+Lua is a simple, light and extremely powerful language, designed to be used within complex software (such as games). It was created by a team of developers of PUC-Rio, Brazil. And because of its efficiency, extreme clarity and *ease of learning*, came to be used in various applications.
+
+==== Installation
+
+In this world, we will teach the basics of Lua programming language, and therefore, you can test the codes online. +
+Just visit the site: http://www.lua.org/cgi-bin/demo
+and write your code there.
 

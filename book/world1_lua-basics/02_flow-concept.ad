@@ -1,5 +1,12 @@
 === Basic Flow Concept
 
-[IMPORTANT]
-Write Level
+==== Flow
+When we write some code in a programming language is required us to write very important things first and then we write things depending on what has already been said. The computer will read line by line from top to bottom.
+
+==== Conditions
+We can tell the computer that it chooses other paths and finish lines jumping.
+Think that you are lost in a field and reaches a point in front there are two possible paths. You will choose one of them by some condition (situation), as there is water and food. In computer programming, this concept is called *conditional structure*.
+
+==== Loops
+It is our usual to repeat the same idea to perform a larger task. If I ask you to do 8 cookies, you will follow a bunch of steps for each cookie to complete 8 cookies. This concept is called *loop*.
 
