@@ -1,5 +1,5 @@
 = LÖVE for Newbies
-Sol Bekic <s0lll0s@blinkenshell.org> Ricardo Gomes <desk467@gmail.com>
+Sol Bekic <s0lll0s@blinkenshell.org> - Ricardo Gomes <desk467@gmail.com>
 :source-highlighter: pygments
 :docinfo1: docinfo.html
 :description: A book about LÖVE, Games and Lua.
@@ -16,19 +16,17 @@ include::world1_lua-basics/02_flow-concept.adoc[]
 <<<
 include::world1_lua-basics/03_variables.adoc[]
 <<<
-include::world1_lua-basics/04_strings.adoc[]
+include::world1_lua-basics/04_data-types.adoc[]
 <<<
-include::world1_lua-basics/05_booleans.adoc[]
+include::world1_lua-basics/05_conditional-statements.adoc[]
 <<<
-include::world1_lua-basics/06_conditional-statements.adoc[]
+include::world1_lua-basics/06_loops.adoc[]
 <<<
-include::world1_lua-basics/07_loops.adoc[]
+include::world1_lua-basics/07_functions.adoc[]
 <<<
-include::world1_lua-basics/08_functions.adoc[]
+include::world1_lua-basics/08_tables.adoc[]
 <<<
-include::world1_lua-basics/09_tables.adoc[]
-<<<
-include::world1_lua-basics/10_metatables.adoc[]
+include::world1_lua-basics/09_metatables.adoc[]
 <<<
 
 include::world2.adoc[]
