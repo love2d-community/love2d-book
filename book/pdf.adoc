@@ -1,0 +1,54 @@
+= LÖVE for Newbies
+Sol Bekic <s0lll0s@blinkenshell.org> Ricardo Gomes <desk467@gmail.com>
+:source-highlighter: pygments
+:docinfo1: docinfo.html
+:description: A book about LÖVE, Games and Lua.
+:nopagination:
+:toc: auto
+:attribute-missing: skip
+:numbered:
+
+include::world1.adoc[]
+<<<
+include::world1_lua-basics/01_what-is-lua.adoc[]
+<<<
+include::world1_lua-basics/02_flow-concept.adoc[]
+<<<
+include::world1_lua-basics/03_variables.adoc[]
+<<<
+include::world1_lua-basics/04_strings.adoc[]
+<<<
+include::world1_lua-basics/05_booleans.adoc[]
+<<<
+include::world1_lua-basics/06_conditional-statements.adoc[]
+<<<
+include::world1_lua-basics/07_loops.adoc[]
+<<<
+include::world1_lua-basics/08_functions.adoc[]
+<<<
+include::world1_lua-basics/09_tables.adoc[]
+<<<
+include::world1_lua-basics/10_metatables.adoc[]
+<<<
+
+include::world2.adoc[]
+<<<
+include::world2_love2D-basics/01_game-structure.adoc[]
+<<<
+include::world2_love2D-basics/02_callbacks.adoc[]
+<<<
+include::world2_love2D-basics/03_OOP.adoc[]
+<<<
+include::world2_love2D-basics/04_graphics.adoc[]
+<<<
+include::world2_love2D-basics/05_audio.adoc[]
+<<<
+include::world2_love2D-basics/06_fonts.adoc[]
+<<<
+include::world2_love2D-basics/07_advanced-input.adoc[]
+<<<
+include::world2_love2D-basics/08_game-math.adoc[]
+<<<
+
+== License
+include::../LICENSE.adoc[]
