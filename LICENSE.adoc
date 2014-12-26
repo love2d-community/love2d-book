@@ -9,6 +9,7 @@ Find consensus on a license
 * ...as does of course https://love2d.org/[LÖVE], which this book is all about
 
 wherever not listed above, these are licensed under the MIT License:
+
 .The MIT License
 ....
 Copyright (C) held by the respective authors, see the LICENSEs in the links provided above
