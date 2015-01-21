@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="description" content="A book about LÖVE, Games and Lua.">
-<meta name="author" content="Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; Ricardo Gomes &lt;desk467@gmail.com&gt;">
+<meta name="author" content="Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; - Ricardo Gomes &lt;desk467@gmail.com&gt;">
 <title>LÖVE for Newbies</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <link rel="stylesheet" href="./asciidoctor.css">
@@ -17,24 +17,28 @@
 <div id="header">
 <h1>LÖVE for Newbies</h1>
 <div class="details">
-<span id="author" class="author">Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; Ricardo Gomes &lt;desk467@gmail.com&gt;</span><br>
+<span id="author" class="author">Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; - Ricardo Gomes &lt;desk467@gmail.com&gt;</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#world1">1. The Lua Programming Language</a>
+<li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a>
 <ul class="sectlevel2">
-<li><a href="#_introduction">1.1. Introduction</a></li>
-<li><a href="#_what_is_lua">1.2. What is Lua?</a></li>
+<li><a href="#_metrics">METRICS:</a></li>
+</ul>
+</li>
+<li><a href="#world1">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_lua">1.1. What is Lua?</a></li>
+<li><a href="#_installation">1.2. Installation</a></li>
 <li><a href="#_basic_flow_concept">1.3. Basic Flow Concept</a></li>
 <li><a href="#_storing_data_in_variables">1.4. Storing Data in Variables</a></li>
-<li><a href="#_strings">1.5. Strings</a></li>
-<li><a href="#_true_or_false">1.6. True or False?</a></li>
-<li><a href="#_conditional_statements">1.7. Conditional Statements</a></li>
-<li><a href="#_which_way_should_i_go">1.8. Which way should I go?</a></li>
-<li><a href="#_functions">1.9. Functions</a></li>
-<li><a href="#_tables">1.10. Tables</a></li>
-<li><a href="#_metatables">1.11. Metatables</a></li>
+<li><a href="#_types">1.5. Types</a></li>
+<li><a href="#_conditional_statements">1.6. Conditional Statements</a></li>
+<li><a href="#_which_way_should_i_go">1.7. Which way should I go?</a></li>
+<li><a href="#_functions">1.8. Functions</a></li>
+<li><a href="#_tables">1.9. Tables</a></li>
+<li><a href="#_metatables">1.10. Metatables</a></li>
 </ul>
 </li>
 <li><a href="#world2">2. The LÖVE Framwork</a>
@@ -60,32 +64,122 @@
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="world1"><a class="anchor" href="#world1"></a>1. The Lua Programming Language</h2>
+<h2 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>A book about LÖVE, Games and Lua.</p>
+</div>
+<div class="paragraph">
+<p>The collaborative book will be divided into three main units:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A basic course to learn the principles and the syntax of Lua;</p>
+</li>
+<li>
+<p>A basic course to learn the fundamentals of creating games using the LÖVE framework;</p>
+</li>
+<li>
+<p>An area of examples and snippets containing best practices in game development.</p>
+</li>
+</ul>
+</div>
 <div class="sect2">
-<h3 id="_introduction"><a class="anchor" href="#_introduction"></a>1.1. Introduction</h3>
+<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>METRICS:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All these main units we’ll call as “World”, and each chapter, as “Level”;</p>
+</li>
+<li>
+<p>At the end of every “Level”, we’ll remind the reader about what has been learned in this chapter and we’ll show some practical issues that now he will be able to solve;</p>
+</li>
+<li>
+<p>Examples, WE LOVE IT. Some computer books are extremely boring because they have various concepts released without practical examples. Examples make better understand something. Then examples will be widely used in the book.</p>
+</li>
+<li>
+<p>Make it clear that the reader is learning to do really interesting things. So they will feel more motivated to continue to understand the framework.</p>
+</li>
+<li>
+<p>Be clear and direct when talking something new. Keep stupidly simple.</p>
+</li>
+<li>
+<p>Every Level ends with additional exercises that the reader can choose to try</p>
+</li>
+<li>
+<p>Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)</p>
+</li>
+<li>
+<p>Use informal language and short text to show new content.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The book s written using a generator called Asciidoctor.<br>
+Quick Reference: <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/" class="bare">http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p>
+</div>
+<div class="paragraph">
+<p>We have extended the AsciiDoctor syntax with "livecode" blocks and block macros. Use like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>livecode::test[] <b class="conum">(1)</b>
+
+livecode::test[name=test2,preload="image1.png,image2.png"] <b class="conum">(2)</b>
+
+[livecode,example,preload=audio.wav] <b class="conum">(3)</b>
+++++
+function love.draw()
+    love.graphics.setColor( 255, 255, 0, 255 )
+    love.graphics.rectangle( "fill", 10, 10, 100, 100 )
+end
+++++</pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>loads love2D-book-code/test directory</p>
+</li>
+<li>
+<p>load love2D-book/code/test directory and the assets called image1.png and image2.png. It&#8217;s name is test2 so it doesn&#8217;t conflict with the first.</p>
+</li>
+<li>
+<p>runs the code below it; has the name of "example" and loads audio.wav</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Welcome to collaborate with the project :D</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="world1"><a class="anchor" href="#world1"></a>1. Introduction</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>So you want to make games, right?<br>
 Basically, every computer program (yes, games are also included) are made using a <strong>programming language</strong>. But what is it?
 Similarly when we want to talk to someone from another country and we choose a common language between the two, a programming language is a language in which both humans and computers understand. This is how we tell the computer what it should do.<br>
-Computer programs are basically a bunch of instructions that a programmer wrote and distributed. Thus, the computer will follow the instructions' guide and begin to perform them.</p>
+Computer programs are basically a bunch of instructions that someone wrote and distributed. Thus, the computer will follow this instructions and begin to perform them.</p>
 </div>
 <div class="paragraph">
 <p>In this first world, we will study the basics of Lua programming language, which we use to make games using the LÖVE framework.</p>
 </div>
+<div class="sect2">
+<h3 id="_what_is_lua"><a class="anchor" href="#_what_is_lua"></a>1.1. What is Lua?</h3>
+<div class="paragraph">
+<p>Lua is a simple, light and extremely powerful language, designed to be used within complex software (such as games). It was created by a team of developers of PUC-Rio, in Brazil. And because of its efficiency, extreme clarity and ease of learning, came to be used in various applications.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_what_is_lua"><a class="anchor" href="#_what_is_lua"></a>1.2. What is Lua?</h3>
-<div class="paragraph">
-<p>Lua is a simple, light and extremely powerful language, designed to be used within complex software (such as games). It was created by a team of developers of PUC-Rio, Brazil. And because of its efficiency, extreme clarity and <strong>ease of learning</strong>, came to be used in various applications.</p>
-</div>
-<div class="sect3">
-<h4 id="_installation"><a class="anchor" href="#_installation"></a>1.2.1. Installation</h4>
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>1.2. Installation</h3>
 <div class="paragraph">
 <p>In this world, we will teach the basics of Lua programming language, and therefore, you can test the codes online.<br>
 Just visit the site: <a href="http://www.lua.org/cgi-bin/demo" class="bare">http://www.lua.org/cgi-bin/demo</a>
 and write your code there.</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -93,20 +187,22 @@ and write your code there.</p>
 <div class="sect3">
 <h4 id="_flow"><a class="anchor" href="#_flow"></a>1.3.1. Flow</h4>
 <div class="paragraph">
-<p>When we write some code in a programming language is required us to write very important things first and then we write things depending on what has already been said. The computer will read line by line from top to bottom.</p>
+<p>When we are in school, going through all those levels, we follow a simple study sequency. Basic concepts are learned at the beginning of our school life and more complex subjetcts (which depend on the most basic) are learned ahead.
+Write code works in a similar way. We follow the same order, that is, before we try to do complex things, we have to talk to the computer how to do them.
+A code is understood by the computer from the first to the last line. If  we ask the computer to calculates powers but do not teach it how to make a multiplication, probably it will not solve our problem.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_conditions"><a class="anchor" href="#_conditions"></a>1.3.2. Conditions</h4>
 <div class="paragraph">
-<p>We can tell the computer that it chooses other paths and finish lines jumping.
-Think that you are lost in a field and reaches a point in front there are two possible paths. You will choose one of them by some condition (situation), as there is water and food. In computer programming, this concept is called <strong>conditional structure</strong>.</p>
+<p>We can tell the computer that it chooses other paths and jump some lines.
+Think that you are lost in a field and reaches a point in front there are two possible paths. You will choose one of them by some condition. In computer programming, this concept is called <strong>conditional structure</strong>.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_loops"><a class="anchor" href="#_loops"></a>1.3.3. Loops</h4>
 <div class="paragraph">
-<p>It is our usual to repeat the same idea to perform a larger task. If I ask you to do 8 cookies, you will follow a bunch of steps for each cookie to complete 8 cookies. This concept is called <strong>loop</strong>.</p>
+<p>It is our usual to repeat the same idea to perform a larger task. If I ask you to make 8 cookies, you will follow a bunch of steps for each cookie to complete 8 cookies. This concept is called <strong>loop</strong>.</p>
 </div>
 </div>
 </div>
@@ -116,13 +212,13 @@ Think that you are lost in a field and reaches a point in front there are two po
 <p>And now we begin the fun part ..</p>
 </div>
 <div class="paragraph">
-<p>We have spoken that the computer can make various tasks using some instructions. Let&#8217;s know the concept of variable.</p>
+<p>We have spoken that the computer can make various tasks using some instructions. Let&#8217;s know the first key concept, <strong>the variable</strong>.</p>
 </div>
 <div class="paragraph">
-<p>When you make the cookies, you use a few <strong>ingredients</strong> and some <strong>tools</strong>. Let&#8217;s start with the ingredients, which for computing, are called variables.</p>
+<p>When you make the cookies, you use few <strong>ingredients</strong> and some <strong>tools</strong>. Let&#8217;s start with the ingredients, which for computing, are called variables.</p>
 </div>
 <div class="paragraph">
-<p>The computer is a mathematical machine that performs tasks from data. Variables are a space that we allocate int the computer memory to store data that will be useful for us.</p>
+<p>The computer is a mathematical machine that performs tasks from data. Variables are a space that we allocate in the computer memory to store data that will be useful for us.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
@@ -134,36 +230,15 @@ Think that you are lost in a field and reaches a point in front there are two po
 <span class="tok-nb">print</span> <span class="tok-p">(</span><span class="tok-n">name</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-When we want to store textual information (strings, in technical term) into a variable, we put it in quotes.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>In this small piece of code we are assigning the word "Joseph" to the variable <strong>name</strong> and 18 to the variable <strong>age</strong>. We use this syntax in Lua to allocate space in memory. In the left side of the equal symbol specify the variable name and the right hand, the data. The last line tells the computer that it should show the data contained in the variable name. <em>print</em> is a <strong>tool</strong> from Lua. The language have a lot of useful tools. Test and see the result.</p>
 </div>
 <div class="paragraph">
-<p>In this small piece of code we are assigning the given "Joseph" to the variable <strong>name</strong> and 18 to the variable <strong>age</strong>. We use this syntax in Lua to allocate space in memory. In the left side of the equal symbol specify the variable name and the right hand, the data. The last line tells the computer that it should show the data contained in the variable name. <em>print</em> is a <strong>tool</strong> from Lua. The language have a lot of useful tools. Test and see the result.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-How about trying to make the computer show the buddy&#8217;s age?
-</td>
-</tr>
-</table>
+<p>How about trying to make the computer show the buddy&#8217;s age?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_strings"><a class="anchor" href="#_strings"></a>1.5. Strings</h3>
+<h3 id="_types"><a class="anchor" href="#_types"></a>1.5. Types</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -178,7 +253,7 @@ Write Level
 </div>
 </div>
 <div class="sect2">
-<h3 id="_true_or_false"><a class="anchor" href="#_true_or_false"></a>1.6. True or False?</h3>
+<h3 id="_conditional_statements"><a class="anchor" href="#_conditional_statements"></a>1.6. Conditional Statements</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -193,7 +268,7 @@ Write Level
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conditional_statements"><a class="anchor" href="#_conditional_statements"></a>1.7. Conditional Statements</h3>
+<h3 id="_which_way_should_i_go"><a class="anchor" href="#_which_way_should_i_go"></a>1.7. Which way should I go?</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -208,7 +283,7 @@ Write Level
 </div>
 </div>
 <div class="sect2">
-<h3 id="_which_way_should_i_go"><a class="anchor" href="#_which_way_should_i_go"></a>1.8. Which way should I go?</h3>
+<h3 id="_functions"><a class="anchor" href="#_functions"></a>1.8. Functions</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -223,7 +298,7 @@ Write Level
 </div>
 </div>
 <div class="sect2">
-<h3 id="_functions"><a class="anchor" href="#_functions"></a>1.9. Functions</h3>
+<h3 id="_tables"><a class="anchor" href="#_tables"></a>1.9. Tables</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -238,22 +313,7 @@ Write Level
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tables"><a class="anchor" href="#_tables"></a>1.10. Tables</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_metatables"><a class="anchor" href="#_metatables"></a>1.11. Metatables</h3>
+<h3 id="_metatables"><a class="anchor" href="#_metatables"></a>1.10. Metatables</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -597,7 +657,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-26 01:47:06 CET
+Last updated 2015-01-22 00:08:53 CET
 </div>
 </div>
 </body>
