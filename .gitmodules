@@ -1,0 +1,3 @@
+[submodule "book/code"]
+	path = book/code
+	url = git@github.com:love2D-book/love2D-book-code.git

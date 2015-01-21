@@ -21,7 +21,7 @@ Asciidoctor::Extensions.register do
             name    = attrs.delete('name')
             res = %(
 <div class="preload">#{(preload.map do |n| %(<img src="assets/#{name+"/"+n}" />) end).join("\n")}</div>
-<canvas id="#{name}"></canvas>)
+<canvas id="#{name}-canvas"></canvas>)
             if attrs.has_key? 'multi' then
                 names = []
                 reader.read.split("###").each do |t|
@@ -34,15 +34,33 @@ Asciidoctor::Extensions.register do
                     end
                 end
                 game_json = %x{node_modules/.bin/moonshine distil #{names.join(' ')}}
-                res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}") });</script>)
+                res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
             else
                 File.open('tmp/file.lua', 'w') do |f|
                     f.write( reader.read )
                 end
                 game_json = %x{node_modules/.bin/moonshine distil tmp/file.lua}
-                res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}") });</script>)
+                res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
             end
-            create_pass_block parent, %(<div class="livecode">#{res}</div), attrs
+            create_pass_block parent, %(<div class="livecode">#{res}</div>), attrs
+        end
+    end
+
+    block_macro do
+        named :livecode
+
+        parse_content_as :raw
+
+        process do |parent, target, attrs|
+            res = ""
+            preload = ( attrs.delete('preload') || '').split(',')
+            name = attrs.delete( 'name' ) || target
+            res = %(
+<div class="preload">#{(preload.map do |n| %(<img src="assets/#{target+"/"+n}" />) end).join("\n")}</div>
+<canvas id="#{name}-canvas"></canvas>)
+            game_json = %x{node_modules/.bin/moonshine distil -p book/code/#{target}}
+            res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
+            create_pass_block parent, %(<div class="livecode">#{res}</div>), attrs
         end
     end
 end
