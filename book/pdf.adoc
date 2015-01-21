@@ -1,5 +1,5 @@
 = LÖVE for Newbies
-Sol Bekic <s0lll0s@blinkenshell.org> - Ricardo Gomes <desk467@gmail.com>
+Sol Bekic <s0lll0s@blinkenshell.org>; Ricardo Gomes <desk467@gmail.com>
 :source-highlighter: pygments
 :docinfo1: docinfo.html
 :description: A book about LÖVE, Games and Lua.
