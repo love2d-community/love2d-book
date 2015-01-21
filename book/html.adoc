@@ -10,6 +10,10 @@ Sol Bekic <s0lll0s@blinkenshell.org> - Ricardo Gomes <desk467@gmail.com>
 :attribute-missing: skip
 :numbered:
 
+:numbered!:
+include::../README.adoc[leveloffset=+1]
+:numbered:
+
 include::world1.adoc[]
 
 include::world1_lua-basics/01_what-is-lua.adoc[]

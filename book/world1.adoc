@@ -1,6 +1,5 @@
 [[world1]]
-=== Introduction
-
+== Introduction
 So you want to make games, right? +
 Basically, every computer program (yes, games are also included) are made using a *programming language*. But what is it?
 Similarly when we want to talk to someone from another country and we choose a common language between the two, a programming language is a language in which both humans and computers understand. This is how we tell the computer what it should do. +

@@ -1,6 +1,6 @@
 = LÖVE for Newbies
 A book about LÖVE, Games and Lua.
-:hardbreaks:
+
 The collaborative book will be divided into three main units:
 
 - A basic course to learn the principles and the syntax of Lua;
@@ -18,7 +18,27 @@ The collaborative book will be divided into three main units:
 . Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)
 . Use informal language and short text to show new content.
 
-The book s written using a generator called Asciidoctor.
+The book s written using a generator called Asciidoctor. +
 Quick Reference: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
+We have extended the AsciiDoctor syntax with "livecode" blocks and block macros. Use like this:
+
+----
+livecode::test[] // <1>
+
+livecode::test[name=test2,preload="image1.png,image2.png"] // <2>
+
+[livecode,example,preload=audio.wav] // <3>
+++++
+function love.draw()
+    love.graphics.setColor( 255, 255, 0, 255 )
+    love.graphics.rectangle( "fill", 10, 10, 100, 100 )
+end
+++++
+----
+<1> loads love2D-book-code/test directory
+<2> load love2D-book/code/test directory and the assets called image1.png and image2.png. It's name is test2 so it doesn't conflict with the first.
+<3> runs the code below it; has the name of "example" and loads audio.wav
+
 Welcome to collaborate with the project :D
+
