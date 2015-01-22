@@ -1,0 +1,6 @@
+[preface]
+== Preface
+
+[quote,citetitle="The mandatory Book Opening sentence"]
+So you want to make a game?
+

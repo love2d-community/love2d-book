@@ -1,11 +1,12 @@
-=== Structure of a LÖVE Project
+=== The Tools
 
+==== LÖVE
 So, what makes a LÖVE Project? +
 At core a LÖVE Project is just a folder containing everything needed to make the game;
 Code, Images, Sound and Video files and everything else you might need.
 
 
-==== Code
+===== Code
 Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should have learned about in <<world1, World 1>>.
 Generally Lua Source Files (`.lua`) can lay around anywhere in the project directory and have arbitrary names... except for two special ones:
 * main.lua
@@ -91,7 +92,7 @@ end
 Everything else will need to be ``require``d by `main.lua` in some way (direct or indirect).
 
 
-==== Images, Videos, Sounds and other Assets
+===== Images, Videos, Sounds and other Assets
 All of these files need to be somewhere in the project directory aswell. You will learn to load and draw or play these files throughout this World.
 
 

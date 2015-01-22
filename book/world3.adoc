@@ -1,2 +1,3 @@
 [[world3]]
-== Recipes for your games
+== The Cookbook
+

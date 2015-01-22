@@ -1,2 +1,13 @@
 [[world2]]
-== The LÖVE Framwork 
+== World 2: The Redo
+
+So that was <<world1>>. In the last few levels we went from our idea to an actual playable game... so what's left to do?
+
+Well, it turns out there is _a lot!_
+
+Even though the game so far is perfectly playable, some of the code has gotten messy during the development process.
+Also we haven't added any real art, sound effects or menu yet - everything that makes your game visually appealing to users is missing.
+This is because in <<world1>> we only created a _prototype_, a smaller version of the game to explore the concepts we want to be in our final game.
+Now it's time to take a step further and build *the _actual_ game*... +
+So lets *redo* this thing!
+

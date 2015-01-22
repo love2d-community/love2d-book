@@ -1,0 +1,7 @@
+=== The Concept
+
+For the Purposes of this Book, we have decided to recreate the game http://www.freeasteroids.org/[Asteroids].
+
+Before we start we need to think about how exactly this game works and what we want to include.
+Thinking about the game before we start will keep us from getting lost in the development process or adding feature after feature and losing interest before it is done.
+

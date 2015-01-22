@@ -12,30 +12,18 @@ Sol Bekic <s0lll0s@blinkenshell.org>; Ricardo Gomes <desk467@gmail.com>
 
 :numbered!:
 include::../README.adoc[leveloffset=+1]
+
+include::preface.adoc[]
 :numbered:
 
 include::world1.adoc[]
 
-include::world1_lua-basics/01_what-is-lua.adoc[]
-include::world1_lua-basics/02_flow-concept.adoc[]
-include::world1_lua-basics/03_variables.adoc[]
-include::world1_lua-basics/04_data-types.adoc[]
-include::world1_lua-basics/05_conditional-statements.adoc[]
-include::world1_lua-basics/06_loops.adoc[]
-include::world1_lua-basics/07_functions.adoc[]
-include::world1_lua-basics/08_tables.adoc[]
-include::world1_lua-basics/09_metatables.adoc[]
+include::world1_the-prototype/01_the-concept.adoc[]
+include::world1_the-prototype/02_the-tools.adoc[]
 
 include::world2.adoc[]
 
-include::world2_love2D-basics/01_game-structure.adoc[]
-include::world2_love2D-basics/02_callbacks.adoc[]
-include::world2_love2D-basics/03_OOP.adoc[]
-include::world2_love2D-basics/04_graphics.adoc[]
-include::world2_love2D-basics/05_audio.adoc[]
-include::world2_love2D-basics/06_fonts.adoc[]
-include::world2_love2D-basics/07_advanced-input.adoc[]
-include::world2_love2D-basics/08_game-math.adoc[]
+include::world2_the-redo/01_starting-over.adoc[]
 
 include::world3.adoc[]
 

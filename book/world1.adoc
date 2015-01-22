@@ -1,8 +1,6 @@
 [[world1]]
-== Introduction
-So you want to make games, right? +
-Basically, every computer program (yes, games are also included) are made using a *programming language*. But what is it?
-Similarly when we want to talk to someone from another country and we choose a common language between the two, a programming language is a language in which both humans and computers understand. This is how we tell the computer what it should do. +
-Computer programs are basically a bunch of instructions that someone wrote and distributed. Thus, the computer will follow this instructions and begin to perform them.
+== World 1: The Prototype
 
-In this first world, we will study the basics of Lua programming language, which we use to make games using the LÖVE framework.
+Welcome to World 1! +
+Here we will build a prototype for a game, up from the ground. Let's jump right in!
+

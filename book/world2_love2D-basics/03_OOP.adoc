@@ -1,5 +1,0 @@
-=== Object Oriented Programming
-
-[IMPORTANT]
-Write Level
-
