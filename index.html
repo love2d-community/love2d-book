@@ -33,19 +33,20 @@
 <li><a href="#_preface">Preface</a></li>
 <li><a href="#world1">1. World 1: The Prototype</a>
 <ul class="sectlevel2">
-<li><a href="#_the_concept">1.1. The Concept</a></li>
-<li><a href="#_the_tools">1.2. The Tools</a></li>
+<li><a href="#world1-1">1.1. The Concept</a></li>
+<li><a href="#world1-2">1.2. The Tools</a></li>
+<li><a href="#world1-3">1.3. Starting Small</a></li>
 </ul>
 </li>
 <li><a href="#world2">2. World 2: The Redo</a></li>
 <li><a href="#world3">3. World 3: The Cookbook</a>
 <ul class="sectlevel2">
-<li><a href="#_object_pools">3.1. Object Pools</a></li>
+<li><a href="#world3-">3.1. Object Pools</a></li>
 </ul>
 </li>
 <li><a href="#_license">4. License</a>
 <ul class="sectlevel2">
-<li><a href="#_libraries_tools">4.1. Libraries &amp; Tools:</a></li>
+<li><a href="#_libraries_tools">4.1. Libraries &amp; Tools</a></li>
 </ul>
 </li>
 </ul>
@@ -166,17 +167,87 @@ So you want to make a game?
 Here we will build a prototype for a game, up from the ground. Let&#8217;s jump right in!</p>
 </div>
 <div class="sect2">
-<h3 id="_the_concept"><a class="anchor" href="#_the_concept"></a>1.1. The Concept</h3>
+<h3 id="world1-1"><a class="anchor" href="#world1-1"></a>1.1. The Concept</h3>
 <div class="paragraph">
 <p>For the Purposes of this Book, we have decided to recreate the game <a href="http://www.freeasteroids.org/">Asteroids</a>.</p>
 </div>
 <div class="paragraph">
 <p>Before we start we need to think about how exactly this game works and what we want to include.
-Thinking about the game before we start will keep us from getting lost in the development process or adding feature after feature and losing interest before it is done.</p>
+Thinking about the game before we start will keep us from getting lost in the
+development process or adding feature after feature and losing interest before it is done.</p>
+</div>
+<div class="paragraph">
+<p>So, how does Asteroids work?</p>
+</div>
+<div class="paragraph">
+<p>In asteroids, the Player controls a small spaceship that is flying around.
+He has to shoot asteroids that fly around the screen.
+If he gets hit by an asteroid, the player loses a life and has to restart the round.
+When he hits an asteroid, the asteroid splits into two smaller ones.</p>
+</div>
+<div class="paragraph">
+<p>Alright, from these few rules we can already extract some things that we will need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a Spaceship / Player</p>
+</li>
+<li>
+<p>Asteroids</p>
+</li>
+<li>
+<p>Bullets</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Next, let&#8217;s see what each of these do or can do:</p>
+</div>
+<div class="sect3">
+<h4 id="_the_spaceship"><a class="anchor" href="#_the_spaceship"></a>1.1.1. The Spaceship</h4>
+<div class="paragraph">
+<p>The spaceship is the main thing the player can control in our game.
+The player can use two keys to accelerate or decelerate in the direction the ship
+is currently facing. He can also turn the spaceship with two other keys.
+Lastly the player can press a button to fire a shot.</p>
+</div>
+<div class="paragraph">
+<p>When the spaceships leaves the screen on one side, it will enter from the opposite side,
+keeping it&#8217;s velocity.</p>
+</div>
+<div class="paragraph">
+<p>We can see that the spaceship needs to have a <code>position</code>, <code>velocity</code> and <code>rotation</code>.
+In <a href="#world1-4">World 1-4</a> we will see that the actual way of saving the information
+we use differs, but we could as well do with this "definition".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_asteroids"><a class="anchor" href="#_the_asteroids"></a>1.1.2. The Asteroids</h4>
+<div class="paragraph">
+<p>Asteroids move in a straight line, also wrapping around the Screen in the same way
+the spaceship does.
+They larger an asteroid is, the slower it should move.
+Therefore all we need to know about every asteroid is his <code>position</code>, <code>size</code> and his <code>rotation</code>.</p>
+</div>
+<div class="paragraph">
+<p>Whenever an asteroid is hit, we split it into two smaller ones, unless it is already
+the smallest possible size. In that case we remove it altogether.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_bullets"><a class="anchor" href="#_the_bullets"></a>1.1.3. The Bullets</h4>
+<div class="paragraph">
+<p>Bullets travel along a straight path, much like asteroids.
+However they are removed from the game as soon as they hit an asteroid or leave the screen.</p>
+</div>
+<div class="paragraph">
+<p>All bullets share the same speed, we only need to know the bullet&#8217;s <code>position</code> and <code>rotation</code>.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_tools"><a class="anchor" href="#_the_tools"></a>1.2. The Tools</h3>
+<h3 id="world1-2"><a class="anchor" href="#world1-2"></a>1.2. The Tools</h3>
 <div class="sect3">
 <h4 id="_lÖve"><a class="anchor" href="#_lÖve"></a>1.2.1. LÖVE</h4>
 <div class="paragraph">
@@ -187,21 +258,25 @@ Code, Images, Sound and Video files and everything else you might need.</p>
 <div class="sect4">
 <h5 id="_code"><a class="anchor" href="#_code"></a>Code</h5>
 <div class="paragraph">
-<p>Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should have learned about in <a href="#world1">World 1</a>.
-Generally Lua Source Files (<code>.lua</code>) can lay around anywhere in the project directory and have arbitrary names&#8230;&#8203; except for two special ones:
+<p>Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should be familiar with already.
+Generally Lua Source Files (<code>.lua</code>) can lay around anywhere in the project
+directory and have arbitrary names&#8230;&#8203; except for two special ones:
 * main.lua
 * conf.lua</p>
 </div>
 <div class="paragraph">
-<p>These two are the only files that the LÖVE Framework runs; they are the starting points of every game or project you build.</p>
+<p>These two are the only files that the LÖVE Framework runs; they are the starting
+points of every game or project you build.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_main_lua"><a class="anchor" href="#_main_lua"></a>main.lua</h5>
 <div class="paragraph">
-<p>As the name implies this file will contain all your <strong>main code</strong> - what exactly that will be and how you organize your code is up to you.
-Usually this file contains the used <em>Callback Routines</em>, which will be covered in <a href="#world2-2">World 2-2</a>.
-For smaller projects and the next levels in this book this will be the only file (except for <code>conf.lua</code>) you will need.</p>
+<p>As the name implies this file will contain all your <strong>main code</strong> - what exactly
+that will be and how you organize your code is up to you.
+Usually this file contains the used <em>Callback Routines</em>, which will be covered in <a href="#world1-3">the next Level</a>.
+For smaller projects and the next levels in this book this will be the only file
+(except for <code>conf.lua</code>) you will need.</p>
 </div>
 </div>
 <div class="sect4">
@@ -209,7 +284,8 @@ For smaller projects and the next levels in this book this will be the only file
 <div class="paragraph">
 <p><em>conf</em> is short for <strong>Conf</strong>iguration, and thats what <code>conf.lua</code> is all about.
 You can fill this file with a function called <code>love.conf( t )</code> that accepts a table as it&#8217;s only parameter.
-In that function you can then modify certain fields of the table and thereby change the configuration the LÖVE Framework uses when it first creates your window.</p>
+In that function you can then modify certain fields of the table and thereby
+change the configuration the LÖVE Framework uses when it first creates your window.</p>
 </div>
 <div class="paragraph">
 <p>Here is a function that sets every possible value to it&#8217;s default value - and thereby does nothing:</p>
@@ -262,7 +338,8 @@ In that function you can then modify certain fields of the table and thereby cha
 <div class="title">Note</div>
 </td>
 <td class="content">
-You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the conf table; everything you leave out will remain at it&#8217;s default value.
+You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the conf table;
+everything you leave out will remain at it&#8217;s default value.
 </td>
 </tr>
 </table>
@@ -294,12 +371,14 @@ You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_images_videos_sounds_and_other_assets"><a class="anchor" href="#_images_videos_sounds_and_other_assets"></a>Images, Videos, Sounds and other Assets</h5>
+<h5 id="_images_animations_sounds_and_other_assets"><a class="anchor" href="#_images_animations_sounds_and_other_assets"></a>Images, Animations, Sounds and other Assets</h5>
 <div class="paragraph">
-<p>All of these files need to be somewhere in the project directory aswell. You will learn to load and draw or play these files throughout this World.</p>
+<p>All of these files need to be somewhere in the project directory aswell.
+You will learn to load and draw or play these files throughout this World.</p>
 </div>
 <div class="paragraph">
-<p>Even though you can just have all the files in one directory, it is advised that you structure your files in a logical hierarchy, for example like this:</p>
+<p>Even though you can just have all the files in one directory, it is advised that
+you structure your files in a logical hierarchy, for example like this:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -322,6 +401,88 @@ You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the 
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="world1-3"><a class="anchor" href="#world1-3"></a>1.3. Starting Small</h3>
+<div class="paragraph">
+<p>Alright, now that we now the file structure, we can get started on the actual code.</p>
+</div>
+<div class="sect3">
+<h4 id="_drawing_circles"><a class="anchor" href="#_drawing_circles"></a>1.3.1. Drawing Circles</h4>
+<div class="paragraph">
+<p>In the <a href="#world1-2">last Level</a> we learned that our main code goes in a file called
+<code>main.lua</code> and that we are supposed to define <em>Callback Routines</em> there.</p>
+</div>
+<div class="paragraph">
+<p>A <em>Callback Routine</em> is nothing but a function with a specific name the LÖVE framework knows.
+For example, whenever a key is pressed, LÖVE will attempt to call a function called <code>love.keypressed</code>.
+If you have not written than function (yet), the keypress will be ignored, but
+if you choose to write one, you can do something in reaction to that <em>Event</em>.</p>
+</div>
+<div class="paragraph">
+<p>One of the most important Callbacks is <code>love.draw</code>.
+As the name implies, this is where any drawing to the screen should take place.</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-c1">-- draw a sparkling unicorn</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Inside this function we can now draw everything we want the player to be able to see.
+To get started, let&#8217;s draw a circle.
+To draw a circle, we will use the function <a href="https://www.love2d.org/wiki/love.graphics.circle"><code>love.graphics.circle</code></a>.
+Go and see what you can find on the wiki page now!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="https://love2d.org/wiki/love">The wiki</a> is <strong>the</strong> most important resource for programming in LÖVE.
+You can find information and examples for all available functions there.</p>
+</div>
+<div class="paragraph">
+<p>When you get stuck somewhere, first consult the wiki.
+If you cannot find a solution there, <strong>search the forum</strong>. If you <em>still</em> do not find anything,
+start a new thread in the <strong>Support &amp; Development</strong> forum.
+Provide a clear, concise title and <em>be patient!</em></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As you can see, <code>love.graphics.circle</code> accepts five parameters:
+- mode, whether to <em>fill</em> or <em>stroke</em> the circle (<code>"line"</code> is used to stroke)
+- x, the horizontal position of the circle&#8217;s center
+- y, the vertical position
+- radius, the circle&#8217;s radius (half of the width)
+- segments, how detailed to draw the circle. This can be left out.</p>
+</div>
+<div class="paragraph">
+<p>So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
+this is what we need to do:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span>   <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">line&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="livecode">
+<div class="preload"></div>
+<canvas id="circles-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":4,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":5,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,4,0,1,3,4,0,1,4,5,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,6,0,1,2,4,0,1,3,7,0,1,4,5,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","circle","fill",100,15,"line",120],"functions":[],"linePositions":[2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4],"locals":[],"upvalues":[]}],"linePositions":[1,4,1,4],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("circles-canvas") });</script></div>
 </div>
 </div>
 </div>
@@ -348,7 +509,7 @@ So lets <strong>redo</strong> this thing!</p>
 <h2 id="world3"><a class="anchor" href="#world3"></a>3. World 3: The Cookbook</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_object_pools"><a class="anchor" href="#_object_pools"></a>3.1. Object Pools</h3>
+<h3 id="world3-"><a class="anchor" href="#world3-"></a>3.1. Object Pools</h3>
 <div class="paragraph">
 <p><code>Object Pools</code> are one of the most widely used game development concepts used throughout all sorts of games.
 The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.</p>
@@ -558,7 +719,7 @@ Find consensus on a license
 </table>
 </div>
 <div class="sect2">
-<h3 id="_libraries_tools"><a class="anchor" href="#_libraries_tools"></a>4.1. Libraries &amp; Tools:</h3>
+<h3 id="_libraries_tools"><a class="anchor" href="#_libraries_tools"></a>4.1. Libraries &amp; Tools</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -608,7 +769,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-10 15:41:22 CEST
+Last updated 2015-04-10 21:26:14 CEST
 </div>
 </div>
 </body>
