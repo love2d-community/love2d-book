@@ -1,22 +1,21 @@
-= LÖVE for Newbies image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-book/love2d-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
-A book about LÖVE, Games and Lua.
+= LÖVE for Newbies
+A book about LÖVE, Games and Lua. image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-book/love2d-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
 The collaborative book will be divided into three main units:
 
-- A basic course to learn the principles and the syntax of Lua;
-- A basic course to learn the fundamentals of creating games using the LÖVE framework;
-- An area of examples and snippets containing best practices in game development.
+- A walkthrough to building a small prototype and introducing the user to the LÖVE framework,
+- A more realistic revamp of the built prototype to create a "full" game, and lastly
+- An area of examples and snippets containing best and known practices in game development.
 
-
-== METRICS:
-. All these main units we’ll call as “World”, and each chapter, as “Level”;
-. At the end of every “Level”, we’ll remind the reader about what has been learned in this chapter and we’ll show some practical issues that now he will be able to solve;
-. Examples, WE LOVE IT. Some computer books are extremely boring because they have various concepts released without practical examples. Examples make better understand something. Then examples will be widely used in the book.
-. Make it clear that the reader is learning to do really interesting things. So they will feel more motivated to continue to understand the framework.
-. Be clear and direct when talking something new. Keep stupidly simple.
+== Metrics
+. The three chapters are called __World__s and each section is a _Level_
+. At the end of every _Level_, remind the reader about what he has learned in this chapter and show some practical issues that he can now solve
+. Use examples and concrete language wherever possible. Programming is all about abstraction, and examples help make this a lighter and more enjoyable read
+. Make everything interesting to read about and motivate the reader to keep on learning
+. Be clear and direct when talking something new. Keep it simple, stupid!
 . Every Level ends with additional exercises that the reader can choose to try
 . Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)
-. Use informal language and short text to show new content.
+. Use informal language and short text to show new content
 
 The book s written using a generator called Asciidoctor. +
 Quick Reference: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
@@ -40,5 +39,5 @@ end
 <2> load love2D-book/code/test directory and the assets called image1.png and image2.png. It's name is test2 so it doesn't conflict with the first.
 <3> runs the code below it; has the name of "example" and loads audio.wav
 
-Welcome to collaborate with the project :D
+Thank you for helping create this :)
 

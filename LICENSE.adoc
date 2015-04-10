@@ -1,7 +1,7 @@
 [IMPORTANT]
 Find consensus on a license
 
-=== Libraries & Tools:
+=== Libraries & Tools
 
 * https://github.com/asciidoctor/asciidoctor[AsciiDoctor] renders this book
 * http://moonshinejs.org/[Moonshine], licensed under the GNU GPL License, and
