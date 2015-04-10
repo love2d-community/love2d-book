@@ -1,0 +1,125 @@
+=== Object Pools
+
+`Object Pools` are one of the most widely used game development concepts used throughout all sorts of games.
+The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.
+
+==== The Basics
+Imagine we are working on a Galaga-type fixed shooter. Every frame we have to simulate and draw all the enemies and the player.
+There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in `love.draw` and updated in `love.update`.
+
+The simples way to handle all of this is just storing them in a list, then iterate over it in the two callbacks:
+
+[source,lua]
+----
+enemies = {}
+for i=1,20 do
+  table.insert(objects, Enemy.new())
+end
+player = Player.new()
+
+function love.draw()
+  for _,e in ipairs(enemies) do -- <1>
+    e:draw()
+  end
+  player:draw()
+end
+
+function love.update(dt)
+  for _,e in ipairs(enemies) do
+    e:update(dt)
+  end
+  player:update(dt)
+end
+----
+<1> `_` here is just a varible name, but it is a common convention to use it for any value we do not care about
+
+So far, so obvious. But what happens when we need to remove enemies?
+Whenever the player shoots an enemy down, we will have to remove it from `enemies` so we don't use up all of the PCs memory in a matter of minutes.
+The problem with using `table.remove()` is that it will update all the indexes, so that we can continue iterating over it (which is a good thing), but because of this we will skip the next enemy, which is unacceptable.
+
+The simplest solution iterating in reverse:
+
+[source,lua]
+----
+-- rest as above
+function love.update(dt)
+  for i=#enemies,1,-1 do -- <1>
+    enemies[i]:update(dt)
+    if enemies[i].dead then
+      table.remove(enemies, i)
+    end
+  end
+  player:update(dt)
+end
+----
+<1> because we iterate in reverse, we need to use a numeric for
+
+This is a good start, but let's take it a step further.
+
+==== Sets
+Sets, in mathematics, are a like a bag of objects; the objects don't have any order, nor names or labels associated with them.
+In Lua Sets are usually implemented as tables where key and value are the same:
+
+[source,lua]
+----
+enemies = {}
+for i=1,10 do
+  local n = Enemy.new()
+  enemies[n] = n -- <1>
+end
+player = Player.new()
+
+function love.draw()
+  for _,e in pairs(enemies) do -- <2>
+    e:draw()
+  end
+  player:draw()
+end
+----
+<1> table index and value are both the enemy object itself
+<2> we now need to use `pairs()` instead of `ipairs()`
+
+You might ask what advantage this might have over a simple list. After all we lost the ability to order the enemies!
+One advantage of handling the list like this is that we now only have to care about the objects themselves; whether we change, delete or add enemies, we never have to know, let alone search for, the index of that object.
+This means that we can now delete enemies from basically everywhere in code (though that might not be a good idea).
+
+Another cool thing about this way of handling Sets is that we can actually add labels to *some* objects in the table if we want to.
+For example there is no need to treat the player as an exception anymore:
+
+[source,lua]
+----
+objects = {}
+for i=1,10 do
+  local n = Enemy.new()
+  enemies[n] = n
+end
+objects.player = Player.new() -- <1>
+
+function love.draw()
+  for _,o in pairs(objects)
+    o:draw()
+  end -- <2>
+end
+
+function love.update(dt)
+  for _,o in pairs(objects)
+    o:update(dt)
+  end
+end
+
+function love.keypressed(key)
+  object.player.handleKey(key) -- <3>
+end
+----
+<1> the player is now just yet another `object`
+<2> we do not need to treat the player seperately anymore
+<3> yet we can still access him easily wherever we need to
+
+[WARNING]
+When you start adding entries that use "custom" keys, make sure you are operating on the value (the second loop parameter) when interating with `pairs()`!
+
+==== Wrapping up
+As always, this concept is explained here on a very small scale.
+In an actual game project you would usually need multiple object pools for different things or layers.
+Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter, so these small tricks might still be valuable information to you.
+

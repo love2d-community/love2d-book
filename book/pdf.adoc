@@ -25,6 +25,8 @@ include::world2_the-redo/01_starting-over.adoc[]
 
 include::world3.adoc[]
 <<<
+include::world3_the-cookbook/01_object-pools.adoc[]
+<<<
 
 == License
 include::../LICENSE.adoc[]
