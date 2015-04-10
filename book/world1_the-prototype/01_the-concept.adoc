@@ -1,7 +1,50 @@
+[[world1-1]]
 === The Concept
-
 For the Purposes of this Book, we have decided to recreate the game http://www.freeasteroids.org/[Asteroids].
 
 Before we start we need to think about how exactly this game works and what we want to include.
-Thinking about the game before we start will keep us from getting lost in the development process or adding feature after feature and losing interest before it is done.
+Thinking about the game before we start will keep us from getting lost in the
+development process or adding feature after feature and losing interest before it is done.
 
+So, how does Asteroids work?
+
+In asteroids, the Player controls a small spaceship that is flying around.
+He has to shoot asteroids that fly around the screen.
+If he gets hit by an asteroid, the player loses a life and has to restart the round.
+When he hits an asteroid, the asteroid splits into two smaller ones.
+
+Alright, from these few rules we can already extract some things that we will need:
+
+- a Spaceship / Player
+- Asteroids
+- Bullets
+
+Next, let's see what each of these do or can do:
+
+==== The Spaceship
+The spaceship is the main thing the player can control in our game.
+The player can use two keys to accelerate or decelerate in the direction the ship
+is currently facing. He can also turn the spaceship with two other keys.
+Lastly the player can press a button to fire a shot.
+
+When the spaceships leaves the screen on one side, it will enter from the opposite side,
+keeping it's velocity.
+
+We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.
+In <<world1-4, World 1-4>> we will see that the actual way of saving the information
+we use differs, but we could as well do with this "definition".
+
+==== The Asteroids
+Asteroids move in a straight line, also wrapping around the Screen in the same way
+the spaceship does.
+They larger an asteroid is, the slower it should move.
+Therefore all we need to know about every asteroid is his `position`, `size` and his `rotation`.
+
+Whenever an asteroid is hit, we split it into two smaller ones, unless it is already
+the smallest possible size. In that case we remove it altogether.
+
+==== The Bullets
+Bullets travel along a straight path, much like asteroids.
+However they are removed from the game as soon as they hit an asteroid or leave the screen.
+
+All bullets share the same speed, we only need to know the bullet's `position` and `rotation`.

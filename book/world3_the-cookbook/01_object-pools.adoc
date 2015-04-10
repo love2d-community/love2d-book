@@ -1,3 +1,4 @@
+[[world3-]]
 === Object Pools
 
 `Object Pools` are one of the most widely used game development concepts used throughout all sorts of games.
@@ -134,4 +135,3 @@ When you start adding entries that use "custom" keys, make sure you are operatin
 As always, this concept is explained here on a very small scale.
 In an actual game project you would usually need multiple object pools for different things or layers.
 Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter, so these small tricks might still be valuable information to you.
-

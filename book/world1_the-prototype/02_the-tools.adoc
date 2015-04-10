@@ -1,3 +1,4 @@
+[[world1-2]]
 === The Tools
 
 ==== LÖVE
@@ -7,22 +8,27 @@ Code, Images, Sound and Video files and everything else you might need.
 
 
 ===== Code
-Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should have learned about in <<world1, World 1>>.
-Generally Lua Source Files (`.lua`) can lay around anywhere in the project directory and have arbitrary names... except for two special ones:
+Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should be familiar with already.
+Generally Lua Source Files (`.lua`) can lay around anywhere in the project
+directory and have arbitrary names... except for two special ones:
 * main.lua
 * conf.lua
 
-These two are the only files that the LÖVE Framework runs; they are the starting points of every game or project you build.
+These two are the only files that the LÖVE Framework runs; they are the starting
+points of every game or project you build.
 
 ===== main.lua
-As the name implies this file will contain all your *main code* - what exactly that will be and how you organize your code is up to you.
-Usually this file contains the used _Callback Routines_, which will be covered in <<world2-2, World 2-2>>.
-For smaller projects and the next levels in this book this will be the only file (except for `conf.lua`) you will need.
+As the name implies this file will contain all your *main code* - what exactly
+that will be and how you organize your code is up to you.
+Usually this file contains the used _Callback Routines_, which will be covered in <<world1-3, the next Level>>.
+For smaller projects and the next levels in this book this will be the only file
+(except for `conf.lua`) you will need.
 
 ===== conf.lua
 _conf_ is short for **Conf**iguration, and thats what `conf.lua` is all about.
 You can fill this file with a function called `love.conf( t )` that accepts a table as it's only parameter.
-In that function you can then modify certain fields of the table and thereby change the configuration the LÖVE Framework uses when it first creates your window.
+In that function you can then modify certain fields of the table and thereby
+change the configuration the LÖVE Framework uses when it first creates your window.
 
 Here is a function that sets every possible value to it's default value - and thereby does nothing:
 
@@ -68,7 +74,8 @@ end
 ----
 
 [NOTE]
-You don't need to use a `conf.lua` or specify every key in the conf table; everything you leave out will remain at it's default value.
+You don't need to use a `conf.lua` or specify every key in the conf table;
+everything you leave out will remain at it's default value.
 
 You will mostly be using this to set a different resolution for your game and set the game title.
 
@@ -92,11 +99,13 @@ end
 Everything else will need to be ``require``d by `main.lua` in some way (direct or indirect).
 
 
-===== Images, Videos, Sounds and other Assets
-All of these files need to be somewhere in the project directory aswell. You will learn to load and draw or play these files throughout this World.
+===== Images, Animations, Sounds and other Assets
+All of these files need to be somewhere in the project directory aswell.
+You will learn to load and draw or play these files throughout this World.
 
 
-Even though you can just have all the files in one directory, it is advised that you structure your files in a logical hierarchy, for example like this:
+Even though you can just have all the files in one directory, it is advised that
+you structure your files in a logical hierarchy, for example like this:
 
 ....
 - mygame/
@@ -116,4 +125,3 @@ Even though you can just have all the files in one directory, it is advised that
         + videos/
             + intro.mp4
 ....
-

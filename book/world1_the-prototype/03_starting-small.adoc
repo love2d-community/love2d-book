@@ -1,0 +1,67 @@
+[[world1-3]]
+=== Starting Small
+
+Alright, now that we now the file structure, we can get started on the actual code.
+
+==== Drawing Circles
+In the <<world1-2, last Level>> we learned that our main code goes in a file called
+`main.lua` and that we are supposed to define _Callback Routines_ there.
+
+A _Callback Routine_ is nothing but a function with a specific name the LÖVE framework knows.
+For example, whenever a key is pressed, LÖVE will attempt to call a function called `love.keypressed`.
+If you have not written than function (yet), the keypress will be ignored, but
+if you choose to write one, you can do something in reaction to that _Event_.
+
+One of the most important Callbacks is `love.draw`.
+As the name implies, this is where any drawing to the screen should take place.
+
+.main.lua
+[source,lua]
+----
+function love.draw()
+  -- draw a sparkling unicorn
+end
+----
+
+Inside this function we can now draw everything we want the player to be able to see.
+To get started, let's draw a circle.
+To draw a circle, we will use the function https://www.love2d.org/wiki/love.graphics.circle[`love.graphics.circle`].
+Go and see what you can find on the wiki page now!
+
+[NOTE]
+--
+https://love2d.org/wiki/love[The wiki] is *the* most important resource for programming in LÖVE.
+You can find information and examples for all available functions there.
+
+When you get stuck somewhere, first consult the wiki.
+If you cannot find a solution there, *search the forum*. If you _still_ do not find anything,
+start a new thread in the *Support & Development* forum.
+Provide a clear, concise title and _be patient!_
+--
+
+As you can see, `love.graphics.circle` accepts five parameters:
+- mode, whether to _fill_ or _stroke_ the circle (`"line"` is used to stroke)
+- x, the horizontal position of the circle's center
+- y, the vertical position
+- radius, the circle's radius (half of the width)
+- segments, how detailed to draw the circle. This can be left out.
+
+So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
+this is what we need to do:
+
+.main.lua
+[source,lua]
+----
+function love.draw()
+  love.graphics.circle("fill",   100, 100, 15)
+  love.graphics.circle("line", 100, 120, 15)
+end
+----
+
+[livecode,circles]
+++++
+function love.draw()
+  love.graphics.circle("fill",   100, 100, 15)
+  love.graphics.circle("line", 100, 120, 15)
+end
+++++
