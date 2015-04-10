@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="description" content="A book about LÖVE, Games and Lua.">
-<meta name="author" content="Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; - Ricardo Gomes &lt;desk467@gmail.com&gt;">
+<meta name="author" content="Sol Bekic, Ricardo Gomes">
 <title>LÖVE for Newbies</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <link rel="stylesheet" href="./asciidoctor.css">
@@ -17,43 +17,32 @@
 <div id="header">
 <h1>LÖVE for Newbies</h1>
 <div class="details">
-<span id="author" class="author">Sol Bekic &lt;s0lll0s@blinkenshell.org&gt; - Ricardo Gomes &lt;desk467@gmail.com&gt;</span><br>
+<span id="author" class="author">Sol Bekic</span><br>
+<span id="email" class="email"><a href="mailto:s0lll0s@blinkenshell.org">s0lll0s@blinkenshell.org</a></span><br>
+<span id="author2" class="author">Ricardo Gomes</span><br>
+<span id="email2" class="email"><a href="mailto:desk467@gmail.com">desk467@gmail.com</a></span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a>
 <ul class="sectlevel2">
-<li><a href="#_metrics">METRICS:</a></li>
+<li><a href="#_metrics">Metrics</a></li>
 </ul>
 </li>
-<li><a href="#world1">1. Introduction</a>
+<li><a href="#_preface">Preface</a></li>
+<li><a href="#world1">1. World 1: The Prototype</a>
 <ul class="sectlevel2">
-<li><a href="#_what_is_lua">1.1. What is Lua?</a></li>
-<li><a href="#_installation">1.2. Installation</a></li>
-<li><a href="#_basic_flow_concept">1.3. Basic Flow Concept</a></li>
-<li><a href="#_storing_data_in_variables">1.4. Storing Data in Variables</a></li>
-<li><a href="#_types">1.5. Types</a></li>
-<li><a href="#_conditional_statements">1.6. Conditional Statements</a></li>
-<li><a href="#_which_way_should_i_go">1.7. Which way should I go?</a></li>
-<li><a href="#_functions">1.8. Functions</a></li>
-<li><a href="#_tables">1.9. Tables</a></li>
-<li><a href="#_metatables">1.10. Metatables</a></li>
+<li><a href="#_the_concept">1.1. The Concept</a></li>
+<li><a href="#_the_tools">1.2. The Tools</a></li>
 </ul>
 </li>
-<li><a href="#world2">2. The LÖVE Framwork</a>
+<li><a href="#world2">2. World 2: The Redo</a></li>
+<li><a href="#world3">3. World 3: The Cookbook</a>
 <ul class="sectlevel2">
-<li><a href="#_structure_of_a_lÖve_project">2.1. Structure of a LÖVE Project</a></li>
-<li><a href="#_interacting_with_lÖve">2.2. Interacting with LÖVE</a></li>
-<li><a href="#_object_oriented_programming">2.3. Object Oriented Programming</a></li>
-<li><a href="#_drawing">2.4. Drawing!</a></li>
-<li><a href="#_audio">2.5. Audio</a></li>
-<li><a href="#_fonts">2.6. Fonts</a></li>
-<li><a href="#_advanced_input_with_code_love_keyboard_code_and_code_love_mouse_code">2.7. Advanced input with <code>love.keyboard</code> and <code>love.mouse</code></a></li>
-<li><a href="#_game_math">2.8. Game math</a></li>
+<li><a href="#_object_pools">3.1. Object Pools</a></li>
 </ul>
 </li>
-<li><a href="#world3">3. Recipes for your games</a></li>
 <li><a href="#_license">4. License</a>
 <ul class="sectlevel2">
 <li><a href="#_libraries_tools">4.1. Libraries &amp; Tools:</a></li>
@@ -67,7 +56,7 @@
 <h2 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A book about LÖVE, Games and Lua.</p>
+<p>A book about LÖVE, Games and Lua. <span class="image"><a class="image" href="https://gitter.im/love2d-book/love2d-book?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join%20Chat"></a></span></p>
 </div>
 <div class="paragraph">
 <p>The collaborative book will be divided into three main units:</p>
@@ -75,34 +64,34 @@
 <div class="ulist">
 <ul>
 <li>
-<p>A basic course to learn the principles and the syntax of Lua;</p>
+<p>A walkthrough to building a small prototype and introducing the user to the LÖVE framework,</p>
 </li>
 <li>
-<p>A basic course to learn the fundamentals of creating games using the LÖVE framework;</p>
+<p>A more realistic revamp of the built prototype to create a "full" game, and lastly</p>
 </li>
 <li>
-<p>An area of examples and snippets containing best practices in game development.</p>
+<p>An area of examples and snippets containing best and known practices in game development.</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>METRICS:</h3>
+<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All these main units we’ll call as “World”, and each chapter, as “Level”;</p>
+<p>The three chapters are called <em>World</em>s and each section is a <em>Level</em></p>
 </li>
 <li>
-<p>At the end of every “Level”, we’ll remind the reader about what has been learned in this chapter and we’ll show some practical issues that now he will be able to solve;</p>
+<p>At the end of every <em>Level</em>, remind the reader about what he has learned in this chapter and show some practical issues that he can now solve</p>
 </li>
 <li>
-<p>Examples, WE LOVE IT. Some computer books are extremely boring because they have various concepts released without practical examples. Examples make better understand something. Then examples will be widely used in the book.</p>
+<p>Use examples and concrete language wherever possible. Programming is all about abstraction, and examples help make this a lighter and more enjoyable read</p>
 </li>
 <li>
-<p>Make it clear that the reader is learning to do really interesting things. So they will feel more motivated to continue to understand the framework.</p>
+<p>Make everything interesting to read about and motivate the reader to keep on learning</p>
 </li>
 <li>
-<p>Be clear and direct when talking something new. Keep stupidly simple.</p>
+<p>Be clear and direct when talking something new. Keep it simple, stupid!</p>
 </li>
 <li>
 <p>Every Level ends with additional exercises that the reader can choose to try</p>
@@ -111,7 +100,7 @@
 <p>Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)</p>
 </li>
 <li>
-<p>Use informal language and short text to show new content.</p>
+<p>Use informal language and short text to show new content</p>
 </li>
 </ol>
 </div>
@@ -151,196 +140,52 @@ end
 </ol>
 </div>
 <div class="paragraph">
-<p>Welcome to collaborate with the project :D</p>
+<p>Thank you for helping create this :)</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="world1"><a class="anchor" href="#world1"></a>1. Introduction</h2>
+<h2 id="_preface"><a class="anchor" href="#_preface"></a>Preface</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>So you want to make games, right?<br>
-Basically, every computer program (yes, games are also included) are made using a <strong>programming language</strong>. But what is it?
-Similarly when we want to talk to someone from another country and we choose a common language between the two, a programming language is a language in which both humans and computers understand. This is how we tell the computer what it should do.<br>
-Computer programs are basically a bunch of instructions that someone wrote and distributed. Thus, the computer will follow this instructions and begin to perform them.</p>
-</div>
-<div class="paragraph">
-<p>In this first world, we will study the basics of Lua programming language, which we use to make games using the LÖVE framework.</p>
-</div>
-<div class="sect2">
-<h3 id="_what_is_lua"><a class="anchor" href="#_what_is_lua"></a>1.1. What is Lua?</h3>
-<div class="paragraph">
-<p>Lua is a simple, light and extremely powerful language, designed to be used within complex software (such as games). It was created by a team of developers of PUC-Rio, in Brazil. And because of its efficiency, extreme clarity and ease of learning, came to be used in various applications.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_installation"><a class="anchor" href="#_installation"></a>1.2. Installation</h3>
-<div class="paragraph">
-<p>In this world, we will teach the basics of Lua programming language, and therefore, you can test the codes online.<br>
-Just visit the site: <a href="http://www.lua.org/cgi-bin/demo" class="bare">http://www.lua.org/cgi-bin/demo</a>
-and write your code there.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_basic_flow_concept"><a class="anchor" href="#_basic_flow_concept"></a>1.3. Basic Flow Concept</h3>
-<div class="sect3">
-<h4 id="_flow"><a class="anchor" href="#_flow"></a>1.3.1. Flow</h4>
-<div class="paragraph">
-<p>When we are in school, going through all those levels, we follow a simple study sequency. Basic concepts are learned at the beginning of our school life and more complex subjetcts (which depend on the most basic) are learned ahead.
-Write code works in a similar way. We follow the same order, that is, before we try to do complex things, we have to talk to the computer how to do them.
-A code is understood by the computer from the first to the last line. If  we ask the computer to calculates powers but do not teach it how to make a multiplication, probably it will not solve our problem.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_conditions"><a class="anchor" href="#_conditions"></a>1.3.2. Conditions</h4>
-<div class="paragraph">
-<p>We can tell the computer that it chooses other paths and jump some lines.
-Think that you are lost in a field and reaches a point in front there are two possible paths. You will choose one of them by some condition. In computer programming, this concept is called <strong>conditional structure</strong>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_loops"><a class="anchor" href="#_loops"></a>1.3.3. Loops</h4>
-<div class="paragraph">
-<p>It is our usual to repeat the same idea to perform a larger task. If I ask you to make 8 cookies, you will follow a bunch of steps for each cookie to complete 8 cookies. This concept is called <strong>loop</strong>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_storing_data_in_variables"><a class="anchor" href="#_storing_data_in_variables"></a>1.4. Storing Data in Variables</h3>
-<div class="paragraph">
-<p>And now we begin the fun part ..</p>
-</div>
-<div class="paragraph">
-<p>We have spoken that the computer can make various tasks using some instructions. Let&#8217;s know the first key concept, <strong>the variable</strong>.</p>
-</div>
-<div class="paragraph">
-<p>When you make the cookies, you use few <strong>ingredients</strong> and some <strong>tools</strong>. Let&#8217;s start with the ingredients, which for computing, are called variables.</p>
-</div>
-<div class="paragraph">
-<p>The computer is a mathematical machine that performs tasks from data. Variables are a space that we allocate in the computer memory to store data that will be useful for us.</p>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">name</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">Joseph&quot;</span>
-<span class="tok-n">age</span> <span class="tok-o">=</span> <span class="tok-mi">18</span>
-<span class="tok-nb">print</span> <span class="tok-p">(</span><span class="tok-n">name</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this small piece of code we are assigning the word "Joseph" to the variable <strong>name</strong> and 18 to the variable <strong>age</strong>. We use this syntax in Lua to allocate space in memory. In the left side of the equal symbol specify the variable name and the right hand, the data. The last line tells the computer that it should show the data contained in the variable name. <em>print</em> is a <strong>tool</strong> from Lua. The language have a lot of useful tools. Test and see the result.</p>
-</div>
-<div class="paragraph">
-<p>How about trying to make the computer show the buddy&#8217;s age?</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_types"><a class="anchor" href="#_types"></a>1.5. Types</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_conditional_statements"><a class="anchor" href="#_conditional_statements"></a>1.6. Conditional Statements</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_which_way_should_i_go"><a class="anchor" href="#_which_way_should_i_go"></a>1.7. Which way should I go?</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_functions"><a class="anchor" href="#_functions"></a>1.8. Functions</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tables"><a class="anchor" href="#_tables"></a>1.9. Tables</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_metatables"><a class="anchor" href="#_metatables"></a>1.10. Metatables</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
+<div class="quoteblock">
+<blockquote>
+So you want to make a game?
+</blockquote>
+<div class="attribution">
+<cite>The mandatory Book Opening sentence</cite>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="world2"><a class="anchor" href="#world2"></a>2. The LÖVE Framwork</h2>
+<h2 id="world1"><a class="anchor" href="#world1"></a>1. World 1: The Prototype</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to World 1!<br>
+Here we will build a prototype for a game, up from the ground. Let&#8217;s jump right in!</p>
+</div>
 <div class="sect2">
-<h3 id="_structure_of_a_lÖve_project"><a class="anchor" href="#_structure_of_a_lÖve_project"></a>2.1. Structure of a LÖVE Project</h3>
+<h3 id="_the_concept"><a class="anchor" href="#_the_concept"></a>1.1. The Concept</h3>
+<div class="paragraph">
+<p>For the Purposes of this Book, we have decided to recreate the game <a href="http://www.freeasteroids.org/">Asteroids</a>.</p>
+</div>
+<div class="paragraph">
+<p>Before we start we need to think about how exactly this game works and what we want to include.
+Thinking about the game before we start will keep us from getting lost in the development process or adding feature after feature and losing interest before it is done.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tools"><a class="anchor" href="#_the_tools"></a>1.2. The Tools</h3>
+<div class="sect3">
+<h4 id="_lÖve"><a class="anchor" href="#_lÖve"></a>1.2.1. LÖVE</h4>
 <div class="paragraph">
 <p>So, what makes a LÖVE Project?<br>
 At core a LÖVE Project is just a folder containing everything needed to make the game;
 Code, Images, Sound and Video files and everything else you might need.</p>
 </div>
-<div class="sect3">
-<h4 id="_code"><a class="anchor" href="#_code"></a>2.1.1. Code</h4>
+<div class="sect4">
+<h5 id="_code"><a class="anchor" href="#_code"></a>Code</h5>
 <div class="paragraph">
 <p>Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should have learned about in <a href="#world1">World 1</a>.
 Generally Lua Source Files (<code>.lua</code>) can lay around anywhere in the project directory and have arbitrary names&#8230;&#8203; except for two special ones:
@@ -349,6 +194,7 @@ Generally Lua Source Files (<code>.lua</code>) can lay around anywhere in the pr
 </div>
 <div class="paragraph">
 <p>These two are the only files that the LÖVE Framework runs; they are the starting points of every game or project you build.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_main_lua"><a class="anchor" href="#_main_lua"></a>main.lua</h5>
@@ -447,9 +293,8 @@ You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the 
 <p>Everything else will need to be <code>require</code>d by <code>main.lua</code> in some way (direct or indirect).</p>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_images_videos_sounds_and_other_assets"><a class="anchor" href="#_images_videos_sounds_and_other_assets"></a>2.1.2. Images, Videos, Sounds and other Assets</h4>
+<div class="sect4">
+<h5 id="_images_videos_sounds_and_other_assets"><a class="anchor" href="#_images_videos_sounds_and_other_assets"></a>Images, Videos, Sounds and other Assets</h5>
 <div class="paragraph">
 <p>All of these files need to be somewhere in the project directory aswell. You will learn to load and draw or play these files throughout this World.</p>
 </div>
@@ -478,117 +323,223 @@ You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_interacting_with_lÖve"><a class="anchor" href="#_interacting_with_lÖve"></a>2.2. Interacting with LÖVE</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_object_oriented_programming"><a class="anchor" href="#_object_oriented_programming"></a>2.3. Object Oriented Programming</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_drawing"><a class="anchor" href="#_drawing"></a>2.4. Drawing!</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_audio"><a class="anchor" href="#_audio"></a>2.5. Audio</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_fonts"><a class="anchor" href="#_fonts"></a>2.6. Fonts</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_advanced_input_with_code_love_keyboard_code_and_code_love_mouse_code"><a class="anchor" href="#_advanced_input_with_code_love_keyboard_code_and_code_love_mouse_code"></a>2.7. Advanced input with <code>love.keyboard</code> and <code>love.mouse</code></h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_game_math"><a class="anchor" href="#_game_math"></a>2.8. Game math</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Write Level
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="world3"><a class="anchor" href="#world3"></a>3. Recipes for your games</h2>
+<h2 id="world2"><a class="anchor" href="#world2"></a>2. World 2: The Redo</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>So that was <a href="#world1">World 1: The Prototype</a>. In the last few levels we went from our idea to an actual playable game&#8230;&#8203; so what&#8217;s left to do?</p>
+</div>
+<div class="paragraph">
+<p>Well, it turns out there is <em>a lot!</em></p>
+</div>
+<div class="paragraph">
+<p>Even though the game so far is perfectly playable, some of the code has gotten messy during the development process.
+Also we haven&#8217;t added any real art, sound effects or menu yet - everything that makes your game visually appealing to users is missing.
+This is because in <a href="#world1">World 1: The Prototype</a> we only created a <em>prototype</em>, a smaller version of the game to explore the concepts we want to be in our final game.
+Now it&#8217;s time to take a step further and build <strong>the <em>actual</em> game</strong>&#8230;&#8203;<br>
+So lets <strong>redo</strong> this thing!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="world3"><a class="anchor" href="#world3"></a>3. World 3: The Cookbook</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_object_pools"><a class="anchor" href="#_object_pools"></a>3.1. Object Pools</h3>
+<div class="paragraph">
+<p><code>Object Pools</code> are one of the most widely used game development concepts used throughout all sorts of games.
+The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_basics"><a class="anchor" href="#_the_basics"></a>3.1.1. The Basics</h4>
+<div class="paragraph">
+<p>Imagine we are working on a Galaga-type fixed shooter. Every frame we have to simulate and draw all the enemies and the player.
+There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in <code>love.draw</code> and updated in <code>love.update</code>.
+We also need to handle all the bullets flying around.</p>
+</div>
+<div class="paragraph">
+<p>The simples way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">20</span> <span class="tok-k">do</span>
+  <span class="tok-nb">table.insert</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">,</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">())</span>
+<span class="tok-k">end</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">20</span> <span class="tok-k">do</span>
+  <span class="tok-nb">table.insert</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">,</span> <span class="tok-n">Bullet</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">())</span> <span class="tok-c1">-- let&#39;s pretend someone actually fired these</span>
+<span class="tok-k">end</span>
+<span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-n">Player</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
 
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">for</span> <span class="tok-n">_</span><span class="tok-p">,</span><span class="tok-n">o</span> <span class="tok-k">in</span> <span class="tok-nb">ipairs</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">)</span> <span class="tok-k">do</span> <b class="conum">(1)</b>
+    <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">end</span>
+  <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
+<span class="tok-k">end</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">for</span> <span class="tok-n">_</span><span class="tok-p">,</span><span class="tok-n">o</span> <span class="tok-k">in</span> <span class="tok-nb">ipairs</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">)</span> <span class="tok-k">do</span>
+    <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">end</span>
+  <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p><code>_</code> here is just a varible name, but it is a common convention to use it for any value we do not care about</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>So far, so obvious. But what happens when we need to remove things?
+Whenever the player shoots an enemy down, we will have to remove it from <code>objects</code> so we don&#8217;t use up all of the PCs memory in a matter of minutes.
+The problem with using <code>table.remove()</code> is that it will update all the indices, so that we can continue iterating over the list (which is a good thing), but because of this we will skip the next enemy, which is inacceptable.</p>
+</div>
+<div class="paragraph">
+<p>The simplest solution iterating in reverse:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-c1">-- rest as above</span>
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=#</span><span class="tok-n">objects</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">1</span> <span class="tok-k">do</span> <b class="conum">(1)</b>
+    <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+    <span class="tok-k">if</span> <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">].</span><span class="tok-n">dead</span> <span class="tok-k">then</span>
+      <span class="tok-nb">table.remove</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">,</span> <span class="tok-n">i</span><span class="tok-p">)</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+  <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>because we iterate in reverse, we need to use a numeric for</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This is a good start, but let&#8217;s take it a step further.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sets"><a class="anchor" href="#_sets"></a>3.1.2. Sets</h4>
+<div class="paragraph">
+<p>Sets, in mathematics, are a like a bag of objects; the objects don&#8217;t have any order, nor names or labels associated with them.
+In Lua Sets are usually implemented as tables where key and value are the same:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
+  <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
+  <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <b class="conum">(1)</b>
+<span class="tok-k">end</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
+  <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Bullet</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
+  <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span>
+<span class="tok-k">end</span>
+<span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-n">Player</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">for</span> <span class="tok-n">_</span><span class="tok-p">,</span><span class="tok-n">o</span> <span class="tok-k">in</span> <span class="tok-nb">pairs</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">)</span> <span class="tok-k">do</span> <b class="conum">(2)</b>
+    <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">end</span>
+  <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>table index and value are both the enemy object itself</p>
+</li>
+<li>
+<p>we now need to use <code>pairs()</code> instead of <code>ipairs()</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You might ask what advantage this might have over a simple list. After all we lost the ability to order the objects!
+One advantage of handling the list like this is that we now only have to care about the objects themselves; whether we change, delete or add objects, we never have to know, let alone search for, the index of that object.
+This means that we can now delete objects from basically everywhere in code (though that generally may hurt your code structure).</p>
+</div>
+<div class="paragraph">
+<p>Another cool thing about this way of handling Sets is that we can actually add labels to <strong>some</strong> objects in the table if we want to.
+For example there is no need to treat the player as an exception anymore:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
+  <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
+  <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span>
+<span class="tok-k">end</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
+  <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Bullet</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
+  <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span>
+<span class="tok-k">end</span>
+<span class="tok-n">objects</span><span class="tok-p">.</span><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-n">Player</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span> <b class="conum">(1)</b>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">for</span> <span class="tok-n">_</span><span class="tok-p">,</span><span class="tok-n">o</span> <span class="tok-k">in</span> <span class="tok-nb">pairs</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">)</span>
+    <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
+  <span class="tok-k">end</span> <b class="conum">(2)</b>
+<span class="tok-k">end</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">for</span> <span class="tok-n">_</span><span class="tok-p">,</span><span class="tok-n">o</span> <span class="tok-k">in</span> <span class="tok-nb">pairs</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">)</span>
+    <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">keypressed</span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-p">)</span>
+  <span class="tok-n">object</span><span class="tok-p">.</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">handleKey</span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-p">)</span> <b class="conum">(3)</b>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>the player is now just yet another <code>object</code></p>
+</li>
+<li>
+<p>we do not need to treat the player seperately anymore</p>
+</li>
+<li>
+<p>yet we can still access him easily wherever we need to</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+When you start adding entries that use "custom" keys, make sure you are operating on the value (the second loop parameter) when interating with <code>pairs()</code>!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_wrapping_up"><a class="anchor" href="#_wrapping_up"></a>3.1.3. Wrapping up</h4>
+<div class="paragraph">
+<p>As always, this concept is explained here on a very small scale.
+In an actual game project you would usually need multiple object pools for different things or layers.
+Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter, so these small tricks might still be valuable information to you.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -657,7 +608,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-22 00:08:53 CET
+Last updated 2015-04-10 15:41:22 CEST
 </div>
 </div>
 </body>
