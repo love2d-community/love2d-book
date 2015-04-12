@@ -20,8 +20,10 @@ The collaborative book will be divided into three main units:
 The book s written using a generator called Asciidoctor. +
 Quick Reference: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
-We have extended the AsciiDoctor syntax with "livecode" blocks and block macros. Use like this:
+We have extended the AsciiDoctor syntax with *livecode* blocks and block macros.
+There also are some other additions, you can use them like this:
 
+[source,asciidoc]
 ----
 livecode::test[] // <1>
 
@@ -34,10 +36,12 @@ function love.draw()
     love.graphics.rectangle( "fill", 10, 10, 100, 100 )
 end
 ++++
+
+wiki:love.graphics.setColor[] // <4>
 ----
 <1> loads love2D-book-code/test directory
 <2> load love2D-book/code/test directory and the assets called image1.png and image2.png. It's name is test2 so it doesn't conflict with the first.
 <3> runs the code below it; has the name of "example" and loads audio.wav
+<4> links to the wiki page for `love.graphics.setColor` and formats the link accordingly
 
 Thank you for helping create this :)
-

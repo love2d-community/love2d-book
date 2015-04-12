@@ -25,7 +25,7 @@ end
 
 Inside this function we can now draw everything we want the player to be able to see.
 To get started, let's draw a circle.
-To draw a circle, we will use the function https://www.love2d.org/wiki/love.graphics.circle[`love.graphics.circle`].
+To draw a circle, we will use the function wiki:love.graphics.circle[].
 Go and see what you can find on the wiki page now!
 
 [NOTE]
@@ -40,6 +40,7 @@ Provide a clear, concise title and _be patient!_
 --
 
 As you can see, `love.graphics.circle` accepts five parameters:
+
 - mode, whether to _fill_ or _stroke_ the circle (`"line"` is used to stroke)
 - x, the horizontal position of the circle's center
 - y, the vertical position
@@ -53,7 +54,7 @@ this is what we need to do:
 [source,lua]
 ----
 function love.draw()
-  love.graphics.circle("fill",   100, 100, 15)
+  love.graphics.circle("fill", 100, 100, 15)
   love.graphics.circle("line", 100, 120, 15)
 end
 ----
@@ -61,7 +62,60 @@ end
 [livecode,circles]
 ++++
 function love.draw()
-  love.graphics.circle("fill",   100, 100, 15)
+  love.graphics.circle("fill", 100, 100, 15)
   love.graphics.circle("line", 100, 120, 15)
 end
 ++++
+
+Quite similarly, we can also draw rectangles using wiki:love.graphics.rectangle[].
+The six parameters are:
+
+- mode, same as for `circle`
+- x, this time it is not the center position of the top-left corner
+- y, again, relative to the top left corner
+- width, the width of the rectangle being drawn
+- height, the height of the rectangle
+
+Another function you will use in probably every game is wiki:love.graphics.setColor[].
+It accepts three numbers in the range of `0` to `255`, specifying the intensity
+of red, green and blue respectively.
+A fourth value, used as alpha (transparency) can optionally be supplied.
+
+The last drawing function for now is wiki:love.graphics.line[].
+You can pass it four values, each representing the x and y values of a point.
+
+Putting it all together, we can draw a little stickman:
+
+[source,lua]
+----
+function love.draw()
+  love.graphics.setColor(0, 0, 0)                 -- black
+  love.graphics.line(40, 80, 35, 100)             -- left foot
+  love.graphics.line(40, 80, 35, 100)             -- right foot
+
+  love.graphics.setColor(0, 255, 0)               -- green
+  love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
+
+  love.graphics.setColor(255, 0, 0)               -- red
+  love.graphics.circle("fill", 50, 20, 15)        -- head
+end
+----
+
+[livecode,stickman]
+++++
+function love.draw()
+  love.graphics.setColor(255, 255, 255)           -- white
+  love.graphics.line(40, 80, 35, 100)             -- left foot
+  love.graphics.line(40, 80, 35, 100)             -- right foot
+
+  love.graphics.setColor(0, 255, 0)               -- green
+  love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
+
+  love.graphics.setColor(255, 0, 0)               -- red
+  love.graphics.circle("fill", 50, 20, 15)        -- head
+end
+++++
+
+[NOTE]
+Note how the head is in front of and the feet are behind the body
+because of the order we chose to draw them in.
