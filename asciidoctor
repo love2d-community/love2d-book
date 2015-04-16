@@ -67,10 +67,11 @@ Asciidoctor::Extensions.register do
     class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
         use_dsl
         named :wiki
-        parse_content_as :text
+
+        name_positional_attributes 'alt'
 
         def process parent, target, attrs
-            text = Asciidoctor::Inline.new parent, :quoted, target, {type: :monospaced}
+            text = Asciidoctor::Inline.new parent, :quoted, (attrs['alt'] or target), {type: :monospaced}
             target = "https://love2d.org/wiki/#{target}"
             (create_anchor parent, text.render, type: :link, target: target).render
         end

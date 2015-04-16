@@ -38,10 +38,12 @@ end
 ++++
 
 wiki:love.graphics.setColor[] // <4>
+wiki:love.graphics[the graphics module] // <5>
 ----
 <1> loads love2D-book-code/test directory
 <2> load love2D-book/code/test directory and the assets called image1.png and image2.png. It's name is test2 so it doesn't conflict with the first.
 <3> runs the code below it; has the name of "example" and loads audio.wav
 <4> links to the wiki page for `love.graphics.setColor` and formats the link accordingly
+<5> links to the wiki page for `love.graphics` using the text `the graphics`
 
 Thank you for helping create this :)
