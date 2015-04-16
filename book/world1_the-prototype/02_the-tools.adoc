@@ -1,6 +1,5 @@
 [[world1-2]]
 === The Tools
-
 ==== LÖVE
 So, what makes a LÖVE Project? +
 At core a LÖVE Project is just a folder containing everything needed to make the game;

@@ -1,6 +1,5 @@
 [[world3-]]
 === Object Pools
-
 `Object Pools` are one of the most widely used game development concepts used throughout all sorts of games.
 The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.
 

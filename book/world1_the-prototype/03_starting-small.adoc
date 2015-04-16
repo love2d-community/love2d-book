@@ -1,6 +1,5 @@
 [[world1-3]]
 === Starting Small
-
 Alright, now that we now the file structure, we can get started on the actual code.
 
 ==== Drawing Circles
@@ -12,7 +11,7 @@ For example, whenever a key is pressed, LÖVE will attempt to call a function ca
 If you have not written than function (yet), the keypress will be ignored, but
 if you choose to write one, you can do something in reaction to that _Event_.
 
-One of the most important Callbacks is `love.draw`.
+One of the most important Callbacks is wiki:love.draw[].
 As the name implies, this is where any drawing to the screen should take place.
 
 .main.lua
@@ -59,7 +58,7 @@ function love.draw()
 end
 ----
 
-[livecode,circles]
+[livecode,1-3-circles]
 ++++
 function love.draw()
   love.graphics.circle("fill", 100, 100, 15)
@@ -86,6 +85,7 @@ You can pass it four values, each representing the x and y values of a point.
 
 Putting it all together, we can draw a little stickman:
 
+.main.lua
 [source,lua]
 ----
 function love.draw()
@@ -101,12 +101,12 @@ function love.draw()
 end
 ----
 
-[livecode,stickman]
+[livecode,1-3-stickman]
 ++++
 function love.draw()
   love.graphics.setColor(255, 255, 255)           -- white
-  love.graphics.line(40, 80, 35, 100)             -- left foot
-  love.graphics.line(40, 80, 35, 100)             -- right foot
+  love.graphics.line(40, 90, 35, 120)             -- left foot
+  love.graphics.line(60, 90, 65, 120)             -- right foot
 
   love.graphics.setColor(0, 255, 0)               -- green
   love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
@@ -119,3 +119,7 @@ end
 [NOTE]
 Note how the head is in front of and the feet are behind the body
 because of the order we chose to draw them in.
+
+LÖVE provides a lot more drawing operations and related functions,
+but for now we will stick with those above.
+You can find the whole list on the wiki:love.graphics[wiki].
