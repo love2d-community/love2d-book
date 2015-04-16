@@ -36,6 +36,7 @@
 <li><a href="#world1-1">1.1. The Concept</a></li>
 <li><a href="#world1-2">1.2. The Tools</a></li>
 <li><a href="#world1-3">1.3. Starting Small</a></li>
+<li><a href="#world1-4">1.4. Creating Motion</a></li>
 </ul>
 </li>
 <li><a href="#world2">2. World 2: The Redo</a></li>
@@ -110,21 +111,25 @@
 Quick Reference: <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/" class="bare">http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p>
 </div>
 <div class="paragraph">
-<p>We have extended the AsciiDoctor syntax with "livecode" blocks and block macros. Use like this:</p>
+<p>We have extended the AsciiDoctor syntax with <strong>livecode</strong> blocks and block macros.
+There also are some other additions, you can use them like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>livecode::test[] <b class="conum">(1)</b>
+<pre class="pygments highlight"><code data-lang="asciidoc">livecode::test[] <b class="conum">(1)</b>
 
-livecode::test[name=test2,preload="image1.png,image2.png"] <b class="conum">(2)</b>
+livecode::test[name=test2,preload=&quot;image1.png,image2.png&quot;] <b class="conum">(2)</b>
 
 [livecode,example,preload=audio.wav] <b class="conum">(3)</b>
 ++++
 function love.draw()
     love.graphics.setColor( 255, 255, 0, 255 )
-    love.graphics.rectangle( "fill", 10, 10, 100, 100 )
+    love.graphics.rectangle( &quot;fill&quot;, 10, 10, 100, 100 )
 end
-++++</pre>
+++++
+
+wiki:love.graphics.setColor[] <b class="conum">(4)</b>
+wiki:love.graphics[the graphics module] <b class="conum">(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -137,6 +142,12 @@ end
 </li>
 <li>
 <p>runs the code below it; has the name of "example" and loads audio.wav</p>
+</li>
+<li>
+<p>links to the wiki page for <code>love.graphics.setColor</code> and formats the link accordingly</p>
+</li>
+<li>
+<p>links to the wiki page for <code>love.graphics</code> using the text <code>the graphics</code></p>
 </li>
 </ol>
 </div>
@@ -421,7 +432,7 @@ If you have not written than function (yet), the keypress will be ignored, but
 if you choose to write one, you can do something in reaction to that <em>Event</em>.</p>
 </div>
 <div class="paragraph">
-<p>One of the most important Callbacks is <code>love.draw</code>.
+<p>One of the most important Callbacks is <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a>.
 As the name implies, this is where any drawing to the screen should take place.</p>
 </div>
 <div class="listingblock">
@@ -435,7 +446,7 @@ As the name implies, this is where any drawing to the screen should take place.<
 <div class="paragraph">
 <p>Inside this function we can now draw everything we want the player to be able to see.
 To get started, let&#8217;s draw a circle.
-To draw a circle, we will use the function <a href="https://www.love2d.org/wiki/love.graphics.circle"><code>love.graphics.circle</code></a>.
+To draw a circle, we will use the function <a href="https://love2d.org/wiki/love.graphics.circle"><code>love.graphics.circle</code></a>.
 Go and see what you can find on the wiki page now!</p>
 </div>
 <div class="admonitionblock note">
@@ -460,12 +471,26 @@ Provide a clear, concise title and <em>be patient!</em></p>
 </table>
 </div>
 <div class="paragraph">
-<p>As you can see, <code>love.graphics.circle</code> accepts five parameters:
-- mode, whether to <em>fill</em> or <em>stroke</em> the circle (<code>"line"</code> is used to stroke)
-- x, the horizontal position of the circle&#8217;s center
-- y, the vertical position
-- radius, the circle&#8217;s radius (half of the width)
-- segments, how detailed to draw the circle. This can be left out.</p>
+<p>As you can see, <code>love.graphics.circle</code> accepts five parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>mode, whether to <em>fill</em> or <em>stroke</em> the circle (<code>"line"</code> is used to stroke)</p>
+</li>
+<li>
+<p>x, the horizontal position of the circle&#8217;s center</p>
+</li>
+<li>
+<p>y, the vertical position</p>
+</li>
+<li>
+<p>radius, the circle&#8217;s radius (half of the width)</p>
+</li>
+<li>
+<p>segments, how detailed to draw the circle. This can be left out.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
@@ -475,14 +500,256 @@ this is what we need to do:</p>
 <div class="title">main.lua</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
-  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span>   <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">line&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="livecode">
 <div class="preload"></div>
-<canvas id="circles-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":4,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":5,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,4,0,1,3,4,0,1,4,5,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,6,0,1,2,4,0,1,3,7,0,1,4,5,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","circle","fill",100,15,"line",120],"functions":[],"linePositions":[2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4],"locals":[],"upvalues":[]}],"linePositions":[1,4,1,4],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("circles-canvas") });</script></div>
+<canvas id="1-3-circles-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":4,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":5,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,4,0,1,3,4,0,1,4,5,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,6,0,1,2,4,0,1,3,7,0,1,4,5,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","circle","fill",100,15,"line",120],"functions":[],"linePositions":[2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4],"locals":[],"upvalues":[]}],"linePositions":[1,4,1,4],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-3-circles-canvas") });</script></div>
+<div class="paragraph">
+<p>Quite similarly, we can also draw rectangles using <a href="https://love2d.org/wiki/love.graphics.rectangle"><code>love.graphics.rectangle</code></a>.
+The six parameters are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>mode, same as for <code>circle</code></p>
+</li>
+<li>
+<p>x, this time it is not the center position of the top-left corner</p>
+</li>
+<li>
+<p>y, again, relative to the top left corner</p>
+</li>
+<li>
+<p>width, the width of the rectangle being drawn</p>
+</li>
+<li>
+<p>height, the height of the rectangle</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Another function you will use in probably every game is <a href="https://love2d.org/wiki/love.graphics.setColor"><code>love.graphics.setColor</code></a>.
+It accepts three numbers in the range of <code>0</code> to <code>255</code>, specifying the intensity
+of red, green and blue respectively.
+A fourth value, used as alpha (transparency) can optionally be supplied.</p>
+</div>
+<div class="paragraph">
+<p>The last drawing function for now is <a href="https://love2d.org/wiki/love.graphics.line"><code>love.graphics.line</code></a>.
+You can pass it four values, each representing the x and y values of a point.</p>
+</div>
+<div class="paragraph">
+<p>Putting it all together, we can draw a little stickman:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>                 <span class="tok-c1">-- black</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">35</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">)</span>             <span class="tok-c1">-- left foot</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">35</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">)</span>             <span class="tok-c1">-- right foot</span>
+
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>               <span class="tok-c1">-- green</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">60</span><span class="tok-p">)</span> <span class="tok-c1">-- body</span>
+
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>               <span class="tok-c1">-- red</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>        <span class="tok-c1">-- head</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="livecode">
+<div class="preload"></div>
+<canvas id="1-3-stickman-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":11,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,7,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,9,0,1,2,6,0,1,3,10,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,3,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,1,1,13,0,1,2,14,0,1,3,14,0,1,4,5,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,271,1,1,13,0,1,2,16,0,1,3,17,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",255,"line",40,90,35,120,60,65,0,"rectangle","fill",30,"circle",50,20,15],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11],"locals":[],"upvalues":[]}],"linePositions":[1,11,1,11],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-3-stickman-canvas") });</script></div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Note how the head is in front of and the feet are behind the body
+because of the order we chose to draw them in.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>LÖVE provides a lot more drawing operations and related functions,
+but for now we will stick with those above.
+You can find the whole list on the <a href="https://love2d.org/wiki/love.graphics"><code>wiki</code></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="world1-4"><a class="anchor" href="#world1-4"></a>1.4. Creating Motion</h3>
+<div class="paragraph">
+<p><a href="#world1-3">Last time</a> we managed to draw a terrible-looking stickman,
+but he seemed rather&#8230;&#8203; lifeless.
+If we want to make a game, it might be a good idea to have things moving around.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_ship"><a class="anchor" href="#_a_ship"></a>1.4.1. A Ship</h4>
+<div class="paragraph">
+<p>As we are working towards an Asteroids clone, let&#8217;s start out with a spaceship.
+Before we can make a spaceship move, we need a spaceship though:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">70</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="livecode">
+<div class="preload"></div>
+<canvas id="1-4-ship-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":6,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,6,0,1,4,7,0,1,5,6,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,8,0,1,2,8,0,1,3,8,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,265,1,1,10,0,1,2,11,0,1,3,12,0,1,4,11,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",200,"rectangle","fill",20,100,80,"line",70,30,120],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6],"locals":[],"upvalues":[]}],"linePositions":[1,6,1,6],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-ship-canvas") });</script></div>
+<div class="paragraph">
+<p>I know, I know, that doesn&#8217;t look very aerodynamic.
+But I&#8217;ll tell you what, there&#8217;s no air resistance in space anyway -
+at least there&#8217;s a line to indicate which direction we are facing.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_an_engine"><a class="anchor" href="#_an_engine"></a>1.4.2. An Engine</h4>
+<div class="paragraph">
+<p>Alright, so how do we make this thing move?
+We will obviously need a variable to keep track of it&#8217;s current position.
+In fact we will be using two, one for each coordinate we are going to simulate the ship on:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we only need to change the values of <code>x</code> and <code>y</code> and the ship will follow.
+We could for example make them always point to the current mouse position:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">mouse</span><span class="tok-p">.</span><span class="tok-n">getPosition</span><span class="tok-p">()</span>
+<span class="tok-k">end</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="livecode">
+<div class="preload"></div>
+<canvas id="1-4-mousecontrol-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[1,0,2,0,1,1,2,0,7,1,1,0,7,0,0,0,5,0,3,0,36,1,0,0,9,0,260,1,5,0,3,0,36,1,1,0,9,0,261,1,30,0,1,0],"constants":["x","y",20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":3,"lastLineDefined":5,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":3,"instructions":[5,1,2,0,6,1,1,259,6,1,1,260,28,1,1,3,7,2,1,0,7,1,0,0,30,0,1,0],"constants":["x","y","love","mouse","getPosition"],"functions":[],"linePositions":[4,4,4,4,4,4,5],"locals":[{"varname":"dt","startpc":0,"endpc":6}],"upvalues":[]},{"sourceName":"","lineDefined":7,"lastLineDefined":12,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,5,3,7,0,1,4,8,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,10,0,1,2,10,0,1,3,10,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,267,5,1,6,0,12,1,1,265,5,2,7,0,12,2,2,268,5,3,6,0,12,3,3,264,5,4,7,0,12,4,4,268,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","x","y",100,20,200,"line",10],"functions":[],"linePositions":[8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,12],"locals":[],"upvalues":[]}],"linePositions":[1,1,1,1,3,5,3,7,12,7,12],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-mousecontrol-canvas") });</script></div>
+<div class="paragraph">
+<p>Wait, what happened here?
+First of all, I introduced a new LÖVE callback: <a href="https://love2d.org/wiki/love.update"><code>love.update</code></a>.
+As the name implies, this is where we <em>update</em> the current game state.
+<code>love.update</code> is where things <em>happen</em>; This is where the player moves,
+the enemies shoot and the lighting is calculated.
+One thing you might notice immediately is that unlike <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a>,
+<code>love.update</code> receives a parameter: <code>dt</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>dt</code> is short for <strong>d</strong>elta<strong>time</strong> (<em>time difference</em>).
+<code>dt</code> is always the time (in seconds) since the last time <code>love.update</code> was called.
+In this small example <code>dt</code> is not used, but it is very useful, as we will see later on.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, another LÖVE function has come into play: <a href="https://love2d.org/wiki/love.mouse.getPosition"><code>love.mouse.getPosition</code></a>.
+It should again be rather obvious what this function is doing for us;
+it returns the mouse&#8217;s current position along the x and y axis (in pixels).</p>
+</div>
+<div class="paragraph">
+<p>Alright, now things are moving, but in our game we don&#8217;t want the ship to be
+controlled by the mouse.
+Also, with the current code players with a faster mouse would have an advantage,
+they could move around much more quickly.
+Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard controls:</p>
+</div>
+<div class="listingblock">
+<div class="title">main.lua</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+  <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span>
+<span class="tok-p">}</span>
+
+<span class="tok-n">SPEED</span> <span class="tok-o">=</span> <span class="tok-mi">300</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">right&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">left&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">-</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">down&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">up&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">-</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
+
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="livecode">
+<div class="preload"></div>
+<canvas id="1-4-keyboard-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[10,0,0,2,9,0,257,258,9,0,259,258,7,0,0,0,1,0,5,0,7,0,4,0,5,0,6,0,36,1,0,0,9,0,263,1,5,0,6,0,36,1,1,0,9,0,264,1,30,0,1,0],"constants":["player","x",20,"y","SPEED",300,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":8,"lastLineDefined":21,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,12,2,2,3,9,1,265,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,10,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,13,2,2,3,9,1,265,2,30,0,1,0],"constants":["love","keyboard","isDown","right","player","x","SPEED","left","down","y","up"],"functions":[],"linePositions":[9,9,9,9,9,9,9,10,10,10,10,10,10,10,12,12,12,12,12,12,12,13,13,13,13,13,13,13,15,15,15,15,15,15,15,16,16,16,16,16,16,16,18,18,18,18,18,18,18,19,19,19,19,19,19,19,21],"locals":[{"varname":"dt","startpc":0,"endpc":56}],"upvalues":[]},{"sourceName":"","lineDefined":23,"lastLineDefined":28,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,6,2,2,263,5,3,6,0,6,3,3,264,1,4,9,0,1,5,10,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,5,1,6,0,6,1,1,263,12,1,1,266,5,2,6,0,6,2,2,264,12,2,2,269,5,3,6,0,6,3,3,263,12,3,3,265,5,4,6,0,6,4,4,264,12,4,4,269,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","player","x","y",100,20,200,"line",10],"functions":[],"linePositions":[24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,28],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,6,6,8,21,8,23,28,23,28],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-keyboard-canvas") });</script></div>
+<div class="paragraph">
+<p>Great, let&#8217;s go through the changes:
+You can immediately see that <code>x</code> and <code>y</code> have disappeared,
+instead there is now a table called <code>player.</code>
+<code>player</code> stores the position under the keys <code>"x"</code> and <code>"y"</code>,
+so nothing has really changed except the varible names are longer,
+but I have done this so our code stays readable as we progress;
+As we add enemies and bullets we will need to keep track of a lot more `x`s and `y`s.</p>
+</div>
+<div class="paragraph">
+<p>As we can see, I have also added a new variable called <code>SPEED</code>.
+<code>SPEED</code> is never changed in the code, so I could&#8217;ve also replaced every occurence
+further down with it&#8217;s value, <code>300</code> right away.
+However keeping it at the top like this makes it easy to modify the speed,
+also I cannot forget to modify it in all the places should I change it some time.
+<code>SPEED</code> is uppercased because I use this style to name constant values,
+but this is just a stylistic choice by me.</p>
+</div>
+<div class="paragraph">
+<p>Now on to the actual keyboard code!
+There is another new LÖVE function used here: <a href="https://love2d.org/wiki/love.keyboard.isDown"><code>love.keyboard.isDown</code></a>.
+Once again the name should make the purpose of the function very clear,
+you should start to see a pattern here.
+<code>love.keyboard.isDown</code> checks if the key given is down.
+In LÖVE keys are identified by a string,
+in this example we are using <code>"up"</code>, <code>"down"</code> etc., but there are many more.
+You can view a table of all the keys on the wiki: <a href="https://love2d.org/wiki/KeyConstant"><code>KeyConstant</code></a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -726,7 +993,7 @@ Find consensus on a license
 <p><a href="https://github.com/asciidoctor/asciidoctor">AsciiDoctor</a> renders this book</p>
 </li>
 <li>
-<p><a href="http://moonshinejs.org/">Moonshine</a>, licensed under the GNU GPL License, and</p>
+<p><a href="http://moonshinejs.org/">Moonshine</a> and</p>
 </li>
 <li>
 <p><a href="https://github.com/TannerRogalsky/punchdrunk">punchdrunk</a> by Tanner Rogalsky make LÖVE run in <strong>your</strong> browser</p>
@@ -769,7 +1036,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-10 21:26:14 CEST
+Last updated 2015-04-17 01:05:49 CEST
 </div>
 </div>
 </body>
