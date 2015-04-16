@@ -19,6 +19,8 @@ include::world1_the-prototype/02_the-tools.adoc[]
 <<<
 include::world1_the-prototype/03_starting-small.adoc[]
 <<<
+include::world1_the-prototype/04_creating-motion.adoc[]
+<<<
 
 include::world2.adoc[]
 <<<
