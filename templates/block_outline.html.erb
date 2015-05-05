@@ -1,20 +1,21 @@
 <%#encoding:UTF-8%><%
-  sectnumlevels = sectnumlevels or (@document.attr 'sectnumlevels', 3).to_i
-  toclevels = toclevels or (@document.attr 'toclevels', 2).to_i
+  if not sections.empty?
+    sectnumlevels = sectnumlevels or (@document.attr 'sectnumlevels', 3).to_i
+    toclevels ||= (document.attr 'toclevels', 2).to_i
 
-  slevel = (first_section = sections[0]).level
-  slevel = 1 if slevel == 0 && first_section.special
-%><ul class="sectlevel<%= slevel %>">
-  <% sections.each do |section|
-    if section.numbered && !section.caption && section.level <= sectnumlevels
-      section_num = "#{section.sectnum}"
-    end
-    if section.level < @document.attr('toclevels', 2) %>
-      <li><a href="#<%= section.id %>"><%= section.captioned_title %></a>
-        <%= converter.convert @document, 'outline', :toclevels => toclevels, :secnumlevels => sectnumlevels %>
-      </li>
-    <% else %>
-      <li><a href="#<%= section.id %>"><%= section.captioned_title %></a></li>
+
+    slevel = (first_section = sections[0]).level
+    slevel = 1 if slevel == 0 && first_section.special
+
+  %><ul class="sectlevel<%= slevel %>">
+    <% sections.each do |section|
+      if section.level < toclevels %>
+        <li><a href="#<%= section.id %>"><%= section.captioned_title %></a>
+          <%= converter.convert section, 'outline', :toclevels => toclevels %>
+        </li>
+      <% else %>
+        <li><a href="#<%= section.id %>"><%= section.sectnum.sub /(\d+).(\d+)./, 'World \1-\2: ' if section.numbered %><%= section.captioned_title %></a></li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+<% end %>

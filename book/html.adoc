@@ -6,6 +6,7 @@ Sol Bekic <s0lll0s@blinkenshell.org>; Ricardo Gomes <desk467@gmail.com>
 :description: A book about LÖVE, Games and Lua.
 :nopagination:
 :sectanchors:
+:sectnumlevels: 2
 :toc: right
 :attribute-missing: skip
 :numbered:
