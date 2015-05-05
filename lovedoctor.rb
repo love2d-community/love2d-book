@@ -27,7 +27,7 @@ Asciidoctor::Extensions.register do
           spl = t.split("\n")
           next if spl == []
           file = %(tmp/#{spl[0]})
-          names << file 
+          names << file
           File.open(file, 'w') do |f|
             f.write( spl.drop(1).join("\n") )
           end
@@ -62,6 +62,20 @@ Asciidoctor::Extensions.register do
       create_pass_block parent, %(<div class="livecode">#{res}</div>), attrs
     end
   end
+
+  class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
+    use_dsl
+    named :wiki
+
+    name_positional_attributes 'alt'
+
+    def process parent, target, attrs
+      text = Asciidoctor::Inline.new parent, :quoted, (attrs['alt'] or target), {type: :monospaced}
+      target = "https://love2d.org/wiki/#{target}"
+      (create_anchor parent, text.render, type: :link, target: target).render
+    end
+  end
+  inline_macro LoveWikiMacro
 end
 
 if __FILE__ == $0
