@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'asciidoctor'
 gem 'asciidoctor-pdf'
+gem 'guard'
+gem 'guard-livereload'
 gem 'tilt'
 gem 'erubis'
 gem 'thread_safe'
