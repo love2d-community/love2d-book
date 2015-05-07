@@ -1,5 +1,5 @@
 [[world2]]
-== World 2: The Redo
+== The Redo
 
 So that was <<world1>>. In the last few levels we went from our idea to an actual playable game... so what's left to do?
 

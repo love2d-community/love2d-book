@@ -1,5 +1,5 @@
 [[world1]]
-== World 1: The Prototype
+== The Prototype
 
 Welcome to World 1! +
 Here we will build a prototype for a game, up from the ground. Let's jump right in!
