@@ -5,7 +5,7 @@ The basic concept is very simple: when you have a lot of similar items, then han
 
 ==== The Basics
 Imagine we are working on a Galaga-type fixed shooter. Every frame we have to simulate and draw all the enemies and the player.
-There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in `love.draw` and updated in `love.update`.
+There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in wiki:love.draw[] and updated in `love.update`.
 We also need to handle all the bullets flying around.
 
 The simples way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:
@@ -38,8 +38,11 @@ end
 <1> `_` here is just a varible name, but it is a common convention to use it for any value we do not care about
 
 So far, so obvious. But what happens when we need to remove things?
-Whenever the player shoots an enemy down, we will have to remove it from `objects` so we don't use up all of the PCs memory in a matter of minutes.
-The problem with using `table.remove()` is that it will update all the indices, so that we can continue iterating over the list (which is a good thing), but because of this we will skip the next enemy, which is inacceptable.
+Whenever the player shoots an enemy down,
+we will have to remove it from `objects` so we don't use up all of the PCs memory in a matter of minutes.
+The problem with using `table.remove()` is that it will update all the indices,
+so that we can continue iterating over the list (which is a good thing),
+but because of this we will skip the next enemy, which is inacceptable.
 
 The simplest solution iterating in reverse:
 
@@ -61,7 +64,8 @@ end
 This is a good start, but let's take it a step further.
 
 ==== Sets
-Sets, in mathematics, are a like a bag of objects; the objects don't have any order, nor names or labels associated with them.
+Sets, in mathematics, are a like a bag of objects; the objects don't have any order,
+nor names or labels associated with them.
 In Lua Sets are usually implemented as tables where key and value are the same:
 
 [source,lua]
@@ -88,7 +92,8 @@ end
 <2> we now need to use `pairs()` instead of `ipairs()`
 
 You might ask what advantage this might have over a simple list. After all we lost the ability to order the objects!
-One advantage of handling the list like this is that we now only have to care about the objects themselves; whether we change, delete or add objects, we never have to know, let alone search for, the index of that object.
+One advantage of handling the list like this is that we now only have to care about the objects themselves;
+whether we change, delete or add objects, we never have to know, let alone search for, the index of that object.
 This means that we can now delete objects from basically everywhere in code (though that generally may hurt your code structure).
 
 Another cool thing about this way of handling Sets is that we can actually add labels to *some* objects in the table if we want to.
@@ -128,9 +133,11 @@ end
 <3> yet we can still access him easily wherever we need to
 
 [WARNING]
-When you start adding entries that use "custom" keys, make sure you are operating on the value (the second loop parameter) when interating with `pairs()`!
+When you start adding entries that use "custom" keys,
+make sure you are operating on the value (the second loop parameter) when interating with `pairs()`!
 
 ==== Wrapping up
 As always, this concept is explained here on a very small scale.
 In an actual game project you would usually need multiple object pools for different things or layers.
-Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter, so these small tricks might still be valuable information to you.
+Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter,
+so these small tricks might still be valuable information to you.

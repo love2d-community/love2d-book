@@ -90,13 +90,13 @@ end
 Wait, what happened here?
 First of all, I introduced a new LÖVE callback: wiki:love.update[].
 As the name implies, this is where we _update_ the current game state.
-`love.update` is where things _happen_; This is where the player moves,
+wiki:love.update[] is where things _happen_; This is where the player moves,
 the enemies shoot and the lighting is calculated.
 One thing you might notice immediately is that unlike wiki:love.draw[],
-`love.update` receives a parameter: `dt`.
+wiki:love.update[] receives a parameter: `dt`.
 
 `dt` is short for **d**elta**time** (_time difference_).
-`dt` is always the time (in seconds) since the last time `love.update` was called.
+`dt` is always the time (in seconds) since the last time wiki:love.update[] was called.
 In this small example `dt` is not used, but it is very useful, as we will see later on.
 
 Secondly, another LÖVE function has come into play: wiki:love.mouse.getPosition[].
@@ -194,17 +194,17 @@ Now on to the actual keyboard code!
 There is another new LÖVE function used here: wiki:love.keyboard.isDown[].
 Once again the name should make the purpose of the function very clear,
 you should start to see a pattern here.
-`love.keyboard.isDown` checks if the key given is down.
+wiki:love.keyboard.isDown[] checks if the key given is down.
 In LÖVE keys are identified by a string,
 in this example we are using `"up"`, `"down"` etc., but there are many more.
 You can view a table of all the keys on the wiki: wiki:KeyConstant[].
 
-Using `if` and `love.keyboard.isDown` we add or substract `SPEED * dt` from the fitting coordinates,
+Using `if` and wiki:love.keyboard.isDown[] we add or substract `SPEED * dt` from the fitting coordinates,
 when the _left_ key is pressed, we substract from `player.x`;
 when _down_ is pressed we add to the y-coordinate.
 
 Now, why do we multiply `SPEED` with `dt`?
-As I said above, the time step between each `love.update` execution may vary;
+As I said above, the time step between each wiki:love.update[] execution may vary;
 for example a scene that has to draw a lot of enemies might take longer do draw
 than one that just features a few.
 Other factors like the power of the graphics card and processor
@@ -217,3 +217,8 @@ By multiplying with `dt` we can scale the speed by the time that we are actually
 [NOTE]
 This means we are also always "lagging a frame behind" in update-time,
 but that doesn't really make a difference in practice.
+
+Because `dt` is measured in seconds, it also makes specifying movement speeds
+etc. very convenient, `SPEED` is now measured in *pixels per second*. This gives
+it a workable size and something you can think about; if we had not used `dt` we
+would have to deal with tiny values in *pixels per frame*.
