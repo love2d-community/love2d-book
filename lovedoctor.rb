@@ -7,6 +7,19 @@ require 'asciidoctor-pdf'
 require 'asciidoctor'
 require 'asciidoctor/extensions'
 
+class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
+  use_dsl
+  named :wiki
+
+  name_positional_attributes 'alt'
+
+  def process parent, target, attrs
+    text = Asciidoctor::Inline.new parent, :quoted, (attrs['alt'] or target), {type: :monospaced}
+    target = "https://love2d.org/wiki/#{target}"
+    (create_anchor parent, text.render, type: :link, target: target).render
+  end
+end
+
 Asciidoctor::Extensions.register do
   block do
     named :livecode
@@ -63,18 +76,6 @@ Asciidoctor::Extensions.register do
     end
   end
 
-  class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
-    use_dsl
-    named :wiki
-
-    name_positional_attributes 'alt'
-
-    def process parent, target, attrs
-      text = Asciidoctor::Inline.new parent, :quoted, (attrs['alt'] or target), {type: :monospaced}
-      target = "https://love2d.org/wiki/#{target}"
-      (create_anchor parent, text.render, type: :link, target: target).render
-    end
-  end
   inline_macro LoveWikiMacro
 end
 

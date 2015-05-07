@@ -17,10 +17,10 @@ module ::Guard
 end
 
 guard :lovedoctor do
-  watch(%r{^.*\.adoc$})
-  watch(%r{^templates/.*$})
+  watch %r{^.*\.adoc$}
+  watch %r{^templates/.*$}
 end
 
 guard :livereload do
-  watch('public/index.html')
+  watch 'public/index.html'
 end
