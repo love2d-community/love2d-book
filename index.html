@@ -1,122 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
-<meta name="description" content="A book about LÖVE, Games and Lua.">
-<meta name="author" content="Sol Bekic, Ricardo Gomes">
-<title>LÖVE for Newbies</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
-<link rel="stylesheet" href="./asciidoctor.css">
-<link rel="stylesheet" href="./pygments-default.css">
-<script src="js/punchdrunk.js"></script>
-</head>
-<body class="article toc2 toc-right">
-<div id="header">
-<h1>LÖVE for Newbies</h1>
-<div class="details">
-<span id="author" class="author">Sol Bekic</span><br>
-<span id="email" class="email"><a href="mailto:s0lll0s@blinkenshell.org">s0lll0s@blinkenshell.org</a></span><br>
-<span id="author2" class="author">Ricardo Gomes</span><br>
-<span id="email2" class="email"><a href="mailto:desk467@gmail.com">desk467@gmail.com</a></span><br>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a>
-<ul class="sectlevel2">
-<li><a href="#_metrics">Metrics</a></li>
-</ul>
-</li>
-<li><a href="#_preface">Preface</a></li>
-<li><a href="#world1">1. World 1: The Prototype</a>
-<ul class="sectlevel2">
-<li><a href="#world1-1">1.1. The Concept</a></li>
-<li><a href="#world1-2">1.2. The Tools</a></li>
-<li><a href="#world1-3">1.3. Starting Small</a></li>
-<li><a href="#world1-4">1.4. Creating Motion</a></li>
-</ul>
-</li>
-<li><a href="#world2">2. World 2: The Redo</a></li>
-<li><a href="#world3">3. World 3: The Cookbook</a>
-<ul class="sectlevel2">
-<li><a href="#world3-">3.1. Object Pools</a></li>
-</ul>
-</li>
-<li><a href="#_license">4. License</a>
-<ul class="sectlevel2">
-<li><a href="#_libraries_tools">4.1. Libraries &amp; Tools</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="content">
-<div class="sect1">
-<h2 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A book about LÖVE, Games and Lua. <span class="image"><a class="image" href="https://gitter.im/love2d-book/love2d-book?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join%20Chat"></a></span></p>
-</div>
-<div class="paragraph">
-<p>The collaborative book will be divided into three main units:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A walkthrough to building a small prototype and introducing the user to the LÖVE framework,</p>
-</li>
-<li>
-<p>A more realistic revamp of the built prototype to create a "full" game, and lastly</p>
-</li>
-<li>
-<p>An area of examples and snippets containing best and known practices in game development.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The three chapters are called <em>World</em>s and each section is a <em>Level</em></p>
-</li>
-<li>
-<p>At the end of every <em>Level</em>, remind the reader about what he has learned in this chapter and show some practical issues that he can now solve</p>
-</li>
-<li>
-<p>Use examples and concrete language wherever possible. Programming is all about abstraction, and examples help make this a lighter and more enjoyable read</p>
-</li>
-<li>
-<p>Make everything interesting to read about and motivate the reader to keep on learning</p>
-</li>
-<li>
-<p>Be clear and direct when talking something new. Keep it simple, stupid!</p>
-</li>
-<li>
-<p>Every Level ends with additional exercises that the reader can choose to try</p>
-</li>
-<li>
-<p>Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)</p>
-</li>
-<li>
-<p>Use informal language and short text to show new content</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The book s written using a generator called Asciidoctor.<br>
-Quick Reference: <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/" class="bare">http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p>
-</div>
-<div class="paragraph">
-<p>We have extended the AsciiDoctor syntax with <strong>livecode</strong> blocks and block macros.
-There also are some other additions, you can use them like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="asciidoc">livecode::test[] <b class="conum">(1)</b>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.2"><meta name="author" content="Sol Bekic, Ricardo Gomes"><meta name="description" content="A book about LÖVE, Games and Lua."><title>LÖVE for Newbies</title><link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="./pygments-default.css"><script src="js/punchdrunk.js"></script></head><body class="article toc2 toc-right"><div id="header"><h1>LÖVE for Newbies</h1><div class="details"><span class="author" id="author">Sol Bekic</span><br><span class="email" id="email"><a href="mailto:s0lll0s@blinkenshell.org">s0lll0s@blinkenshell.org</a></span><br><span class="author" id="author2">Ricardo Gomes</span><br><span class="email" id="email2"><a href="mailto:desk467@gmail.com">desk467@gmail.com</a></span></div><div id="toc" class="toc2"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a><ul class="sectlevel2"><li><a href="#_metrics">Metrics</a></li></ul></li><li><a href="#_preface">Preface</a></li><li><a href="#world1">World 1: The Prototype</a><ul class="sectlevel2"><li><a href="#world1-1">World 1-1: The Concept</a></li><li><a href="#world1-2">World 1-2: The Tools</a></li><li><a href="#world1-3">World 1-3: Starting Small</a></li><li><a href="#world1-4">World 1-4: Creating Motion</a></li></ul></li><li><a href="#world2">World 2: The Redo</a></li><li><a href="#world3">World 3: The Cookbook</a><ul class="sectlevel2"><li><a href="#world3-">World 3-1: Object Pools</a></li></ul></li><li><a href="#_license">World 4: License</a><ul class="sectlevel2"><li><a href="#_libraries_tools">World 4-1: Libraries &amp; Tools</a></li></ul></li></ul></div></div><div id="content"><div class="sect2"><h3 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h3><div class="paragraph"><p>A book about LÖVE, Games and Lua. <span class="image"><a class="image" href="https://gitter.im/love2d-book/love2d-book?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join%20Chat"></a></span></p></div>
+<div class="paragraph"><p>The collaborative book will be divided into three main units:</p></div>
+<div class="ulist"><ul><li><p>A walkthrough to building a small prototype and introducing the user to the LÖVE framework,</p></li><li><p>A more realistic revamp of the built prototype to create a "full" game, and lastly</p></li><li><p>An area of examples and snippets containing best and known practices in game development.</p></li></ul></div>
+<div class="sect2"><h3 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h3><div class="olist arabic"><ol class="arabic"><li><p>The three chapters are called <em>World</em>s and each section is a <em>Level</em></p></li><li><p>At the end of every <em>Level</em>, remind the reader about what he has learned in this chapter and show some practical issues that he can now solve</p></li><li><p>Use examples and concrete language wherever possible. Programming is all about abstraction, and examples help make this a lighter and more enjoyable read</p></li><li><p>Make everything interesting to read about and motivate the reader to keep on learning</p></li><li><p>Be clear and direct when talking something new. Keep it simple, stupid!</p></li><li><p>Every Level ends with additional exercises that the reader can choose to try</p></li><li><p>Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)</p></li><li><p>Use informal language and short text to show new content</p></li></ol></div>
+<div class="paragraph"><p>The book s written using a generator called Asciidoctor.<br>
+Quick Reference: <a class="bare" href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/">http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p></div>
+<div class="paragraph"><p>We have extended the AsciiDoctor syntax with <strong>livecode</strong> blocks and block macros.
+There also are some other additions, you can use them like this:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="asciidoc">livecode::test[] <b class="conum">(1)</b>
 
 livecode::test[name=test2,preload=&quot;image1.png,image2.png&quot;] <b class="conum">(2)</b>
 
@@ -129,182 +20,64 @@ end
 ++++
 
 wiki:love.graphics.setColor[] <b class="conum">(4)</b>
-wiki:love.graphics[the graphics module] <b class="conum">(5)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<ol>
-<li>
-<p>loads love2D-book-code/test directory</p>
-</li>
-<li>
-<p>load love2D-book/code/test directory and the assets called image1.png and image2.png. It&#8217;s name is test2 so it doesn&#8217;t conflict with the first.</p>
-</li>
-<li>
-<p>runs the code below it; has the name of "example" and loads audio.wav</p>
-</li>
-<li>
-<p>links to the wiki page for <code>love.graphics.setColor</code> and formats the link accordingly</p>
-</li>
-<li>
-<p>links to the wiki page for <code>love.graphics</code> using the text <code>the graphics</code></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Thank you for helping create this :)</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_preface"><a class="anchor" href="#_preface"></a>Preface</h2>
-<div class="sectionbody">
-<div class="quoteblock">
-<blockquote>
-So you want to make a game?
-</blockquote>
-<div class="attribution">
-<cite>The mandatory Book Opening sentence</cite>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="world1"><a class="anchor" href="#world1"></a>1. World 1: The Prototype</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Welcome to World 1!<br>
-Here we will build a prototype for a game, up from the ground. Let&#8217;s jump right in!</p>
-</div>
-<div class="sect2">
-<h3 id="world1-1"><a class="anchor" href="#world1-1"></a>1.1. The Concept</h3>
-<div class="paragraph">
-<p>For the Purposes of this Book, we have decided to recreate the game <a href="http://www.freeasteroids.org/">Asteroids</a>.</p>
-</div>
-<div class="paragraph">
-<p>Before we start we need to think about how exactly this game works and what we want to include.
+wiki:love.graphics[the graphics module] <b class="conum">(5)</b></code></pre></div></div>
+<div class="colist arabic"><ol><li><p>loads love2D-book-code/test directory</p></li><li><p>load love2D-book/code/test directory and the assets called image1.png and image2.png. It&#8217;s name is test2 so it doesn&#8217;t conflict with the first.</p></li><li><p>runs the code below it; has the name of "example" and loads audio.wav</p></li><li><p>links to the wiki page for <code>love.graphics.setColor</code> and formats the link accordingly</p></li><li><p>links to the wiki page for <code>love.graphics</code> using the text <code>the graphics</code></p></li></ol></div>
+<div class="paragraph"><p>Thank you for helping create this :)</p></div></div></div>
+<div class="sect1"><h2 id="_preface"><a class="anchor" href="#_preface"></a>Preface</h2><div class="sectionbody"><div class="quoteblock"><blockquote>So you want to make a game?</blockquote><div class="attribution"><cite>The mandatory Book Opening sentence</cite></div></div></div></div>
+<div class="sect2"><h3 id="world1"><a class="anchor" href="#world1"></a>World 1: The Prototype</h3><div class="paragraph"><p>Welcome to World 1!<br>
+Here we will build a prototype for a game, up from the ground. Let&#8217;s jump right in!</p></div>
+<div class="sect2"><h3 id="world1-1"><a class="anchor" href="#world1-1"></a>World 1-1: The Concept</h3><div class="paragraph"><p>For the Purposes of this Book, we have decided to recreate the game <a href="http://www.freeasteroids.org/">Asteroids</a>.</p></div>
+<div class="paragraph"><p>Before we start we need to think about how exactly this game works and what we want to include.
 Thinking about the game before we start will keep us from getting lost in the
-development process or adding feature after feature and losing interest before it is done.</p>
-</div>
-<div class="paragraph">
-<p>So, how does Asteroids work?</p>
-</div>
-<div class="paragraph">
-<p>In asteroids, the Player controls a small spaceship that is flying around.
+development process or adding feature after feature and losing interest before it is done.</p></div>
+<div class="paragraph"><p>So, how does Asteroids work?</p></div>
+<div class="paragraph"><p>In asteroids, the Player controls a small spaceship that is flying around.
 He has to shoot asteroids that fly around the screen.
 If he gets hit by an asteroid, the player loses a life and has to restart the round.
-When he hits an asteroid, the asteroid splits into two smaller ones.</p>
-</div>
-<div class="paragraph">
-<p>Alright, from these few rules we can already extract some things that we will need:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>a Spaceship / Player</p>
-</li>
-<li>
-<p>Asteroids</p>
-</li>
-<li>
-<p>Bullets</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Next, let&#8217;s see what each of these do or can do:</p>
-</div>
-<div class="sect3">
-<h4 id="_the_spaceship"><a class="anchor" href="#_the_spaceship"></a>1.1.1. The Spaceship</h4>
-<div class="paragraph">
-<p>The spaceship is the main thing the player can control in our game.
+When he hits an asteroid, the asteroid splits into two smaller ones.</p></div>
+<div class="paragraph"><p>Alright, from these few rules we can already extract some things that we will need:</p></div>
+<div class="ulist"><ul><li><p>a Spaceship / Player</p></li><li><p>Asteroids</p></li><li><p>Bullets</p></li></ul></div>
+<div class="paragraph"><p>Next, let&#8217;s see what each of these do or can do:</p></div>
+<div class="sect3"><h4 id="_the_spaceship"><a class="anchor" href="#_the_spaceship"></a>The Spaceship</h4><div class="paragraph"><p>The spaceship is the main thing the player can control in our game.
 The player can use two keys to accelerate or decelerate in the direction the ship
 is currently facing. He can also turn the spaceship with two other keys.
-Lastly the player can press a button to fire a shot.</p>
-</div>
-<div class="paragraph">
-<p>When the spaceships leaves the screen on one side, it will enter from the opposite side,
-keeping it&#8217;s velocity.</p>
-</div>
-<div class="paragraph">
-<p>We can see that the spaceship needs to have a <code>position</code>, <code>velocity</code> and <code>rotation</code>.
+Lastly the player can press a button to fire a shot.</p></div>
+<div class="paragraph"><p>When the spaceships leaves the screen on one side, it will enter from the opposite side,
+keeping it&#8217;s velocity.</p></div>
+<div class="paragraph"><p>We can see that the spaceship needs to have a <code>position</code>, <code>velocity</code> and <code>rotation</code>.
 In <a href="#world1-4">World 1-4</a> we will see that the actual way of saving the information
-we use differs, but we could as well do with this "definition".</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_the_asteroids"><a class="anchor" href="#_the_asteroids"></a>1.1.2. The Asteroids</h4>
-<div class="paragraph">
-<p>Asteroids move in a straight line, also wrapping around the Screen in the same way
+we use differs, but we could as well do with this "definition".</p></div></div>
+<div class="sect3"><h4 id="_the_asteroids"><a class="anchor" href="#_the_asteroids"></a>The Asteroids</h4><div class="paragraph"><p>Asteroids move in a straight line, also wrapping around the Screen in the same way
 the spaceship does.
 They larger an asteroid is, the slower it should move.
-Therefore all we need to know about every asteroid is his <code>position</code>, <code>size</code> and his <code>rotation</code>.</p>
-</div>
-<div class="paragraph">
-<p>Whenever an asteroid is hit, we split it into two smaller ones, unless it is already
-the smallest possible size. In that case we remove it altogether.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_the_bullets"><a class="anchor" href="#_the_bullets"></a>1.1.3. The Bullets</h4>
-<div class="paragraph">
-<p>Bullets travel along a straight path, much like asteroids.
-However they are removed from the game as soon as they hit an asteroid or leave the screen.</p>
-</div>
-<div class="paragraph">
-<p>All bullets share the same speed, we only need to know the bullet&#8217;s <code>position</code> and <code>rotation</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="world1-2"><a class="anchor" href="#world1-2"></a>1.2. The Tools</h3>
-<div class="sect3">
-<h4 id="_lÖve"><a class="anchor" href="#_lÖve"></a>1.2.1. LÖVE</h4>
-<div class="paragraph">
-<p>So, what makes a LÖVE Project?<br>
+Therefore all we need to know about every asteroid is his <code>position</code>, <code>size</code> and his <code>rotation</code>.</p></div>
+<div class="paragraph"><p>Whenever an asteroid is hit, we split it into two smaller ones, unless it is already
+the smallest possible size. In that case we remove it altogether.</p></div></div>
+<div class="sect3"><h4 id="_the_bullets"><a class="anchor" href="#_the_bullets"></a>The Bullets</h4><div class="paragraph"><p>Bullets travel along a straight path, much like asteroids.
+However they are removed from the game as soon as they hit an asteroid or leave the screen.</p></div>
+<div class="paragraph"><p>All bullets share the same speed, we only need to know the bullet&#8217;s <code>position</code> and <code>rotation</code>.</p></div></div></div>
+<div class="sect2"><h3 id="world1-2"><a class="anchor" href="#world1-2"></a>World 1-2: The Tools</h3><div class="sect3"><h4 id="_lÖve"><a class="anchor" href="#_lÖve"></a>LÖVE</h4><div class="paragraph"><p>So, what makes a LÖVE Project?<br>
 At core a LÖVE Project is just a folder containing everything needed to make the game;
-Code, Images, Sound and Video files and everything else you might need.</p>
-</div>
-<div class="sect4">
-<h5 id="_code"><a class="anchor" href="#_code"></a>Code</h5>
-<div class="paragraph">
-<p>Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should be familiar with already.
+Code, Images, Sound and Video files and everything else you might need.</p></div>
+<div class="sect4"><h5 id="_code"><a class="anchor" href="#_code"></a>Code</h5><div class="paragraph"><p>Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should be familiar with already.
 Generally Lua Source Files (<code>.lua</code>) can lay around anywhere in the project
 directory and have arbitrary names&#8230;&#8203; except for two special ones:
 * main.lua
-* conf.lua</p>
-</div>
-<div class="paragraph">
-<p>These two are the only files that the LÖVE Framework runs; they are the starting
-points of every game or project you build.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_main_lua"><a class="anchor" href="#_main_lua"></a>main.lua</h5>
-<div class="paragraph">
-<p>As the name implies this file will contain all your <strong>main code</strong> - what exactly
+* conf.lua</p></div>
+<div class="paragraph"><p>These two are the only files that the LÖVE Framework runs; they are the starting
+points of every game or project you build.</p></div></div>
+<div class="sect4"><h5 id="_main_lua"><a class="anchor" href="#_main_lua"></a>main.lua</h5><div class="paragraph"><p>As the name implies this file will contain all your <strong>main code</strong> - what exactly
 that will be and how you organize your code is up to you.
 Usually this file contains the used <em>Callback Routines</em>, which will be covered in <a href="#world1-3">the next Level</a>.
 For smaller projects and the next levels in this book this will be the only file
-(except for <code>conf.lua</code>) you will need.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_conf_lua"><a class="anchor" href="#_conf_lua"></a>conf.lua</h5>
-<div class="paragraph">
-<p><em>conf</em> is short for <strong>Conf</strong>iguration, and thats what <code>conf.lua</code> is all about.
+(except for <code>conf.lua</code>) you will need.</p></div></div>
+<div class="sect4"><h5 id="_conf_lua"><a class="anchor" href="#_conf_lua"></a>conf.lua</h5><div class="paragraph"><p><em>conf</em> is short for <strong>Conf</strong>iguration, and thats what <code>conf.lua</code> is all about.
 You can fill this file with a function called <code>love.conf( t )</code> that accepts a table as it&#8217;s only parameter.
 In that function you can then modify certain fields of the table and thereby
-change the configuration the LÖVE Framework uses when it first creates your window.</p>
-</div>
-<div class="paragraph">
-<p>Here is a function that sets every possible value to it&#8217;s default value - and thereby does nothing:</p>
-</div>
-<div class="listingblock">
-<div class="title">Full <code>conf.lua</code> example</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">conf</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">)</span>
+change the configuration the LÖVE Framework uses when it first creates your window.</p></div>
+<div class="paragraph"><p>Here is a function that sets every possible value to it&#8217;s default value - and thereby does nothing:</p></div>
+<div class="listingblock"><div class="title">Full <code>conf.lua</code> example</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">conf</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">identity</span> <span class="tok-o">=</span> <span class="tok-kc">nil</span>                   <span class="tok-c1">-- The name of the save directory (string)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">version</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">0.9.1&quot;</span>                <span class="tok-c1">-- The LÖVE version this game was made for (string)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">console</span> <span class="tok-o">=</span> <span class="tok-kc">false</span>                  <span class="tok-c1">-- Attach a console (boolean, Windows only)</span>
@@ -339,29 +112,12 @@ change the configuration the LÖVE Framework uses when it first creates your win
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">modules</span><span class="tok-p">.</span><span class="tok-n">timer</span> <span class="tok-o">=</span> <span class="tok-kc">true</span>             <span class="tok-c1">-- Enable the timer module (boolean)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">modules</span><span class="tok-p">.</span><span class="tok-n">window</span> <span class="tok-o">=</span> <span class="tok-kc">true</span>            <span class="tok-c1">-- Enable the window module (boolean)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">modules</span><span class="tok-p">.</span><span class="tok-n">thread</span> <span class="tok-o">=</span> <span class="tok-kc">true</span>            <span class="tok-c1">-- Enable the thread module (boolean)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the conf table;
-everything you leave out will remain at it&#8217;s default value.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>You will mostly be using this to set a different resolution for your game and set the game title.</p>
-</div>
-<div class="listingblock">
-<div class="title">Usual <code>conf.lua</code></div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">conf</span><span class="tok-p">(</span> <span class="tok-n">t</span> <span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">You don&#8217;t need to use a <code>conf.lua</code> or specify every key in the conf table;
+everything you leave out will remain at it&#8217;s default value.</td></tr></table></div>
+<div class="paragraph"><p>You will mostly be using this to set a different resolution for your game and set the game title.</p></div>
+<div class="listingblock"><div class="title">Usual <code>conf.lua</code></div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">conf</span><span class="tok-p">(</span> <span class="tok-n">t</span> <span class="tok-p">)</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">identity</span>      <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">GtGLG&quot;</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">version</span>       <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">0.9.1&quot;</span>
 
@@ -371,29 +127,13 @@ everything you leave out will remain at it&#8217;s default value.
 
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">window</span><span class="tok-p">.</span><span class="tok-n">fsaa</span>   <span class="tok-o">=</span> <span class="tok-mi">4</span>
     <span class="tok-n">t</span><span class="tok-p">.</span><span class="tok-n">window</span><span class="tok-p">.</span><span class="tok-n">vsync</span>  <span class="tok-o">=</span> <span class="tok-kc">true</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_other_files"><a class="anchor" href="#_other_files"></a>Other files</h5>
-<div class="paragraph">
-<p>Everything else will need to be <code>require</code>d by <code>main.lua</code> in some way (direct or indirect).</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_images_animations_sounds_and_other_assets"><a class="anchor" href="#_images_animations_sounds_and_other_assets"></a>Images, Animations, Sounds and other Assets</h5>
-<div class="paragraph">
-<p>All of these files need to be somewhere in the project directory aswell.
-You will learn to load and draw or play these files throughout this World.</p>
-</div>
-<div class="paragraph">
-<p>Even though you can just have all the files in one directory, it is advised that
-you structure your files in a logical hierarchy, for example like this:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>- mygame/
+<span class="tok-k">end</span></code></pre></div></div></div>
+<div class="sect4"><h5 id="_other_files"><a class="anchor" href="#_other_files"></a>Other files</h5><div class="paragraph"><p>Everything else will need to be <code>require</code>d by <code>main.lua</code> in some way (direct or indirect).</p></div></div>
+<div class="sect4"><h5 id="_images_animations_sounds_and_other_assets"><a class="anchor" href="#_images_animations_sounds_and_other_assets"></a>Images, Animations, Sounds and other Assets</h5><div class="paragraph"><p>All of these files need to be somewhere in the project directory aswell.
+You will learn to load and draw or play these files throughout this World.</p></div>
+<div class="paragraph"><p>Even though you can just have all the files in one directory, it is advised that
+you structure your files in a logical hierarchy, for example like this:</p></div>
+<div class="literalblock"><div class="content"><pre>- mygame/
     + main.lua
     + conf.lua
     + lib/
@@ -408,146 +148,54 @@ you structure your files in a logical hierarchy, for example like this:</p>
             + impact.wav
             + menumusic.mp3
         + videos/
-            + intro.mp4</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="world1-3"><a class="anchor" href="#world1-3"></a>1.3. Starting Small</h3>
-<div class="paragraph">
-<p>Alright, now that we now the file structure, we can get started on the actual code.</p>
-</div>
-<div class="sect3">
-<h4 id="_drawing_circles"><a class="anchor" href="#_drawing_circles"></a>1.3.1. Drawing Circles</h4>
-<div class="paragraph">
-<p>In the <a href="#world1-2">last Level</a> we learned that our main code goes in a file called
-<code>main.lua</code> and that we are supposed to define <em>Callback Routines</em> there.</p>
-</div>
-<div class="paragraph">
-<p>A <em>Callback Routine</em> is nothing but a function with a specific name the LÖVE framework knows.
+            + intro.mp4</pre></div></div></div></div></div>
+<div class="sect2"><h3 id="world1-3"><a class="anchor" href="#world1-3"></a>World 1-3: Starting Small</h3><div class="paragraph"><p>Alright, now that we now the file structure, we can get started on the actual code.</p></div>
+<div class="sect3"><h4 id="_drawing_circles"><a class="anchor" href="#_drawing_circles"></a>Drawing Circles</h4><div class="paragraph"><p>In the <a href="#world1-2">last Level</a> we learned that our main code goes in a file called
+<code>main.lua</code> and that we are supposed to define <em>Callback Routines</em> there.</p></div>
+<div class="paragraph"><p>A <em>Callback Routine</em> is nothing but a function with a specific name the LÖVE framework knows.
 For example, whenever a key is pressed, LÖVE will attempt to call a function called <code>love.keypressed</code>.
 If you have not written than function (yet), the keypress will be ignored, but
-if you choose to write one, you can do something in reaction to that <em>Event</em>.</p>
-</div>
-<div class="paragraph">
-<p>One of the most important Callbacks is <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a>.
-As the name implies, this is where any drawing to the screen should take place.</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+if you choose to write one, you can do something in reaction to that <em>Event</em>.</p></div>
+<div class="paragraph"><p>One of the most important Callbacks is <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a>.
+As the name implies, this is where any drawing to the screen should take place.</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
   <span class="tok-c1">-- draw a sparkling unicorn</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Inside this function we can now draw everything we want the player to be able to see.
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="paragraph"><p>Inside this function we can now draw everything we want the player to be able to see.
 To get started, let&#8217;s draw a circle.
 To draw a circle, we will use the function <a href="https://love2d.org/wiki/love.graphics.circle"><code>love.graphics.circle</code></a>.
-Go and see what you can find on the wiki page now!</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><a href="https://love2d.org/wiki/love">The wiki</a> is <strong>the</strong> most important resource for programming in LÖVE.
-You can find information and examples for all available functions there.</p>
-</div>
-<div class="paragraph">
-<p>When you get stuck somewhere, first consult the wiki.
+Go and see what you can find on the wiki page now!</p></div>
+<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content"><div class="paragraph"><p><a href="https://love2d.org/wiki/love">The wiki</a> is <strong>the</strong> most important resource for programming in LÖVE.
+You can find information and examples for all available functions there.</p></div>
+<div class="paragraph"><p>When you get stuck somewhere, first consult the wiki.
 If you cannot find a solution there, <strong>search the forum</strong>. If you <em>still</em> do not find anything,
 start a new thread in the <strong>Support &amp; Development</strong> forum.
-Provide a clear, concise title and <em>be patient!</em></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>As you can see, <code>love.graphics.circle</code> accepts five parameters:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>mode, whether to <em>fill</em> or <em>stroke</em> the circle (<code>"line"</code> is used to stroke)</p>
-</li>
-<li>
-<p>x, the horizontal position of the circle&#8217;s center</p>
-</li>
-<li>
-<p>y, the vertical position</p>
-</li>
-<li>
-<p>radius, the circle&#8217;s radius (half of the width)</p>
-</li>
-<li>
-<p>segments, how detailed to draw the circle. This can be left out.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
-this is what we need to do:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+Provide a clear, concise title and <em>be patient!</em></p></div></td></tr></table></div>
+<div class="paragraph"><p>As you can see, <code>love.graphics.circle</code> accepts five parameters:</p></div>
+<div class="ulist"><ul><li><p>mode, whether to <em>fill</em> or <em>stroke</em> the circle (<code>"line"</code> is used to stroke)</p></li><li><p>x, the horizontal position of the circle&#8217;s center</p></li><li><p>y, the vertical position</p></li><li><p>radius, the circle&#8217;s radius (half of the width)</p></li><li><p>segments, how detailed to draw the circle. This can be left out.</p></li></ul></div>
+<div class="paragraph"><p>So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
+this is what we need to do:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">line&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
+<span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="1-3-circles-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":4,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":5,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,4,0,1,3,4,0,1,4,5,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,6,0,1,2,4,0,1,3,7,0,1,4,5,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","circle","fill",100,15,"line",120],"functions":[],"linePositions":[2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4],"locals":[],"upvalues":[]}],"linePositions":[1,4,1,4],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-3-circles-canvas") });</script></div>
-<div class="paragraph">
-<p>Quite similarly, we can also draw rectangles using <a href="https://love2d.org/wiki/love.graphics.rectangle"><code>love.graphics.rectangle</code></a>.
-The six parameters are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>mode, same as for <code>circle</code></p>
-</li>
-<li>
-<p>x, this time it is not the center position of the top-left corner</p>
-</li>
-<li>
-<p>y, again, relative to the top left corner</p>
-</li>
-<li>
-<p>width, the width of the rectangle being drawn</p>
-</li>
-<li>
-<p>height, the height of the rectangle</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Another function you will use in probably every game is <a href="https://love2d.org/wiki/love.graphics.setColor"><code>love.graphics.setColor</code></a>.
+<div class="paragraph"><p>Quite similarly, we can also draw rectangles using <a href="https://love2d.org/wiki/love.graphics.rectangle"><code>love.graphics.rectangle</code></a>.
+The six parameters are:</p></div>
+<div class="ulist"><ul><li><p>mode, same as for <code>circle</code></p></li><li><p>x, this time it is not the center position of the top-left corner</p></li><li><p>y, again, relative to the top left corner</p></li><li><p>width, the width of the rectangle being drawn</p></li><li><p>height, the height of the rectangle</p></li></ul></div>
+<div class="paragraph"><p>Another function you will use in probably every game is <a href="https://love2d.org/wiki/love.graphics.setColor"><code>love.graphics.setColor</code></a>.
 It accepts three numbers in the range of <code>0</code> to <code>255</code>, specifying the intensity
 of red, green and blue respectively.
-A fourth value, used as alpha (transparency) can optionally be supplied.</p>
-</div>
-<div class="paragraph">
-<p>The last drawing function for now is <a href="https://love2d.org/wiki/love.graphics.line"><code>love.graphics.line</code></a>.
-You can pass it four values, each representing the x and y values of a point.</p>
-</div>
-<div class="paragraph">
-<p>Putting it all together, we can draw a little stickman:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+A fourth value, used as alpha (transparency) can optionally be supplied.</p></div>
+<div class="paragraph"><p>The last drawing function for now is <a href="https://love2d.org/wiki/love.graphics.line"><code>love.graphics.line</code></a>.
+You can pass it four values, each representing the x and y values of a point.</p></div>
+<div class="paragraph"><p>Putting it all together, we can draw a little stickman:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>                 <span class="tok-c1">-- black</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">35</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">)</span>             <span class="tok-c1">-- left foot</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">35</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">)</span>             <span class="tok-c1">-- right foot</span>
@@ -557,93 +205,49 @@ You can pass it four values, each representing the x and y values of a point.</p
 
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>               <span class="tok-c1">-- red</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>        <span class="tok-c1">-- head</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
+<span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="1-3-stickman-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":11,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,7,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,9,0,1,2,6,0,1,3,10,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,3,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,1,1,13,0,1,2,14,0,1,3,14,0,1,4,5,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,271,1,1,13,0,1,2,16,0,1,3,17,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",255,"line",40,90,35,120,60,65,0,"rectangle","fill",30,"circle",50,20,15],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11],"locals":[],"upvalues":[]}],"linePositions":[1,11,1,11],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-3-stickman-canvas") });</script></div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Note how the head is in front of and the feet are behind the body
-because of the order we chose to draw them in.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>LÖVE provides a lot more drawing operations and related functions,
+<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">Note how the head is in front of and the feet are behind the body
+because of the order we chose to draw them in.</td></tr></table></div>
+<div class="paragraph"><p>LÖVE provides a lot more drawing operations and related functions,
 but for now we will stick with those above.
-You can find the whole list on the <a href="https://love2d.org/wiki/love.graphics"><code>wiki</code></a>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="world1-4"><a class="anchor" href="#world1-4"></a>1.4. Creating Motion</h3>
-<div class="paragraph">
-<p><a href="#world1-3">Last time</a> we managed to draw a terrible-looking stickman,
+You can find the whole list on the <a href="https://love2d.org/wiki/love.graphics"><code>wiki</code></a>.</p></div></div></div>
+<div class="sect2"><h3 id="world1-4"><a class="anchor" href="#world1-4"></a>World 1-4: Creating Motion</h3><div class="paragraph"><p><a href="#world1-3">Last time</a> we managed to draw a terrible-looking stickman,
 but he seemed rather&#8230;&#8203; lifeless.
-If we want to make a game, it might be a good idea to have things moving around.</p>
-</div>
-<div class="sect3">
-<h4 id="_a_ship"><a class="anchor" href="#_a_ship"></a>1.4.1. A Ship</h4>
-<div class="paragraph">
-<p>As we are working towards an Asteroids clone, let&#8217;s start out with a spaceship.
-Before we can make a spaceship move, we need a spaceship though:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+If we want to make a game, it might be a good idea to have things moving around.</p></div>
+<div class="sect3"><h4 id="_a_ship"><a class="anchor" href="#_a_ship"></a>A Ship</h4><div class="paragraph"><p>As we are working towards an Asteroids clone, let&#8217;s start out with a spaceship.
+Before we can make a spaceship move, we need a spaceship though:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">70</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
+<span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="1-4-ship-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":6,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,6,0,1,4,7,0,1,5,6,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,8,0,1,2,8,0,1,3,8,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,265,1,1,10,0,1,2,11,0,1,3,12,0,1,4,11,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",200,"rectangle","fill",20,100,80,"line",70,30,120],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6],"locals":[],"upvalues":[]}],"linePositions":[1,6,1,6],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-ship-canvas") });</script></div>
-<div class="paragraph">
-<p>I know, I know, that doesn&#8217;t look very aerodynamic.
+<div class="paragraph"><p>I know, I know, that doesn&#8217;t look very aerodynamic.
 But I&#8217;ll tell you what, there&#8217;s no air resistance in space anyway -
-at least there&#8217;s a line to indicate which direction we are facing.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_an_engine"><a class="anchor" href="#_an_engine"></a>1.4.2. An Engine</h4>
-<div class="paragraph">
-<p>Alright, so how do we make this thing move?
+at least there&#8217;s a line to indicate which direction we are facing.</p></div></div>
+<div class="sect3"><h4 id="_an_engine"><a class="anchor" href="#_an_engine"></a>An Engine</h4><div class="paragraph"><p>Alright, so how do we make this thing move?
 We will obviously need a variable to keep track of it&#8217;s current position.
-In fact we will be using two, one for each coordinate we are going to simulate the ship on:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
+In fact we will be using two, one for each coordinate we are going to simulate the ship on:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
 
 <span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Now we only need to change the values of <code>x</code> and <code>y</code> and the ship will follow.
-We could for example make them always point to the current mouse position:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="paragraph"><p>Now we only need to change the values of <code>x</code> and <code>y</code> and the ship will follow.
+We could for example make them always point to the current mouse position:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
 
 <span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
   <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">mouse</span><span class="tok-p">.</span><span class="tok-n">getPosition</span><span class="tok-p">()</span>
@@ -654,42 +258,30 @@ We could for example make them always point to the current mouse position:</p>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
+<span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="1-4-mousecontrol-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[1,0,2,0,1,1,2,0,7,1,1,0,7,0,0,0,5,0,3,0,36,1,0,0,9,0,260,1,5,0,3,0,36,1,1,0,9,0,261,1,30,0,1,0],"constants":["x","y",20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":3,"lastLineDefined":5,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":3,"instructions":[5,1,2,0,6,1,1,259,6,1,1,260,28,1,1,3,7,2,1,0,7,1,0,0,30,0,1,0],"constants":["x","y","love","mouse","getPosition"],"functions":[],"linePositions":[4,4,4,4,4,4,5],"locals":[{"varname":"dt","startpc":0,"endpc":6}],"upvalues":[]},{"sourceName":"","lineDefined":7,"lastLineDefined":12,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,5,3,7,0,1,4,8,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,10,0,1,2,10,0,1,3,10,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,267,5,1,6,0,12,1,1,265,5,2,7,0,12,2,2,268,5,3,6,0,12,3,3,264,5,4,7,0,12,4,4,268,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","x","y",100,20,200,"line",10],"functions":[],"linePositions":[8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,12],"locals":[],"upvalues":[]}],"linePositions":[1,1,1,1,3,5,3,7,12,7,12],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-mousecontrol-canvas") });</script></div>
-<div class="paragraph">
-<p>Wait, what happened here?
+<div class="paragraph"><p>Wait, what happened here?
 First of all, I introduced a new LÖVE callback: <a href="https://love2d.org/wiki/love.update"><code>love.update</code></a>.
 As the name implies, this is where we <em>update</em> the current game state.
-<code>love.update</code> is where things <em>happen</em>; This is where the player moves,
+<a href="https://love2d.org/wiki/love.update"><code>love.update</code></a> is where things <em>happen</em>; This is where the player moves,
 the enemies shoot and the lighting is calculated.
 One thing you might notice immediately is that unlike <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a>,
-<code>love.update</code> receives a parameter: <code>dt</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>dt</code> is short for <strong>d</strong>elta<strong>time</strong> (<em>time difference</em>).
-<code>dt</code> is always the time (in seconds) since the last time <code>love.update</code> was called.
-In this small example <code>dt</code> is not used, but it is very useful, as we will see later on.</p>
-</div>
-<div class="paragraph">
-<p>Secondly, another LÖVE function has come into play: <a href="https://love2d.org/wiki/love.mouse.getPosition"><code>love.mouse.getPosition</code></a>.
+<a href="https://love2d.org/wiki/love.update"><code>love.update</code></a> receives a parameter: <code>dt</code>.</p></div>
+<div class="paragraph"><p><code>dt</code> is short for <strong>d</strong>elta<strong>time</strong> (<em>time difference</em>).
+<code>dt</code> is always the time (in seconds) since the last time <a href="https://love2d.org/wiki/love.update"><code>love.update</code></a> was called.
+In this small example <code>dt</code> is not used, but it is very useful, as we will see later on.</p></div>
+<div class="paragraph"><p>Secondly, another LÖVE function has come into play: <a href="https://love2d.org/wiki/love.mouse.getPosition"><code>love.mouse.getPosition</code></a>.
 It should again be rather obvious what this function is doing for us;
-it returns the mouse&#8217;s current position along the x and y axis (in pixels).</p>
-</div>
-<div class="paragraph">
-<p>Alright, now things are moving, but in our game we don&#8217;t want the ship to be
+it returns the mouse&#8217;s current position along the x and y axis (in pixels).</p></div>
+<div class="paragraph"><p>Alright, now things are moving, but in our game we don&#8217;t want the ship to be
 controlled by the mouse.
 Also, with the current code players with a faster mouse would have an advantage,
 they could move around much more quickly.
-Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard controls:</p>
-</div>
-<div class="listingblock">
-<div class="title">main.lua</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard controls:</p></div>
+<div class="listingblock"><div class="title">main.lua</div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
   <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span>
   <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span>
 <span class="tok-p">}</span>
@@ -716,84 +308,64 @@ Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
+<span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="1-4-keyboard-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[10,0,0,2,9,0,257,258,9,0,259,258,7,0,0,0,1,0,5,0,7,0,4,0,5,0,6,0,36,1,0,0,9,0,263,1,5,0,6,0,36,1,1,0,9,0,264,1,30,0,1,0],"constants":["player","x",20,"y","SPEED",300,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":8,"lastLineDefined":21,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,12,2,2,3,9,1,265,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,10,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,13,2,2,3,9,1,265,2,30,0,1,0],"constants":["love","keyboard","isDown","right","player","x","SPEED","left","down","y","up"],"functions":[],"linePositions":[9,9,9,9,9,9,9,10,10,10,10,10,10,10,12,12,12,12,12,12,12,13,13,13,13,13,13,13,15,15,15,15,15,15,15,16,16,16,16,16,16,16,18,18,18,18,18,18,18,19,19,19,19,19,19,19,21],"locals":[{"varname":"dt","startpc":0,"endpc":56}],"upvalues":[]},{"sourceName":"","lineDefined":23,"lastLineDefined":28,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,6,2,2,263,5,3,6,0,6,3,3,264,1,4,9,0,1,5,10,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,5,1,6,0,6,1,1,263,12,1,1,266,5,2,6,0,6,2,2,264,12,2,2,269,5,3,6,0,6,3,3,263,12,3,3,265,5,4,6,0,6,4,4,264,12,4,4,269,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","player","x","y",100,20,200,"line",10],"functions":[],"linePositions":[24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,28],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,6,6,8,21,8,23,28,23,28],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-4-keyboard-canvas") });</script></div>
-<div class="paragraph">
-<p>Great, let&#8217;s go through the changes:
+<div class="paragraph"><p>Great, let&#8217;s go through the changes:
 You can immediately see that <code>x</code> and <code>y</code> have disappeared,
 instead there is now a table called <code>player.</code>
 <code>player</code> stores the position under the keys <code>"x"</code> and <code>"y"</code>,
 so nothing has really changed except the varible names are longer,
 but I have done this so our code stays readable as we progress;
-As we add enemies and bullets we will need to keep track of a lot more `x`s and `y`s.</p>
-</div>
-<div class="paragraph">
-<p>As we can see, I have also added a new variable called <code>SPEED</code>.
+As we add enemies and bullets we will need to keep track of a lot more `x`s and `y`s.</p></div>
+<div class="paragraph"><p>As we can see, I have also added a new variable called <code>SPEED</code>.
 <code>SPEED</code> is never changed in the code, so I could&#8217;ve also replaced every occurence
 further down with it&#8217;s value, <code>300</code> right away.
 However keeping it at the top like this makes it easy to modify the speed,
 also I cannot forget to modify it in all the places should I change it some time.
 <code>SPEED</code> is uppercased because I use this style to name constant values,
-but this is just a stylistic choice by me.</p>
-</div>
-<div class="paragraph">
-<p>Now on to the actual keyboard code!
+but this is just a stylistic choice by me.</p></div>
+<div class="paragraph"><p>Now on to the actual keyboard code!
 There is another new LÖVE function used here: <a href="https://love2d.org/wiki/love.keyboard.isDown"><code>love.keyboard.isDown</code></a>.
 Once again the name should make the purpose of the function very clear,
 you should start to see a pattern here.
-<code>love.keyboard.isDown</code> checks if the key given is down.
+<a href="https://love2d.org/wiki/love.keyboard.isDown"><code>love.keyboard.isDown</code></a> checks if the key given is down.
 In LÖVE keys are identified by a string,
 in this example we are using <code>"up"</code>, <code>"down"</code> etc., but there are many more.
-You can view a table of all the keys on the wiki: <a href="https://love2d.org/wiki/KeyConstant"><code>KeyConstant</code></a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="world2"><a class="anchor" href="#world2"></a>2. World 2: The Redo</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>So that was <a href="#world1">World 1: The Prototype</a>. In the last few levels we went from our idea to an actual playable game&#8230;&#8203; so what&#8217;s left to do?</p>
-</div>
-<div class="paragraph">
-<p>Well, it turns out there is <em>a lot!</em></p>
-</div>
-<div class="paragraph">
-<p>Even though the game so far is perfectly playable, some of the code has gotten messy during the development process.
+You can view a table of all the keys on the wiki: <a href="https://love2d.org/wiki/KeyConstant"><code>KeyConstant</code></a>.</p></div>
+<div class="paragraph"><p>Using <code>if</code> and <a href="https://love2d.org/wiki/love.keyboard.isDown"><code>love.keyboard.isDown</code></a> we add or substract <code>SPEED * dt</code> from the fitting coordinates,
+when the <em>left</em> key is pressed, we substract from <code>player.x</code>;
+when <em>down</em> is pressed we add to the y-coordinate.</p></div>
+<div class="paragraph"><p>Now, why do we multiply <code>SPEED</code> with <code>dt</code>?
+As I said above, the time step between each <a href="https://love2d.org/wiki/love.update"><code>love.update</code></a> execution may vary;
+for example a scene that has to draw a lot of enemies might take longer do draw
+than one that just features a few.
+Other factors like the power of the graphics card and processor
+or how busy the computer is with other things might also impact the updaterate.</p></div>
+<div class="paragraph"><p>It is important that we care about this,
+a game that runs twice as fast on better hardware is unacceptable.
+By multiplying with <code>dt</code> we can scale the speed by the time that we are actually simulating.</p></div>
+<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">This means we are also always "lagging a frame behind" in update-time,
+but that doesn&#8217;t really make a difference in practice.</td></tr></table></div>
+<div class="paragraph"><p>Because <code>dt</code> is measured in seconds, it also makes specifying movement speeds
+etc. very convenient, <code>SPEED</code> is now measured in <strong>pixels per second</strong>. This gives
+it a workable size and something you can think about; if we had not used <code>dt</code> we
+would have to deal with tiny values in <strong>pixels per frame</strong>.</p></div></div></div></div>
+<div class="sect1"><h2 id="world2"><a class="anchor" href="#world2"></a>World 2: The Redo</h2><div class="sectionbody"><div class="paragraph"><p>So that was <a href="#world1">The Prototype</a>. In the last few levels we went from our idea to an actual playable game&#8230;&#8203; so what&#8217;s left to do?</p></div>
+<div class="paragraph"><p>Well, it turns out there is <em>a lot!</em></p></div>
+<div class="paragraph"><p>Even though the game so far is perfectly playable, some of the code has gotten messy during the development process.
 Also we haven&#8217;t added any real art, sound effects or menu yet - everything that makes your game visually appealing to users is missing.
-This is because in <a href="#world1">World 1: The Prototype</a> we only created a <em>prototype</em>, a smaller version of the game to explore the concepts we want to be in our final game.
+This is because in <a href="#world1">The Prototype</a> we only created a <em>prototype</em>, a smaller version of the game to explore the concepts we want to be in our final game.
 Now it&#8217;s time to take a step further and build <strong>the <em>actual</em> game</strong>&#8230;&#8203;<br>
-So lets <strong>redo</strong> this thing!</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="world3"><a class="anchor" href="#world3"></a>3. World 3: The Cookbook</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="world3-"><a class="anchor" href="#world3-"></a>3.1. Object Pools</h3>
-<div class="paragraph">
-<p><code>Object Pools</code> are one of the most widely used game development concepts used throughout all sorts of games.
-The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.</p>
-</div>
-<div class="sect3">
-<h4 id="_the_basics"><a class="anchor" href="#_the_basics"></a>3.1.1. The Basics</h4>
-<div class="paragraph">
-<p>Imagine we are working on a Galaga-type fixed shooter. Every frame we have to simulate and draw all the enemies and the player.
-There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in <code>love.draw</code> and updated in <code>love.update</code>.
-We also need to handle all the bullets flying around.</p>
-</div>
-<div class="paragraph">
-<p>The simples way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+So lets <strong>redo</strong> this thing!</p></div></div></div>
+<div class="sect2"><h3 id="world3"><a class="anchor" href="#world3"></a>World 3: The Cookbook</h3><div class="sect2"><h3 id="world3-"><a class="anchor" href="#world3-"></a>World 3-1: Object Pools</h3><div class="paragraph"><p><code>Object Pools</code> are one of the most widely used game development concepts used throughout all sorts of games.
+The basic concept is very simple: when you have a lot of similar items, then handle them all at once instead of one by one.</p></div>
+<div class="sect3"><h4 id="_the_basics"><a class="anchor" href="#_the_basics"></a>The Basics</h4><div class="paragraph"><p>Imagine we are working on a Galaga-type fixed shooter. Every frame we have to simulate and draw all the enemies and the player.
+There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a> and updated in <code>love.update</code>.
+We also need to handle all the bullets flying around.</p></div>
+<div class="paragraph"><p>The simples way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
 <span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">20</span> <span class="tok-k">do</span>
   <span class="tok-nb">table.insert</span><span class="tok-p">(</span><span class="tok-n">objects</span><span class="tok-p">,</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">())</span>
 <span class="tok-k">end</span>
@@ -814,27 +386,16 @@ We also need to handle all the bullets flying around.</p>
     <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
   <span class="tok-k">end</span>
   <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<ol>
-<li>
-<p><code>_</code> here is just a varible name, but it is a common convention to use it for any value we do not care about</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>So far, so obvious. But what happens when we need to remove things?
-Whenever the player shoots an enemy down, we will have to remove it from <code>objects</code> so we don&#8217;t use up all of the PCs memory in a matter of minutes.
-The problem with using <code>table.remove()</code> is that it will update all the indices, so that we can continue iterating over the list (which is a good thing), but because of this we will skip the next enemy, which is inacceptable.</p>
-</div>
-<div class="paragraph">
-<p>The simplest solution iterating in reverse:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-c1">-- rest as above</span>
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="colist arabic"><ol><li><p><code>_</code> here is just a varible name, but it is a common convention to use it for any value we do not care about</p></li></ol></div>
+<div class="paragraph"><p>So far, so obvious. But what happens when we need to remove things?
+Whenever the player shoots an enemy down,
+we will have to remove it from <code>objects</code> so we don&#8217;t use up all of the PCs memory in a matter of minutes.
+The problem with using <code>table.remove()</code> is that it will update all the indices,
+so that we can continue iterating over the list (which is a good thing),
+but because of this we will skip the next enemy, which is inacceptable.</p></div>
+<div class="paragraph"><p>The simplest solution iterating in reverse:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-c1">-- rest as above</span>
 <span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
   <span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=#</span><span class="tok-n">objects</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">1</span> <span class="tok-k">do</span> <b class="conum">(1)</b>
     <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
@@ -843,29 +404,13 @@ The problem with using <code>table.remove()</code> is that it will update all th
     <span class="tok-k">end</span>
   <span class="tok-k">end</span>
   <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<ol>
-<li>
-<p>because we iterate in reverse, we need to use a numeric for</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>This is a good start, but let&#8217;s take it a step further.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sets"><a class="anchor" href="#_sets"></a>3.1.2. Sets</h4>
-<div class="paragraph">
-<p>Sets, in mathematics, are a like a bag of objects; the objects don&#8217;t have any order, nor names or labels associated with them.
-In Lua Sets are usually implemented as tables where key and value are the same:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="colist arabic"><ol><li><p>because we iterate in reverse, we need to use a numeric for</p></li></ol></div>
+<div class="paragraph"><p>This is a good start, but let&#8217;s take it a step further.</p></div></div>
+<div class="sect3"><h4 id="_sets"><a class="anchor" href="#_sets"></a>Sets</h4><div class="paragraph"><p>Sets, in mathematics, are a like a bag of objects; the objects don&#8217;t have any order,
+nor names or labels associated with them.
+In Lua Sets are usually implemented as tables where key and value are the same:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
 <span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
   <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
   <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <b class="conum">(1)</b>
@@ -881,31 +426,15 @@ In Lua Sets are usually implemented as tables where key and value are the same:<
     <span class="tok-n">o</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
   <span class="tok-k">end</span>
   <span class="tok-n">player</span><span class="tok-p">:</span><span class="tok-n">draw</span><span class="tok-p">()</span>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<ol>
-<li>
-<p>table index and value are both the enemy object itself</p>
-</li>
-<li>
-<p>we now need to use <code>pairs()</code> instead of <code>ipairs()</code></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You might ask what advantage this might have over a simple list. After all we lost the ability to order the objects!
-One advantage of handling the list like this is that we now only have to care about the objects themselves; whether we change, delete or add objects, we never have to know, let alone search for, the index of that object.
-This means that we can now delete objects from basically everywhere in code (though that generally may hurt your code structure).</p>
-</div>
-<div class="paragraph">
-<p>Another cool thing about this way of handling Sets is that we can actually add labels to <strong>some</strong> objects in the table if we want to.
-For example there is no need to treat the player as an exception anymore:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="colist arabic"><ol><li><p>table index and value are both the enemy object itself</p></li><li><p>we now need to use <code>pairs()</code> instead of <code>ipairs()</code></p></li></ol></div>
+<div class="paragraph"><p>You might ask what advantage this might have over a simple list. After all we lost the ability to order the objects!
+One advantage of handling the list like this is that we now only have to care about the objects themselves;
+whether we change, delete or add objects, we never have to know, let alone search for, the index of that object.
+This means that we can now delete objects from basically everywhere in code (though that generally may hurt your code structure).</p></div>
+<div class="paragraph"><p>Another cool thing about this way of handling Sets is that we can actually add labels to <strong>some</strong> objects in the table if we want to.
+For example there is no need to treat the player as an exception anymore:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">objects</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
 <span class="tok-k">for</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">10</span> <span class="tok-k">do</span>
   <span class="tok-kd">local</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">Enemy</span><span class="tok-p">.</span><span class="tok-n">new</span><span class="tok-p">()</span>
   <span class="tok-n">objects</span><span class="tok-p">[</span><span class="tok-n">n</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">n</span>
@@ -930,86 +459,19 @@ For example there is no need to treat the player as an exception anymore:</p>
 
 <span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">keypressed</span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-p">)</span>
   <span class="tok-n">object</span><span class="tok-p">.</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">handleKey</span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-p">)</span> <b class="conum">(3)</b>
-<span class="tok-k">end</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<ol>
-<li>
-<p>the player is now just yet another <code>object</code></p>
-</li>
-<li>
-<p>we do not need to treat the player seperately anymore</p>
-</li>
-<li>
-<p>yet we can still access him easily wherever we need to</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-When you start adding entries that use "custom" keys, make sure you are operating on the value (the second loop parameter) when interating with <code>pairs()</code>!
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_wrapping_up"><a class="anchor" href="#_wrapping_up"></a>3.1.3. Wrapping up</h4>
-<div class="paragraph">
-<p>As always, this concept is explained here on a very small scale.
+<span class="tok-k">end</span></code></pre></div></div>
+<div class="colist arabic"><ol><li><p>the player is now just yet another <code>object</code></p></li><li><p>we do not need to treat the player seperately anymore</p></li><li><p>yet we can still access him easily wherever we need to</p></li></ol></div>
+<div class="admonitionblock warning"><table><tr><td class="icon"><div class="title">Warning</div></td><td class="content">When you start adding entries that use "custom" keys,
+make sure you are operating on the value (the second loop parameter) when interating with <code>pairs()</code>!</td></tr></table></div></div>
+<div class="sect3"><h4 id="_wrapping_up"><a class="anchor" href="#_wrapping_up"></a>Wrapping up</h4><div class="paragraph"><p>As always, this concept is explained here on a very small scale.
 In an actual game project you would usually need multiple object pools for different things or layers.
-Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter, so these small tricks might still be valuable information to you.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_license"><a class="anchor" href="#_license"></a>4. License</h2>
-<div class="sectionbody">
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Find consensus on a license
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_libraries_tools"><a class="anchor" href="#_libraries_tools"></a>4.1. Libraries &amp; Tools</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/asciidoctor/asciidoctor">AsciiDoctor</a> renders this book</p>
-</li>
-<li>
-<p><a href="http://moonshinejs.org/">Moonshine</a> and</p>
-</li>
-<li>
-<p><a href="https://github.com/TannerRogalsky/punchdrunk">punchdrunk</a> by Tanner Rogalsky make LÖVE run in <strong>your</strong> browser</p>
-</li>
-<li>
-<p>&#8230;&#8203;as does of course <a href="https://love2d.org/">LÖVE</a>, which this book is all about</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>wherever not listed above, these are licensed under the MIT License:</p>
-</div>
-<div class="literalblock">
-<div class="title">The MIT License</div>
-<div class="content">
-<pre>Copyright (C) held by the respective authors, see the LICENSEs in the links provided above
+Still, Sets and Object Pools are going to be a building block of more or less every game you will ever encounter,
+so these small tricks might still be valuable information to you.</p></div></div></div></div>
+<div class="sect2"><h3 id="_license"><a class="anchor" href="#_license"></a>World 4: License</h3><div class="admonitionblock important"><table><tr><td class="icon"><div class="title">Important</div></td><td class="content">Find consensus on a license</td></tr></table></div>
+<div class="sect2"><h3 id="_libraries_tools"><a class="anchor" href="#_libraries_tools"></a>World 4-1: Libraries &amp; Tools</h3><div class="ulist"><ul><li><p><a href="https://github.com/asciidoctor/asciidoctor">AsciiDoctor</a> renders this book</p></li><li><p><a href="http://moonshinejs.org/">Moonshine</a> and</p></li><li><p><a href="https://github.com/TannerRogalsky/punchdrunk">punchdrunk</a> by Tanner Rogalsky make LÖVE run in <strong>your</strong> browser</p></li><li><p>&#8230;&#8203;as does of course <a href="https://love2d.org/">LÖVE</a>, which this book is all about</p></li></ul></div>
+<div class="paragraph"><p>wherever not listed above, these are licensed under the MIT License:</p></div>
+<div class="literalblock"><div class="title">The MIT License</div>
+<div class="content"><pre>Copyright (C) held by the respective authors, see the LICENSEs in the links provided above
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1027,17 +489,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="footer">
-<div id="footer-text">
-Last updated 2015-04-17 01:05:49 CEST
-</div>
-</div>
-</body>
-</html>
+SOFTWARE.</pre></div></div></div></div></div><div id="footer"><div id="footer-text"><br>Last updated 2015-05-07 01:47:17 CEST</div></div></body></html>
