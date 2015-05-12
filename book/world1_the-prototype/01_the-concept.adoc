@@ -21,6 +21,7 @@ Alright, from these few rules we can already extract some things that we will ne
 
 Next, let's see what each of these do or can do:
 
+[[world1-1-spaceship]]
 ==== The Spaceship
 The spaceship is the main thing the player can control in our game.
 The player can use two keys to accelerate or decelerate in the direction the ship
@@ -31,7 +32,7 @@ When the spaceships leaves the screen on one side, it will enter from the opposi
 keeping it's velocity.
 
 We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.
-In <<world1-4, World 1-4>> we will see that the actual way of saving the information
+In <<world1-5, World 1-5>> we will see that the actual way of saving the information
 we use differs, but we could as well do with this "definition".
 
 ==== The Asteroids

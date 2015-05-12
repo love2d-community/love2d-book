@@ -23,6 +23,7 @@ include::world1_the-prototype/01_the-concept.adoc[]
 include::world1_the-prototype/02_the-tools.adoc[]
 include::world1_the-prototype/03_starting-small.adoc[]
 include::world1_the-prototype/04_creating-motion.adoc[]
+include::world1_the-prototype/05_better-steering.adoc[]
 
 include::world2.adoc[]
 

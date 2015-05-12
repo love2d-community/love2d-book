@@ -136,9 +136,9 @@ end
 
 function love.draw()
   love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", x, y, 100, 20)
+  love.graphics.rectangle("fill", player.x, player.y, 100, 20)
   love.graphics.setColor(200, 200, 200)
-  love.graphics.line(x+20, y+10, x+100, y+10)
+  love.graphics.line(player.x+20, player.y+10, player.x+100, player.y+10)
 end
 ----
 
