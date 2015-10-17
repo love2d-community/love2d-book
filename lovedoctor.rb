@@ -77,6 +77,17 @@ Asciidoctor::Extensions.register do
   end
 
   inline_macro LoveWikiMacro
+
+  include_processor do
+    process do |doc, reader, target, attributes|
+      reader.push_include File.read(File.join(doc.base_dir, 'code', target)), target, target, 1, attributes
+      reader
+    end
+
+    def handles? target
+      target =~ %r(world[1-3]/.*/)
+    end
+  end
 end
 
 if __FILE__ == $0

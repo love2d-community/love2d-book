@@ -88,33 +88,10 @@ Putting it all together, we can draw a little stickman:
 .main.lua
 [source,lua]
 ----
-function love.draw()
-  love.graphics.setColor(0, 0, 0)                 -- black
-  love.graphics.line(40, 80, 35, 100)             -- left foot
-  love.graphics.line(40, 80, 35, 100)             -- right foot
-
-  love.graphics.setColor(0, 255, 0)               -- green
-  love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
-
-  love.graphics.setColor(255, 0, 0)               -- red
-  love.graphics.circle("fill", 50, 20, 15)        -- head
-end
+include::world1/01/stickman/main.lua[]
 ----
 
-[livecode,1-3-stickman]
-++++
-function love.draw()
-  love.graphics.setColor(255, 255, 255)           -- white
-  love.graphics.line(40, 90, 35, 120)             -- left foot
-  love.graphics.line(60, 90, 65, 120)             -- right foot
-
-  love.graphics.setColor(0, 255, 0)               -- green
-  love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
-
-  love.graphics.setColor(255, 0, 0)               -- red
-  love.graphics.circle("fill", 50, 20, 15)        -- head
-end
-++++
+livecode::world1/01/stickman[]
 
 [NOTE]
 Note how the head is in front of and the feet are behind the body
