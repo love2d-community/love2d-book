@@ -5,6 +5,7 @@ A little realism would be nice though, spaceships don't really fly like that.
 It is time too look back to <<world1-1-spaceship, World 1-1>> and look at our notes for the spaceship:
 
 [quote,"World 1-1, The Spaceship"]
+____
 The spaceship is the main thing the player can control in our game.
 The player can use two keys to accelerate or decelerate in the direction the ship
 is currently facing. He can also turn the spaceship with two other keys.
@@ -16,6 +17,7 @@ keeping it's velocity.
 We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.
 in <<world1-4, World 1-5>> we will see that the actual way of saving the information
 we use differs, but we could as well do with this "definition".
+____
 
 Okay, so let's get to work:
 
@@ -43,7 +45,7 @@ function love.update(dt)
     -- decelerate / accelerate backwards
   end
   if love.keyboard.isDown"up" then
-    -- acellerate
+    -- accelerate
   end
 end
 
@@ -57,7 +59,7 @@ function love.draw()
 end
 ----
 
-[livecode,1-4-keyboard]
+[livecode,1-5-rotation]
 ++++
 player = {
   x = 150,
@@ -84,7 +86,7 @@ function love.update(dt)
     -- (left out for now)
   end
   if love.keyboard.isDown"up" then
-    -- acellerate
+    -- accelerate
     -- (left out for now)
   end
 end
@@ -106,7 +108,7 @@ We now store values for `xvel`, `yvel` and `rotation` in our `player` table.
 This is important so that the rotation looks realistic and the physics we introduce later work as expected.
 
 To draw the spaceship, we now use two new functions:
-wiki:love.graphics.translate[] and love.graphics.rotate[].
+wiki:love.graphics.translate[] and wiki:love.graphics.rotate[].
 
 Using them is pretty straight-forward, wiki:love.graphics.translate[]
 moves everything that is drawn after it is called by the amount in `x` and `y`,
@@ -117,14 +119,127 @@ but these will do for now.
 
 Note the order in which we call them, it is very important for the correct result!
 You can try this by yourself: starting from the same point,
-try rotating 90° to the left, then walking two steps once, then the other way around.
+try rotating 90° to the left, then walking two steps,
+then do those two movements in the opposite order.
 You will end up in two different places.
 
-Our new wiki:love.update[] is also really easy for now, we just modify `rotation`.
-I have introduced a new constant `ANGACCEL` (**ang**ular **accel**eration),
-this is the angle that it should turn per second, note the use of `dt`,
+Our new wiki:love.update[] is also really simple for now, we just modify `rotation`.
+I have introduced a new constant `ANGACCEL` (**ang**ular **accel**eration).
+This is the angle that it should turn per second, note the use of `dt`,
 just like in <<world1-4, World 1-4>>.
 
 Okay, so what about `xvel` and `yvel`? I skipped the actual __move__ment above,
 but those are the **vel**ocities along the x- and y-axis.
-We will store them seperately so that the player can drift around.
+We will store them seperately so that the player can drift around
+(if we only stored the total velocity and assumed that it was always pointing
+the same way the ship does then it would behave more like a car, with full traction).
+
+To implement those two left-out pieces of code we need some very basic trigonometry.
+When the `up` key is pressed, we want to add velocity in the direction the ship
+is currently pointing. When we press `down` the opposite should happen.
+
+We will need to use `math.sin` and `math.cos` to calculate the parts of the
+acceleration that apply to each axis, based on the angle the ship is rotated to:
+
+.main.lua
+[source,lua]
+----
+player = {
+  x = 150,
+  y = 150,
+  xvel = 0,
+  yvel = 0,
+  rotation = 0
+}
+
+local ANGACCEL      = 4
+local ACCELERATION  = 400
+
+function love.update(dt)
+  if love.keyboard.isDown"right" then
+    -- rotate clockwise
+    player.rotation = player.rotation + ANGACCEL*dt
+  end
+  if love.keyboard.isDown"left" then
+    -- rotate counter-clockwise
+    player.rotation = player.rotation - ANGACCEL*dt
+  end
+  if love.keyboard.isDown"down" then
+    -- decelerate / accelerate backwards
+    player.xvel = player.xvel - ACCELERATION*dt * math.cos(player.rotation)
+    player.yvel = player.yvel - ACCELERATION*dt * math.sin(player.rotation)
+  end
+  if love.keyboard.isDown"up" then
+    -- accelerate
+    player.xvel = player.xvel + ACCELERATION*dt * math.cos(player.rotation)
+    player.yvel = player.yvel + ACCELERATION*dt * math.sin(player.rotation)
+  end
+  player.x = player.x + player.xvel*dt
+  player.y = player.y + player.yvel*dt
+  player.xvel = player.xvel * 0.99
+  player.yvel = player.yvel * 0.99
+end
+
+function love.draw()
+  love.graphics.setColor(80, 80, 80)
+  love.graphics.translate(player.x, player.y)
+  love.graphics.rotate(player.rotation)
+  love.graphics.rectangle("fill", -50, -10, 100, 20)
+  love.graphics.setColor(200, 200, 200)
+  love.graphics.line(20, 0, 50, 0)
+end
+----
+
+[NOTE]
+Note how again `ACCELERATION` is multiplied by `dt` before being scaled by
+`math.cos` and `math.sin` for the corresponding axis.
+
+This already feels a lot like Asteroids!
+
+[livecode,1-5-accel]
+++++
+player = {
+  x = 150,
+  y = 150,
+  xvel = 0,
+  yvel = 0,
+  rotation = 0
+}
+
+local ANGACCEL      = 4
+local ACCELERATION  = 400
+
+function love.update(dt)
+  if love.keyboard.isDown"right" then
+    -- rotate clockwise
+    player.rotation = player.rotation + ANGACCEL*dt
+  end
+  if love.keyboard.isDown"left" then
+    -- rotate counter-clockwise
+    player.rotation = player.rotation - ANGACCEL*dt
+  end
+  if love.keyboard.isDown"down" then
+    -- decelerate / accelerate backwards
+    player.xvel = player.xvel - ACCELERATION*dt * math.cos(player.rotation)
+    player.yvel = player.yvel - ACCELERATION*dt * math.sin(player.rotation)
+  end
+  if love.keyboard.isDown"up" then
+    -- accelerate
+    player.xvel = player.xvel + ACCELERATION*dt * math.cos(player.rotation)
+    player.yvel = player.yvel + ACCELERATION*dt * math.sin(player.rotation)
+  end
+  player.x = player.x + player.xvel*dt
+  player.y = player.y + player.yvel*dt
+  player.xvel = player.xvel * 0.99
+  player.yvel = player.yvel * 0.99
+end
+
+function love.draw()
+  love.graphics.setColor(80, 80, 80)
+  love.graphics.translate(player.x, player.y)
+  love.graphics.rotate(player.rotation)
+  love.graphics.rectangle("fill", -50, -10, 100, 20)
+  love.graphics.setColor(200, 200, 200)
+  love.graphics.line(20, 0, 50, 0)
+end
+++++
