@@ -7,11 +7,10 @@ Code, Images, Sound and Video files and everything else you might need.
 
 
 ===== Code
-Obviously, a game contains code. LÖVE Games are programmed in Lua, which you should be familiar with already.
+Obviously, a game contains code.
+LÖVE Games are programmed in Lua, which you should be familiar with already.
 Generally Lua Source Files (`.lua`) can lay around anywhere in the project
-directory and have arbitrary names... except for two special ones:
-* main.lua
-* conf.lua
+directory and have arbitrary names... except for two special ones: `main.lua` and `conf.lua`.
 
 These two are the only files that the LÖVE Framework runs; they are the starting
 points of every game or project you build.
@@ -25,7 +24,8 @@ For smaller projects and the next levels in this book this will be the only file
 
 ===== conf.lua
 _conf_ is short for **Conf**iguration, and thats what `conf.lua` is all about.
-You can fill this file with a function called `love.conf( t )` that accepts a table as it's only parameter.
+You can fill this file with a function called wiki:love.conf["love.conf( t )"]
+that accepts a table as it's only parameter.
 In that function you can then modify certain fields of the table and thereby
 change the configuration the LÖVE Framework uses when it first creates your window.
 

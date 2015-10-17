@@ -7,7 +7,7 @@ In the <<world1-2, last Level>> we learned that our main code goes in a file cal
 `main.lua` and that we are supposed to define _Callback Routines_ there.
 
 A _Callback Routine_ is nothing but a function with a specific name the LÖVE framework knows.
-For example, whenever a key is pressed, LÖVE will attempt to call a function called `love.keypressed`.
+For example, whenever a key is pressed, LÖVE will attempt to call a function called wiki:love.keypressed[].
 If you have not written than function (yet), the keypress will be ignored, but
 if you choose to write one, you can do something in reaction to that _Event_.
 
@@ -38,7 +38,7 @@ start a new thread in the *Support & Development* forum.
 Provide a clear, concise title and _be patient!_
 --
 
-As you can see, `love.graphics.circle` accepts five parameters:
+As you can see, wiki:love.graphics.circle[] accepts five parameters:
 
 - mode, whether to _fill_ or _stroke_ the circle (`"line"` is used to stroke)
 - x, the horizontal position of the circle's center
