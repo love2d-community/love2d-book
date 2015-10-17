@@ -85,11 +85,7 @@ You can pass it four values, each representing the x and y values of a point.
 
 Putting it all together, we can draw a little stickman:
 
-.main.lua
-[source,lua]
-----
-include::world1/01/stickman/main.lua[]
-----
+code_example::world1/01/stickman[]
 
 livecode::world1/01/stickman[]
 

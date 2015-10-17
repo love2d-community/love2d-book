@@ -6,6 +6,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'asciidoctor-pdf'
 require 'asciidoctor'
 require 'asciidoctor/extensions'
+require 'asciidoctor/abstract_block'
 
 class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
   use_dsl
@@ -29,7 +30,7 @@ Asciidoctor::Extensions.register do
 
     process do |parent, reader, attrs|
       res = ""
-      preload = ( attrs.delete('preload') || '').split(',')
+      preload = (attrs.delete('preload') || '').split(',')
       name    = attrs.delete('name')
       res = %(
 <div class="preload">#{(preload.map do |n| %(<img src="assets/#{name+"/"+n}" />) end).join("\n")}</div>
@@ -42,14 +43,14 @@ Asciidoctor::Extensions.register do
           file = %(tmp/#{spl[0]})
           names << file
           File.open(file, 'w') do |f|
-            f.write( spl.drop(1).join("\n") )
+            f.write(spl.drop(1).join("\n"))
           end
         end
         game_json = %x{node_modules/.bin/moonshine distil #{names.join(' ')}}
         res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
       else
         File.open('tmp/file.lua', 'w') do |f|
-          f.write( reader.read )
+          f.write(reader.read)
         end
         game_json = %x{node_modules/.bin/moonshine distil tmp/file.lua}
         res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
@@ -66,7 +67,7 @@ Asciidoctor::Extensions.register do
     process do |parent, target, attrs|
       res = ""
       preload = ( attrs.delete('preload') || '').split(',')
-      name = attrs.delete( 'name' ) || target
+      name = attrs.delete('name') || target
       res = %(
 <div class="preload">#{(preload.map do |n| %(<img src="assets/#{target+"/"+n}" />) end).join("\n")}</div>
 <canvas id="#{name}-canvas"></canvas>)
@@ -76,7 +77,31 @@ Asciidoctor::Extensions.register do
     end
   end
 
-  inline_macro LoveWikiMacro
+  block_macro do
+    named :code_example
+
+    parse_content_as :raw
+
+    process do |parent, target, attrs|
+      code_dir = File.join(parent.document.base_dir, 'code', target)
+
+      exclude = (attrs.delete('exclude') || 'lib/*').split(',')
+      include = (attrs.delete('include') || '**/*.lua').split(',')
+
+      include.map! {|pat| Dir.glob(File.join(code_dir, pat)) }
+      exclude.map! {|pat| Dir.glob(File.join(code_dir, pat)) }
+
+      res = create_open_block parent, "", attrs, content_model: :compound
+      attrs['language'] = attrs['language'] || 'lua'
+      (include.inject(&:+) - exclude.inject(&:+)).each do |file|
+        block = create_listing_block res, File.read(file), attrs
+        block.style = "source"
+        block.title = File.basename(file)
+        res << block
+      end
+      res
+    end
+  end
 
   include_processor do
     process do |doc, reader, target, attributes|
@@ -88,6 +113,8 @@ Asciidoctor::Extensions.register do
       target =~ %r(world[1-3]/.*/)
     end
   end
+
+  inline_macro LoveWikiMacro
 end
 
 if __FILE__ == $0
