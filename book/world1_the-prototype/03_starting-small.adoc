@@ -85,9 +85,8 @@ You can pass it four values, each representing the x and y values of a point.
 
 Putting it all together, we can draw a little stickman:
 
-code_example::world1/01/stickman[]
-
-livecode::world1/01/stickman[]
+code_example::world1/03_starting-small/stickman[]
+livecode::world1/03_starting-small/stickman[]
 
 [NOTE]
 Note how the head is in front of and the feet are behind the body

@@ -8,26 +8,8 @@ If we want to make a game, it might be a good idea to have things moving around.
 As we are working towards an Asteroids clone, let's start out with a spaceship.
 Before we can make a spaceship move, we need a spaceship though:
 
-.main.lua
-[source,lua]
-----
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", 20, 20, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(70, 30, 120, 30)
-end
-----
-
-[livecode,1-4-ship]
-++++
-function love.draw()
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.rectangle("fill", 20, 20, 100, 20)
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.line(70, 30, 120, 30)
-end
-++++
+code_example::world1/04_creating-motion/a-ship[]
+livecode::world1/04_creating-motion/a-ship[]
 
 I know, I know, that doesn't look very aerodynamic.
 But I'll tell you what, there's no air resistance in space anyway -
@@ -54,38 +36,8 @@ end
 Now we only need to change the values of `x` and `y` and the ship will follow.
 We could for example make them always point to the current mouse position:
 
-.main.lua
-[source,lua]
-----
-x, y = 20, 20
-
-function love.update(dt)
-  x, y = love.mouse.getPosition()
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", x, y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(x+20, y+10, x+100, y+10)
-end
-----
-
-[livecode,1-4-mousecontrol]
-++++
-x, y = 20, 20
-
-function love.update(dt)
-  x, y = love.mouse.getPosition()
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", x, y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(x+20, y+10, x+100, y+10)
-end
-++++
+code_example::world1/04_creating-motion/an-engine[]
+livecode::world1/04_creating-motion/an-engine[]
 
 Wait, what happened here?
 First of all, I introduced a new LÖVE callback: wiki:love.update[].
@@ -103,76 +55,15 @@ Secondly, another LÖVE function has come into play: wiki:love.mouse.getPosition
 It should again be rather obvious what this function is doing for us;
 it returns the mouse's current position along the x and y axis (in pixels).
 
+==== Keyboard Controls
 Alright, now things are moving, but in our game we don't want the ship to be
 controlled by the mouse.
 Also, with the current code players with a faster mouse would have an advantage,
 they could move around much more quickly.
 Instead, let's introduce a fixed speed for our spaceship, and add keyboard controls:
 
-.main.lua
-[source,lua]
-----
-player = {
-  x = 20,
-  y = 20
-}
-
-SPEED = 300
-
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    player.x = player.x + SPEED*dt
-  end
-  if love.keyboard.isDown"left" then
-    player.x = player.x - SPEED*dt
-  end
-  if love.keyboard.isDown"down" then
-    player.y = player.y + SPEED*dt
-  end
-  if love.keyboard.isDown"up" then
-    player.y = player.y - SPEED*dt
-  end
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", player.x, player.y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(player.x+20, player.y+10, player.x+100, player.y+10)
-end
-----
-
-[livecode,1-4-keyboard]
-++++
-player = {
-  x = 20,
-  y = 20
-}
-
-SPEED = 300
-
-function love.update(dt)
-  if love.keyboard.isDown("right") then
-    player.x = player.x + SPEED*dt
-  end
-  if love.keyboard.isDown("left") then
-    player.x = player.x - SPEED*dt
-  end
-  if love.keyboard.isDown("down") then
-    player.y = player.y + SPEED*dt
-  end
-  if love.keyboard.isDown("up") then
-    player.y = player.y - SPEED*dt
-  end
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", player.x, player.y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(player.x+20, player.y+10, player.x+100, player.y+10)
-end
-++++
+code_example::world1/04_creating-motion/keyboard-controls[]
+livecode::world1/04_creating-motion/keyboard-controls[]
 
 Great, let's go through the changes:
 You can immediately see that `x` and `y` have disappeared,

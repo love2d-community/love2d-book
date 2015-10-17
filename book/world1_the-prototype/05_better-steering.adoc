@@ -21,87 +21,10 @@ ____
 
 Okay, so let's get to work:
 
-.main.lua
-[source,lua]
-----
-player = {
-  x = 50,
-  y = 50,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
+code_example::world1/05_better-steering/rotation[]
+livecode::world1/05_better-steering/rotation[]
 
-local ACCELERATION =  20
-
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-  end
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end
-----
-
-[livecode,1-5-rotation]
-++++
-player = {
-  x = 150,
-  y = 150,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
-
-local ANGACCEL      = 4
-local ACCELERATION  = 20
-
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-    player.rotation = player.rotation + ANGACCEL*dt
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-    player.rotation = player.rotation - ANGACCEL*dt
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-    -- (left out for now)
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-    -- (left out for now)
-  end
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end
-++++
-
-Okay, a few changes.
+Okay, some changes.
 We now store values for `xvel`, `yvel` and `rotation` in our `player` table.
 `x` and `y` are still used to track the current position, but our wiki:love.draw[] has changed,
 `x` and `y` now refer to the center of the spaceship.
@@ -141,54 +64,7 @@ is currently pointing. When we press `down` the opposite should happen.
 We will need to use `math.sin` and `math.cos` to calculate the parts of the
 acceleration that apply to each axis, based on the angle the ship is rotated to:
 
-.main.lua
-[source,lua]
-----
-player = {
-  x = 150,
-  y = 150,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
-
-local ANGACCEL      = 4
-local ACCELERATION  = 400
-
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-    player.rotation = player.rotation + ANGACCEL*dt
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-    player.rotation = player.rotation - ANGACCEL*dt
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-    player.xvel = player.xvel - ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel - ACCELERATION*dt * math.sin(player.rotation)
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-    player.xvel = player.xvel + ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel + ACCELERATION*dt * math.sin(player.rotation)
-  end
-  player.x = player.x + player.xvel*dt
-  player.y = player.y + player.yvel*dt
-  player.xvel = player.xvel * 0.99
-  player.yvel = player.yvel * 0.99
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end
-----
+code_example::world1/05_better-steering/momentum[]
 
 [NOTE]
 Note how again `ACCELERATION` is multiplied by `dt` before being scaled by
@@ -196,50 +72,4 @@ Note how again `ACCELERATION` is multiplied by `dt` before being scaled by
 
 This already feels a lot like Asteroids!
 
-[livecode,1-5-accel]
-++++
-player = {
-  x = 150,
-  y = 150,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
-
-local ANGACCEL      = 4
-local ACCELERATION  = 400
-
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-    player.rotation = player.rotation + ANGACCEL*dt
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-    player.rotation = player.rotation - ANGACCEL*dt
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-    player.xvel = player.xvel - ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel - ACCELERATION*dt * math.sin(player.rotation)
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-    player.xvel = player.xvel + ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel + ACCELERATION*dt * math.sin(player.rotation)
-  end
-  player.x = player.x + player.xvel*dt
-  player.y = player.y + player.yvel*dt
-  player.xvel = player.xvel * 0.99
-  player.yvel = player.yvel * 0.99
-end
-
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end
-++++
+livecode::world1/05_better-steering/momentum[]
