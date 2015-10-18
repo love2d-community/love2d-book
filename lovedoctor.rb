@@ -92,9 +92,9 @@ Asciidoctor::Extensions.register do
       exclude.map! {|pat| Dir.glob(File.join(code_dir, pat)) }
 
       res = create_open_block parent, "", attrs, content_model: :compound
-      attrs['language'] = attrs['language'] || 'lua'
+      attrs['language'] ||= 'lua'
       (include.inject(&:+) - exclude.inject(&:+)).each do |file|
-        block = create_listing_block res, File.read(file), attrs
+        block = create_listing_block res, File.read(file), attrs, subs: [:highlight, :callouts]
         block.style = "source"
         block.title = File.basename(file)
         res << block
