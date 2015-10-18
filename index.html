@@ -195,17 +195,17 @@ A fourth value, used as alpha (transparency) can optionally be supplied.</p></di
 You can pass it four values, each representing the x and y values of a point.</p></div>
 <div class="paragraph"><p>Putting it all together, we can draw a little stickman:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">function love.draw()
-  love.graphics.setColor(255, 255, 255)           -- white
-  love.graphics.line(40, 90, 35, 120)             -- left foot
-  love.graphics.line(60, 90, 65, 120)             -- right foot
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">255</span><span class="tok-p">)</span>           <span class="tok-c1">-- white</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">90</span><span class="tok-p">,</span> <span class="tok-mi">35</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">)</span>             <span class="tok-c1">-- left foot</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">60</span><span class="tok-p">,</span> <span class="tok-mi">90</span><span class="tok-p">,</span> <span class="tok-mi">65</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">)</span>             <span class="tok-c1">-- right foot</span>
 
-  love.graphics.setColor(0, 255, 0)               -- green
-  love.graphics.rectangle("fill", 30, 30, 40, 60) -- body
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>               <span class="tok-c1">-- green</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">60</span><span class="tok-p">)</span> <span class="tok-c1">-- body</span>
 
-  love.graphics.setColor(255, 0, 0)               -- red
-  love.graphics.circle("fill", 50, 20, 15)        -- head
-end</code></pre></div></div></div></div>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>               <span class="tok-c1">-- red</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>        <span class="tok-c1">-- head</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="world1/03_starting-small/stickman-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/03_starting-small/stickman/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":11,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,7,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,9,0,1,2,6,0,1,3,10,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,3,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,1,1,13,0,1,2,14,0,1,3,14,0,1,4,5,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,271,1,1,13,0,1,2,16,0,1,3,17,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",255,"line",40,90,35,120,60,65,0,"rectangle","fill",30,"circle",50,20,15],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11],"locals":[],"upvalues":[]}],"linePositions":[1,11,1,11],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/03_starting-small/stickman-canvas") });</script></div>
@@ -220,12 +220,12 @@ If we want to make a game, it might be a good idea to have things moving around.
 <div class="sect3"><h4 id="_a_ship"><a class="anchor" href="#_a_ship"></a>A Ship</h4><div class="paragraph"><p>As we are working towards an Asteroids clone, let&#8217;s start out with a spaceship.
 Before we can make a spaceship move, we need a spaceship though:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">function love.draw()
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.rectangle("fill", 20, 20, 100, 20)
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.line(70, 30, 120, 30)
-end</code></pre></div></div></div></div>
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">70</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="world1/04_creating-motion/a-ship-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/a-ship/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":6,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,6,0,1,4,7,0,1,5,6,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,8,0,1,2,8,0,1,3,8,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,265,1,1,10,0,1,2,11,0,1,3,12,0,1,4,11,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",200,"rectangle","fill",20,100,80,"line",70,30,120],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6],"locals":[],"upvalues":[]}],"linePositions":[1,6,1,6],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/a-ship-canvas") });</script></div>
@@ -247,18 +247,18 @@ In fact we will be using two, one for each coordinate we are going to simulate t
 <div class="paragraph"><p>Now we only need to change the values of <code>x</code> and <code>y</code> and the ship will follow.
 We could for example make them always point to the current mouse position:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">x, y = 20, 20
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
 
-function love.update(dt)
-  x, y = love.mouse.getPosition()
-end
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">mouse</span><span class="tok-p">.</span><span class="tok-n">getPosition</span><span class="tok-p">()</span>
+<span class="tok-k">end</span>
 
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", x, y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(x+20, y+10, x+100, y+10)
-end</code></pre></div></div></div></div>
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="world1/04_creating-motion/an-engine-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/an-engine/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[1,0,2,0,1,1,2,0,7,1,1,0,7,0,0,0,5,0,3,0,36,1,0,0,9,0,260,1,5,0,3,0,36,1,1,0,9,0,261,1,30,0,1,0],"constants":["x","y",20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":3,"lastLineDefined":5,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":3,"instructions":[5,1,2,0,6,1,1,259,6,1,1,260,28,1,1,3,7,2,1,0,7,1,0,0,30,0,1,0],"constants":["x","y","love","mouse","getPosition"],"functions":[],"linePositions":[4,4,4,4,4,4,5],"locals":[{"varname":"dt","startpc":0,"endpc":6}],"upvalues":[]},{"sourceName":"","lineDefined":7,"lastLineDefined":12,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,5,3,7,0,1,4,8,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,10,0,1,2,10,0,1,3,10,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,267,5,1,6,0,12,1,1,265,5,2,7,0,12,2,2,268,5,3,6,0,12,3,3,264,5,4,7,0,12,4,4,268,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","x","y",100,20,200,"line",10],"functions":[],"linePositions":[8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,12],"locals":[],"upvalues":[]}],"linePositions":[1,1,1,1,3,5,3,7,12,7,12],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/an-engine-canvas") });</script></div>
@@ -281,34 +281,34 @@ Also, with the current code players with a faster mouse would have an advantage,
 they could move around much more quickly.
 Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard controls:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">player = {
-  x = 20,
-  y = 20
-}
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+  <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">20</span><span class="tok-p">,</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">20</span>
+<span class="tok-p">}</span>
 
-SPEED = 300
+<span class="tok-n">SPEED</span> <span class="tok-o">=</span> <span class="tok-mi">300</span>
 
-function love.update(dt)
-  if love.keyboard.isDown("right") then
-    player.x = player.x + SPEED*dt
-  end
-  if love.keyboard.isDown("left") then
-    player.x = player.x - SPEED*dt
-  end
-  if love.keyboard.isDown("down") then
-    player.y = player.y + SPEED*dt
-  end
-  if love.keyboard.isDown("up") then
-    player.y = player.y - SPEED*dt
-  end
-end
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">right&quot;</span><span class="tok-p">)</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">left&quot;</span><span class="tok-p">)</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">-</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">down&quot;</span><span class="tok-p">)</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">up&quot;</span><span class="tok-p">)</span> <span class="tok-k">then</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">-</span> <span class="tok-n">SPEED</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.rectangle("fill", player.x, player.y, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(player.x+20, player.y+10, player.x+100, player.y+10)
-end</code></pre></div></div></div></div>
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="world1/04_creating-motion/keyboard-controls-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/keyboard-controls/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[10,0,0,2,9,0,257,258,9,0,259,258,7,0,0,0,1,0,5,0,7,0,4,0,5,0,6,0,36,1,0,0,9,0,263,1,5,0,6,0,36,1,1,0,9,0,264,1,30,0,1,0],"constants":["player","x",20,"y","SPEED",300,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":8,"lastLineDefined":21,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,12,2,2,3,9,1,265,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,10,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,13,2,2,3,9,1,265,2,30,0,1,0],"constants":["love","keyboard","isDown","right","player","x","SPEED","left","down","y","up"],"functions":[],"linePositions":[9,9,9,9,9,9,9,10,10,10,10,10,10,10,12,12,12,12,12,12,12,13,13,13,13,13,13,13,15,15,15,15,15,15,15,16,16,16,16,16,16,16,18,18,18,18,18,18,18,19,19,19,19,19,19,19,21],"locals":[{"varname":"dt","startpc":0,"endpc":56}],"upvalues":[]},{"sourceName":"","lineDefined":23,"lastLineDefined":28,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,6,2,2,263,5,3,6,0,6,3,3,264,1,4,9,0,1,5,10,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,5,1,6,0,6,1,1,263,12,1,1,266,5,2,6,0,6,2,2,264,12,2,2,269,5,3,6,0,6,3,3,263,12,3,3,265,5,4,6,0,6,4,4,264,12,4,4,269,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","player","x","y",100,20,200,"line",10],"functions":[],"linePositions":[24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,28],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,6,6,8,21,8,23,28,23,28],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/keyboard-controls-canvas") });</script></div>
@@ -366,44 +366,44 @@ in <a href="#world1-4">World 1-5</a> we will see that the actual way of saving t
 we use differs, but we could as well do with this "definition".</p></div></blockquote><div class="attribution">&#8212; World 1-1, The Spaceship</div></div>
 <div class="paragraph"><p>Okay, so let&#8217;s get to work:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">player = {
-  x = 150,
-  y = 150,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+  <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">150</span><span class="tok-p">,</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">150</span><span class="tok-p">,</span>
+  <span class="tok-n">xvel</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
+  <span class="tok-n">yvel</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
+  <span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-p">}</span>
 
-local ANGACCEL      = 4
-local ACCELERATION  = 20
+<span class="tok-kd">local</span> <span class="tok-n">ANGACCEL</span>      <span class="tok-o">=</span> <span class="tok-mi">4</span>
+<span class="tok-kd">local</span> <span class="tok-n">ACCELERATION</span>  <span class="tok-o">=</span> <span class="tok-mi">20</span>
 
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-    player.rotation = player.rotation + ANGACCEL*dt
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-    player.rotation = player.rotation - ANGACCEL*dt
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-    -- (left out for now)
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-    -- (left out for now)
-  end
-end
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">right&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- rotate clockwise</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">+</span> <span class="tok-n">ANGACCEL</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">left&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- rotate counter-clockwise</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">-</span> <span class="tok-n">ANGACCEL</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">down&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- decelerate / accelerate backwards</span>
+    <span class="tok-c1">-- (left out for now)</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">up&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- accelerate</span>
+    <span class="tok-c1">-- (left out for now)</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end</code></pre></div></div></div></div>
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">translate</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rotate</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
 <div class="preload"></div>
 <canvas id="world1/05_better-steering/rotation-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/05_better-steering/rotation/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":4,"instructions":[10,0,0,5,9,0,257,258,9,0,259,258,9,0,260,261,9,0,262,261,9,0,263,261,7,0,0,0,1,0,8,0,1,1,9,0,5,2,10,0,36,3,0,0,0,0,0,0,9,2,267,3,5,2,10,0,36,3,1,0,9,2,268,3,30,0,1,0],"constants":["player","x",150,"y","xvel",0,"yvel","rotation",4,20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":12,"lastLineDefined":29,"upvalueCount":1,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,6,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,0,0,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,0,0,30,0,1,0],"constants":["love","keyboard","isDown","right","player","rotation","left","down","up"],"functions":[],"linePositions":[13,13,13,13,13,13,13,15,15,15,15,15,15,15,17,17,17,17,17,17,17,19,19,19,19,19,19,19,21,21,21,21,21,21,21,25,25,25,25,25,25,25,29],"locals":[{"varname":"dt","startpc":0,"endpc":42}],"upvalues":["ANGACCEL"]},{"sourceName":"","lineDefined":31,"lastLineDefined":38,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,5,1,5,0,6,1,1,262,5,2,5,0,6,2,2,263,28,0,3,1,5,0,0,0,6,0,0,257,6,0,0,264,5,1,5,0,6,1,1,265,28,0,2,1,5,0,0,0,6,0,0,257,6,0,0,266,1,1,11,0,1,2,12,0,1,3,13,0,1,4,14,0,1,5,15,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,16,0,1,2,16,0,1,3,16,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,273,1,1,15,0,1,2,18,0,1,3,19,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"translate","player","x","y","rotate","rotation","rectangle","fill",-50,-10,100,20,200,"line",0,50],"functions":[],"linePositions":[32,32,32,32,32,32,32,33,33,33,33,33,33,33,33,34,34,34,34,34,34,35,35,35,35,35,35,35,35,35,36,36,36,36,36,36,36,37,37,37,37,37,37,37,37,38],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,5,6,7,9,10,12,29,29,12,31,38,31,38],"locals":[{"varname":"ANGACCEL","startpc":8,"endpc":16},{"varname":"ACCELERATION","startpc":9,"endpc":16}],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/05_better-steering/rotation-canvas") });</script></div>
@@ -440,50 +440,50 @@ is currently pointing. When we press <code>down</code> the opposite should happe
 <div class="paragraph"><p>We will need to use <code>math.sin</code> and <code>math.cos</code> to calculate the parts of the
 acceleration that apply to each axis, based on the angle the ship is rotated to:</p></div>
 <div class="openblock"><div class="content"><div class="listingblock"><div class="title">main.lua</div>
-<div class="content"><pre class="pygments highlight"><code data-lang="lua">player = {
-  x = 150,
-  y = 150,
-  xvel = 0,
-  yvel = 0,
-  rotation = 0
-}
+<div class="content"><pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+  <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">150</span><span class="tok-p">,</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">150</span><span class="tok-p">,</span>
+  <span class="tok-n">xvel</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
+  <span class="tok-n">yvel</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
+  <span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-p">}</span>
 
-local ANGACCEL      = 4
-local ACCELERATION  = 400
+<span class="tok-kd">local</span> <span class="tok-n">ANGACCEL</span>      <span class="tok-o">=</span> <span class="tok-mi">4</span>
+<span class="tok-kd">local</span> <span class="tok-n">ACCELERATION</span>  <span class="tok-o">=</span> <span class="tok-mi">400</span>
 
-function love.update(dt)
-  if love.keyboard.isDown"right" then
-    -- rotate clockwise
-    player.rotation = player.rotation + ANGACCEL*dt
-  end
-  if love.keyboard.isDown"left" then
-    -- rotate counter-clockwise
-    player.rotation = player.rotation - ANGACCEL*dt
-  end
-  if love.keyboard.isDown"down" then
-    -- decelerate / accelerate backwards
-    player.xvel = player.xvel - ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel - ACCELERATION*dt * math.sin(player.rotation)
-  end
-  if love.keyboard.isDown"up" then
-    -- accelerate
-    player.xvel = player.xvel + ACCELERATION*dt * math.cos(player.rotation)
-    player.yvel = player.yvel + ACCELERATION*dt * math.sin(player.rotation)
-  end
-  player.x = player.x + player.xvel*dt
-  player.y = player.y + player.yvel*dt
-  player.xvel = player.xvel * 0.99
-  player.yvel = player.yvel * 0.99
-end
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">update</span><span class="tok-p">(</span><span class="tok-n">dt</span><span class="tok-p">)</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">right&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- rotate clockwise</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">+</span> <span class="tok-n">ANGACCEL</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">left&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- rotate counter-clockwise</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span> <span class="tok-o">-</span> <span class="tok-n">ANGACCEL</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">down&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- decelerate / accelerate backwards</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">-</span> <span class="tok-n">ACCELERATION</span><span class="tok-o">*</span><span class="tok-n">dt</span> <span class="tok-o">*</span> <span class="tok-nb">math.cos</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">-</span> <span class="tok-n">ACCELERATION</span><span class="tok-o">*</span><span class="tok-n">dt</span> <span class="tok-o">*</span> <span class="tok-nb">math.sin</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">if</span> <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">keyboard</span><span class="tok-p">.</span><span class="tok-n">isDown</span><span class="tok-s2">&quot;</span><span class="tok-s">up&quot;</span> <span class="tok-k">then</span>
+    <span class="tok-c1">-- accelerate</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">+</span> <span class="tok-n">ACCELERATION</span><span class="tok-o">*</span><span class="tok-n">dt</span> <span class="tok-o">*</span> <span class="tok-nb">math.cos</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+    <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">+</span> <span class="tok-n">ACCELERATION</span><span class="tok-o">*</span><span class="tok-n">dt</span> <span class="tok-o">*</span> <span class="tok-nb">math.sin</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+  <span class="tok-k">end</span>
+  <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span><span class="tok-o">*</span><span class="tok-n">dt</span>
+  <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">xvel</span> <span class="tok-o">*</span> <span class="tok-mf">0.99</span>
+  <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">=</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">yvel</span> <span class="tok-o">*</span> <span class="tok-mf">0.99</span>
+<span class="tok-k">end</span>
 
-function love.draw()
-  love.graphics.setColor(80, 80, 80)
-  love.graphics.translate(player.x, player.y)
-  love.graphics.rotate(player.rotation)
-  love.graphics.rectangle("fill", -50, -10, 100, 20)
-  love.graphics.setColor(200, 200, 200)
-  love.graphics.line(20, 0, 50, 0)
-end</code></pre></div></div></div></div>
+<span class="tok-k">function</span> <span class="tok-nc">love</span><span class="tok-p">.</span><span class="tok-nf">draw</span><span class="tok-p">()</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">translate</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rotate</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">rotation</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">rectangle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">setColor</span><span class="tok-p">(</span><span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">,</span> <span class="tok-mi">200</span><span class="tok-p">)</span>
+  <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">Note how again <code>ACCELERATION</code> is multiplied by <code>dt</code> before being scaled by
 <code>math.cos</code> and <code>math.sin</code> for the corresponding axis.</td></tr></table></div>
 <div class="paragraph"><p>This already feels a lot like Asteroids!</p></div>
