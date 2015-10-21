@@ -24,6 +24,8 @@ include::world1_the-prototype/04_creating-motion.adoc[]
 <<<
 include::world1_the-prototype/05_better-steering.adoc[]
 <<<
+include::world1_the-prototype/06_adding-some-action.adoc[]
+<<<
 
 include::world2.adoc[]
 <<<
