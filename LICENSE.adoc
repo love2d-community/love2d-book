@@ -1,12 +1,12 @@
-[IMPORTANT]
-Find consensus on a license
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (_CC BY-NC 4.0_). +
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
 
 === Libraries & Tools
 
 * https://github.com/asciidoctor/asciidoctor[AsciiDoctor] renders this book
 * http://moonshinejs.org/[Moonshine] and
 * https://github.com/TannerRogalsky/punchdrunk[punchdrunk] by Tanner Rogalsky make LÖVE run in *your* browser
-* ...as does of course https://love2d.org/[LÖVE], which this book is all about
+* ...as does of course https://love2d.org/[LÖVE] (licensed under the zlib license), which this book is all about
 
 wherever not listed above, these are licensed under the MIT License:
 

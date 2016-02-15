@@ -35,5 +35,6 @@ include::world3.adoc[]
 include::world3_the-cookbook/01_object-pools.adoc[]
 <<<
 
+:numbered!:
 == License
 include::../LICENSE.adoc[]
