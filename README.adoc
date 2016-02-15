@@ -1,2 +1,2 @@
 [CAUTION]
-This repository is auto-generated. If you want to contribute, please do so in https://github.com/love2D-book/love2D-book[/love2D-book/love2D-book]
+This repository is auto-generated. If you want to contribute, please do so in https://github.com/love2D-community/love2D-book[/love2D-community/love2D-book]
