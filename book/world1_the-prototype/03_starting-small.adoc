@@ -40,11 +40,11 @@ Provide a clear, concise title and _be patient!_
 
 As you can see, wiki:love.graphics.circle[] accepts five parameters:
 
-- mode, whether to _fill_ or _stroke_ the circle (`"line"` is used to stroke)
-- x, the horizontal position of the circle's center
-- y, the vertical position
-- radius, the circle's radius (half of the width)
-- segments, how detailed to draw the circle. This can be left out.
+* mode, whether to _fill_ or _stroke_ the circle (`"line"` is used to stroke)
+* x, the horizontal position of the circle's center
+* y, the vertical position
+* radius, the circle's radius (half of the width)
+* segments, how detailed to draw the circle. This can be left out.
 
 So, to draw a filled 30px circle at (100, 100) and then a stroked one 20px further down,
 this is what we need to do:
@@ -69,11 +69,11 @@ end
 Quite similarly, we can also draw rectangles using wiki:love.graphics.rectangle[].
 The six parameters are:
 
-- mode, same as for `circle`
-- x, this time it is not the center position of the top-left corner
-- y, again, relative to the top left corner
-- width, the width of the rectangle being drawn
-- height, the height of the rectangle
+* mode, same as for `circle`
+* x, this time it is not the center position of the top-left corner
+* y, again, relative to the top left corner
+* width, the width of the rectangle being drawn
+* height, the height of the rectangle
 
 Another function you will use in probably every game is wiki:love.graphics.setColor[].
 It accepts three numbers in the range of `0` to `255`, specifying the intensity

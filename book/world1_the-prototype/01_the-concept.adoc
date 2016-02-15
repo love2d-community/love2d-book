@@ -15,9 +15,9 @@ When he hits an asteroid, the asteroid splits into two smaller ones.
 
 Alright, from these few rules we can already extract some things that we will need:
 
-- a Spaceship / Player
-- Asteroids
-- Bullets
+* a Spaceship / Player
+* Asteroids
+* Bullets
 
 Next, let's see what each of these do or can do:
 

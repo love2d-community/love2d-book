@@ -1,21 +1,12 @@
 = LÖVE for Newbies
-A book about LÖVE, Games and Lua. image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-community/love2d-book"]
+A book about LÖVE, Games and Lua.
+image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-community/love2d-book"]
 
 The collaborative book will be divided into three main units:
 
-- A walkthrough to building a small prototype and introducing the user to the LÖVE framework,
-- A more realistic revamp of the built prototype to create a "full" game, and lastly
-- An area of examples and snippets containing best and known practices in game development.
-
-== Metrics
-. The three chapters are called __World__s and each section is a _Level_
-. At the end of every _Level_, remind the reader about what he has learned in this chapter and show some practical issues that he can now solve
-. Use examples and concrete language wherever possible. Programming is all about abstraction, and examples help make this a lighter and more enjoyable read
-. Make everything interesting to read about and motivate the reader to keep on learning
-. Be clear and direct when talking something new. Keep it simple, stupid!
-. Every Level ends with additional exercises that the reader can choose to try
-. Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)
-. Use informal language and short text to show new content
+1. A walkthrough to building a small prototype and introducing the user to the LÖVE framework,
+2. A more realistic revamp of the built prototype to create a "full" game, and lastly
+3. An area of examples and snippets containing best and known practices in game development.
 
 The book s written using a generator called Asciidoctor. +
 Quick Reference: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
@@ -41,9 +32,63 @@ wiki:love.graphics.setColor[] // <4>
 wiki:love.graphics[the graphics module] // <5>
 ----
 <1> loads love2D-book-code/test directory
-<2> load love2D-book/code/test directory and the assets called image1.png and image2.png. It's name is test2 so it doesn't conflict with the first.
+<2> load love2D-book/code/test directory and the assets called image1.png and image2.png.
+    It's name is test2 so it doesn't conflict with the first.
 <3> runs the code below it; has the name of "example" and loads audio.wav
 <4> links to the wiki page for `love.graphics.setColor` and formats the link accordingly
 <5> links to the wiki page for `love.graphics` using the text `the graphics`
+
+== Contributions
+=== Prerequisites
+You will need `ruby` to be installed for rendering the book, and `node`, `npm` and `luajit`
+for the livecode examples with punchdrunk currently.
+
+Make sure you have bundler installed:
+
+[source,bash]
+$ gem install bundle
+
+then instal the dependencies:
+
+[source,bash]
+$ bundle install
+
+=== Rendering
+To render the ebook and pdf you can run `render.sh`:
+
+[source,bash]
+$ ./render.sh
+
+but the preferred way to work on the project is by running *Guard*:
+
+[source,bash]
+$ bundle exec guard
+
+this will automatically render the HTML ebook as you change the files.
+You can use any LiveReload extension in a browser to have it automaically refresh as you modify the book.
+
+=== Committing
+Whenever a significant portion of the book has changed and is ready for release, stage the files on `master` and run `release.sh`.
+Make sure that `book/code` is at the correct revision and staged before releasing.
+
+=== Style Guidelines
+* The three chapters are called __World__s and each section is a _Level_
+* At the end of every _Level_, remind the reader about what he has learned in this chapter
+* Use examples and concrete language wherever possible.
+* Programming is all about abstraction, and examples help make this a lighter and more enjoyable read
+* Make everything interesting to read about and motivate the reader to keep on learning
+* Be clear and direct when talking something new. Keep it simple, stupid!
+* Every Level ends with additional exercises that the reader can choose to try
+* Give “Pro Tips” and “Watch out!”-notices where fitting (Admonitions)
+* Use informal language and short text to show new content
+* Keep lines shorter than 125 characters (soft rule, better have a slightly longer line than wrap two words)
+* One sentence per line
+* If sentences need to be wrapped due to length, try to wrap at a comma to keep the source readable
+* Use the code repository for examples that readers may want to try out or modify, use inline livecode for minor changes and demos
+* Style lists with `*`, don't end items with `.`
+* Use wiki block macros when discussing LÖVE functions and concepts (`+wiki:love.graphics.print[print]+` -> wiki:love.graphics.print[print])
+* Use backticks when mentioning Lua values (`+`"string"`+` -> `"string"`)
+* Link to sections you reference (`+<<world1-2, last Level>>+` -> <<world1-2, lastLevel>>)
+* Show relevant portions of source code before livecode displays, use callouts (`<1>`) to discuss source code
 
 Thank you for helping create this :)
