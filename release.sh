@@ -2,7 +2,7 @@
 
 IFS=$'\n'
 git update-index -q --refresh
-if ! git diff-files --quiet --ignore-submodules --; then
+if ! git diff-files --quiet --ignore-submodules -- book; then
   echo "unstaged changes, please stage or stash everything"
   exit 1
 fi
@@ -32,12 +32,12 @@ popd > /dev/null
 echo "rendering..."
 ./render.sh
 
-git commit
+git commit "$@"
 commit=`git show --format=format:%B -s`
 
 pushd public > /dev/null
 git add .
-echo $commit | git commit -aF -
+echo $commit | git commit "$@" -aF -
 git push origin master:gh-pages
 git push io master
 popd > /dev/null
