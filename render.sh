@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir -p tmp
 ./lovedoctor.rb book/html.adoc -o public/index.html
 ./lovedoctor.rb book/pdf.adoc -o public/love2D-book.pdf -b pdf
 

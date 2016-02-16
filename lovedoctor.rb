@@ -3,10 +3,63 @@
 require 'bundler/setup'
 require 'rubygems' if RUBY_VERSION < '1.9'
 
-require 'asciidoctor-pdf'
+require 'pathname'
 require 'asciidoctor'
 require 'asciidoctor/extensions'
-require 'asciidoctor/abstract_block'
+
+def byteify files
+  count = 0
+  res = ""
+  files.each do |(path, file)|
+    res += "var fileData#{count+=1} = [];\n"
+    file.unpack('C*').each_slice 10240 do |bytes|
+      res += "fileData#{count}.push.apply(fileData#{count}, #{bytes});\n"
+    end
+    res += "Module['FS_createDataFile']('#{path.dirname}', '#{path.basename}', fileData#{count}, true, true);"
+  end
+  res
+end
+
+def package name, files
+  <<EOF
+(function () {
+    var canvas = document.getElementById('#{name}-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      #{byteify(files)}
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+EOF
+end
 
 class LoveWikiMacro < Asciidoctor::Extensions::InlineMacroProcessor
   use_dsl
@@ -29,33 +82,21 @@ Asciidoctor::Extensions.register do
     name_positional_attributes 'name'
 
     process do |parent, reader, attrs|
-      res = ""
-      preload = (attrs.delete('preload') || '').split(',')
-      name    = attrs.delete('name')
-      res = %(
-<div class="preload">#{(preload.map do |n| %(<img src="assets/#{name+"/"+n}" />) end).join("\n")}</div>
-<canvas id="#{name}-canvas"></canvas>)
+      name = attrs.delete('name')
+      files = []
       if attrs.has_key? 'multi' then
-        names = []
         reader.read.split("###").each do |t|
           spl = t.split("\n")
           next if spl == []
-          file = %(tmp/#{spl[0]})
-          names << file
-          File.open(file, 'w') do |f|
-            f.write(spl.drop(1).join("\n"))
-          end
+          files << [Pathname.new(spl[0]), spl.drop(1).join("\n")]
         end
-        game_json = %x{node_modules/.bin/moonshine distil #{names.join(' ')}}
-        res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
       else
-        File.open('tmp/file.lua', 'w') do |f|
-          f.write(reader.read)
-        end
-        game_json = %x{node_modules/.bin/moonshine distil tmp/file.lua}
-        res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
+        files << [Pathname.new("main.lua"), reader.read]
       end
-      create_pass_block parent, %(<div class="livecode">#{res}</div>), attrs
+      create_pass_block parent, %(<div class="livecode">
+        <canvas id="#{name}-canvas" data-module="#{name}"></canvas>
+        <script>#{package name, files}</script>
+      </div>), attrs
     end
   end
 
@@ -65,15 +106,15 @@ Asciidoctor::Extensions.register do
     parse_content_as :raw
 
     process do |parent, target, attrs|
-      res = ""
-      preload = ( attrs.delete('preload') || '').split(',')
       name = attrs.delete('name') || target
-      res = %(
-<div class="preload">#{(preload.map do |n| %(<img src="assets/#{target+"/"+n}" />) end).join("\n")}</div>
-<canvas id="#{name}-canvas"></canvas>)
-      game_json = %x{node_modules/.bin/moonshine distil -p book/code/#{target}}
-      res  = res + %(<script>new Punchdrunk({ "game_code": #{game_json}, "canvas": document.getElementById("#{name}-canvas") });</script>)
-      create_pass_block parent, %(<div class="livecode">#{res}</div>), attrs
+
+      target = Pathname.new File.join "book", "code", target
+      files = Pathname.glob(File.join(target, "**", "*")).collect { |file| [file.relative_path_from(target), file.binread] }
+
+      create_pass_block parent, %(<div class="livecode">
+        <canvas id="#{name}-canvas" data-module="#{name}"></canvas>
+        <script>#{package name, files}</script>
+      </div>), attrs
     end
   end
 

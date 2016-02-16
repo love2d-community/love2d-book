@@ -1,1 +1,35 @@
-<script src="js/punchdrunk.js"></script>
+<script>
+// ignore space and arrow keys
+window.addEventListener("keydown", function(e) {
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
+}, false);
+
+function click(e) {
+  console.log("FOCUSING");
+  e.target.setAttribute('tabindex', '1');
+  e.target.focus();
+  return false;
+};
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  var arr = document.querySelectorAll("canvas");
+  for (var i = 0; i < arr.length; i++) {
+    var canvas = arr[i];
+    if (canvas.dataset.module)
+      canvas.addEventListener('click', click);
+  }
+});
+
+function lovejs_loaded() {
+  var arr = document.querySelectorAll("canvas");
+  for (var i = 0; i < arr.length; i++) {
+    var canvas = arr[i];
+    if (canvas.module) {
+      lovejs(canvas.module);
+    }
+  }
+}
+</script>
+<script async src="js/love.js"></script>

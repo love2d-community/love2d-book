@@ -18,9 +18,9 @@ There also are some other additions, you can use them like this:
 ----
 livecode::test[] // <1>
 
-livecode::test[name=test2,preload="image1.png,image2.png"] // <2>
+livecode::test[name=test2] // <2>
 
-[livecode,example,preload=audio.wav] // <3>
+[livecode,example] // <3>
 ++++
 function love.draw()
     love.graphics.setColor( 255, 255, 0, 255 )
@@ -28,15 +28,19 @@ function love.draw()
 end
 ++++
 
-wiki:love.graphics.setColor[] // <4>
-wiki:love.graphics[the graphics module] // <5>
+code_example::world1/05_better-steering/rotation[] // <4>
+code_example::world1/05_better-steering/rotation[exclude="lib/*,maps/*",include="**/*.lua,**/*.txt"] // <5>
+
+wiki:love.graphics.setColor[] // <6>
+wiki:love.graphics[the graphics module] // <7>
 ----
 <1> loads love2D-book-code/test directory
-<2> load love2D-book/code/test directory and the assets called image1.png and image2.png.
-    It's name is test2 so it doesn't conflict with the first.
-<3> runs the code below it; has the name of "example" and loads audio.wav
-<4> links to the wiki page for `love.graphics.setColor` and formats the link accordingly
-<5> links to the wiki page for `love.graphics` using the text `the graphics`
+<2> load love2D-book/code/test directory. It's name is test2 so it doesn't conflict with the first.
+<3> runs the code below it; has the name of "example"
+<4> shows all `.lua` files from the specified directory, except those in `lib/`
+<5> shows all `.lua` and `.txt` files from the specified directory, except those in `lib/` and `maps/`
+<6> links to the wiki page for `love.graphics.setColor` and formats the link accordingly
+<7> links to the wiki page for `love.graphics` using the text `the graphics`
 
 == Contributions
 === Prerequisites
