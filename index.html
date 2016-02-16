@@ -1,5 +1,39 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.4"><meta name="author" content="Sol Bekic, Ricardo Gomes"><meta name="description" content="A book about LÖVE, Games and Lua."><title>LÖVE for Newbies</title><link rel="stylesheet" href="./asciidoctor.css">
-<link rel="stylesheet" href="./pygments-default.css"><script src="js/punchdrunk.js"></script></head><body class="article toc2 toc-right"><div id="header"><h1>LÖVE for Newbies</h1><div class="details"><span class="author" id="author">Sol Bekic</span><br><span class="email" id="email"><a href="mailto:s0lll0s@blinkenshell.org">s0lll0s@blinkenshell.org</a></span><br><span class="author" id="author2">Ricardo Gomes</span><br><span class="email" id="email2"><a href="mailto:desk467@gmail.com">desk467@gmail.com</a></span></div><div id="toc" class="toc2"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a><ul class="sectlevel2"><li><a href="#_contributions">Contributions</a></li></ul></li><li><a href="#_preface">Preface</a></li><li><a href="#world1">World 1: The Prototype</a><ul class="sectlevel2"><li><a href="#world1-1">World 1-1: The Concept</a></li><li><a href="#world1-2">World 1-2: The Tools</a></li><li><a href="#world1-3">World 1-3: Starting Small</a></li><li><a href="#world1-4">World 1-4: Creating Motion</a></li><li><a href="#world1-5">World 1-5: Better Steering</a></li></ul></li><li><a href="#world2">World 2: The Redo</a></li><li><a href="#world3">World 3: The Cookbook</a><ul class="sectlevel2"><li><a href="#world3-">World 3-1: Object Pools</a></li></ul></li><li><a href="#_license">License</a><ul class="sectlevel2"><li><a href="#_libraries_tools">Libraries &amp; Tools</a></li></ul></li></ul></div></div><div id="content"><div class="sect2"><h3 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h3><div class="paragraph"><p>A book about LÖVE, Games and Lua.
+<link rel="stylesheet" href="./pygments-default.css"><script>
+// ignore space and arrow keys
+window.addEventListener("keydown", function(e) {
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
+}, false);
+
+function click(e) {
+  console.log("FOCUSING");
+  e.target.setAttribute('tabindex', '1');
+  e.target.focus();
+  return false;
+};
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  var arr = document.querySelectorAll("canvas");
+  for (var i = 0; i < arr.length; i++) {
+    var canvas = arr[i];
+    if (canvas.dataset.module)
+      canvas.addEventListener('click', click);
+  }
+});
+
+function lovejs_loaded() {
+  var arr = document.querySelectorAll("canvas");
+  for (var i = 0; i < arr.length; i++) {
+    var canvas = arr[i];
+    if (canvas.module) {
+      lovejs(canvas.module);
+    }
+  }
+}
+</script>
+<script async src="js/love.js"></script></head><body class="article toc2 toc-right"><div id="header"><h1>LÖVE for Newbies</h1><div class="details"><span class="author" id="author">Sol Bekic</span><br><span class="email" id="email"><a href="mailto:s0lll0s@blinkenshell.org">s0lll0s@blinkenshell.org</a></span><br><span class="author" id="author2">Ricardo Gomes</span><br><span class="email" id="email2"><a href="mailto:desk467@gmail.com">desk467@gmail.com</a></span></div><div id="toc" class="toc2"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_lÖve_for_newbies">LÖVE for Newbies</a><ul class="sectlevel2"><li><a href="#_contributions">Contributions</a></li></ul></li><li><a href="#_preface">Preface</a></li><li><a href="#world1">World 1: The Prototype</a><ul class="sectlevel2"><li><a href="#world1-1">World 1-1: The Concept</a></li><li><a href="#world1-2">World 1-2: The Tools</a></li><li><a href="#world1-3">World 1-3: Starting Small</a></li><li><a href="#world1-4">World 1-4: Creating Motion</a></li><li><a href="#world1-5">World 1-5: Better Steering</a></li></ul></li><li><a href="#world2">World 2: The Redo</a></li><li><a href="#world3">World 3: The Cookbook</a><ul class="sectlevel2"><li><a href="#world3-">World 3-1: Object Pools</a></li></ul></li><li><a href="#_license">License</a><ul class="sectlevel2"><li><a href="#_libraries_tools">Libraries &amp; Tools</a></li></ul></li></ul></div></div><div id="content"><div class="sect2"><h3 id="_lÖve_for_newbies"><a class="anchor" href="#_lÖve_for_newbies"></a>LÖVE for Newbies</h3><div class="paragraph"><p>A book about LÖVE, Games and Lua.
 <span class="image"><a class="image" href="https://gitter.im/love2d-community/love2d-book"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join%20Chat"></a></span></p></div>
 <div class="paragraph"><p>The collaborative book will be divided into three main units:</p></div>
 <div class="olist arabic"><ol class="arabic"><li><p>A walkthrough to building a small prototype and introducing the user to the LÖVE framework,</p></li><li><p>A more realistic revamp of the built prototype to create a "full" game, and lastly</p></li><li><p>An area of examples and snippets containing best and known practices in game development.</p></li></ol></div>
@@ -9,7 +43,7 @@ Quick Reference: <a class="bare" href="http://asciidoctor.org/docs/asciidoc-synt
 There also are some other additions, you can use them like this:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code data-lang="asciidoc">livecode::test[] <b class="conum">(1)</b>
 
-livecode::test[name=test2,preload=&quot;image1.png,image2.png&quot;] <b class="conum">(2)</b>
+livecode::test[name=test2] <b class="conum">(2)</b>
 
 [livecode,example,preload=audio.wav] <b class="conum">(3)</b>
 ++++
@@ -19,10 +53,12 @@ function love.draw()
 end
 ++++
 
-wiki:love.graphics.setColor[] <b class="conum">(4)</b>
-wiki:love.graphics[the graphics module] <b class="conum">(5)</b></code></pre></div></div>
-<div class="colist arabic"><ol><li><p>loads love2D-book-code/test directory</p></li><li><p>load love2D-book/code/test directory and the assets called image1.png and image2.png.
-It&#8217;s name is test2 so it doesn&#8217;t conflict with the first.</p></li><li><p>runs the code below it; has the name of "example" and loads audio.wav</p></li><li><p>links to the wiki page for <code>love.graphics.setColor</code> and formats the link accordingly</p></li><li><p>links to the wiki page for <code>love.graphics</code> using the text <code>the graphics</code></p></li></ol></div>
+code_example::world1/05_better-steering/rotation[] <b class="conum">(4)</b>
+code_example::world1/05_better-steering/rotation[exclude=&quot;lib/*,maps/*&quot;,include=&quot;**/*.lua,**/*.txt&quot;] <b class="conum">(5)</b>
+
+wiki:love.graphics.setColor[] <b class="conum">(6)</b>
+wiki:love.graphics[the graphics module] <b class="conum">(7)</b></code></pre></div></div>
+<div class="colist arabic"><ol><li><p>loads love2D-book-code/test directory</p></li><li><p>load love2D-book/code/test directory. It&#8217;s name is test2 so it doesn&#8217;t conflict with the first.</p></li><li><p>runs the code below it; has the name of "example" and loads audio.wav</p></li><li><p>shows all <code>.lua</code> files from the specified directory, except those in <code>lib/</code></p></li><li><p>shows all <code>.lua</code> and <code>.txt</code> files from the specified directory, except those in <code>lib/</code> and <code>maps/</code></p></li><li><p>links to the wiki page for <code>love.graphics.setColor</code> and formats the link accordingly</p></li><li><p>links to the wiki page for <code>love.graphics</code> using the text <code>the graphics</code></p></li></ol></div>
 <div class="sect2"><h3 id="_contributions"><a class="anchor" href="#_contributions"></a>Contributions</h3><div class="sect3"><h4 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h4><div class="paragraph"><p>You will need <code>ruby</code> to be installed for rendering the book, and <code>node</code>, <code>npm</code> and <code>luajit</code>
 for the livecode examples with punchdrunk currently.</p></div>
 <div class="paragraph"><p>Make sure you have bundler installed:</p></div>
@@ -198,8 +234,47 @@ this is what we need to do:</p></div>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">line&quot;</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="1-3-circles-canvas"></canvas><script>new Punchdrunk({ "game_code": {"sourceName":"@tmp/file.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":4,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":5,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,4,0,1,3,4,0,1,4,5,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,6,0,1,2,4,0,1,3,7,0,1,4,5,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","circle","fill",100,15,"line",120],"functions":[],"linePositions":[2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4],"locals":[],"upvalues":[]}],"linePositions":[1,4,1,4],"locals":[],"upvalues":[],"sourcePath":"tmp/file.lua"}, "canvas": document.getElementById("1-3-circles-canvas") });</script></div>
+        <canvas id="1-3-circles-canvas" data-module="1-3-circles"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('1-3-circles-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 99, 105, 114, 99, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 49, 48, 48, 44, 32, 49, 48, 48, 44, 32, 49, 53, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 99, 105, 114, 99, 108, 101, 40, 34, 108, 105, 110, 101, 34, 44, 32, 49, 48, 48, 44, 32, 49, 50, 48, 44, 32, 49, 53, 41, 10, 101, 110, 100]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="paragraph"><p>Quite similarly, we can also draw rectangles using <a href="https://love2d.org/wiki/love.graphics.rectangle"><code>love.graphics.rectangle</code></a>.
 The six parameters are:</p></div>
 <div class="ulist"><ul><li><p>mode, same as for <code>circle</code></p></li><li><p>x, this time it is not the center position of the top-left corner</p></li><li><p>y, again, relative to the top left corner</p></li><li><p>width, the width of the rectangle being drawn</p></li><li><p>height, the height of the rectangle</p></li></ul></div>
@@ -223,8 +298,47 @@ You can pass it four values, each representing the x and y values of a point.</p
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">fill&quot;</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">)</span>        <span class="tok-c1">-- head</span>
 <span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/03_starting-small/stickman-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/03_starting-small/stickman/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":11,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,7,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,9,0,1,2,6,0,1,3,10,0,1,4,8,0,28,0,5,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,3,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,1,1,13,0,1,2,14,0,1,3,14,0,1,4,5,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,271,1,1,13,0,1,2,16,0,1,3,17,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",255,"line",40,90,35,120,60,65,0,"rectangle","fill",30,"circle",50,20,15],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11],"locals":[],"upvalues":[]}],"linePositions":[1,11,1,11],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/03_starting-small/stickman-canvas") });</script></div>
+        <canvas id="world1/03_starting-small/stickman-canvas" data-module="world1/03_starting-small/stickman"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/03_starting-small/stickman-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 53, 53, 44, 32, 50, 53, 53, 44, 32, 50, 53, 53, 41, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 119, 104, 105, 116, 101, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 52, 48, 44, 32, 57, 48, 44, 32, 51, 53, 44, 32, 49, 50, 48, 41, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 108, 101, 102, 116, 32, 102, 111, 111, 116, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 54, 48, 44, 32, 57, 48, 44, 32, 54, 53, 44, 32, 49, 50, 48, 41, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 114, 105, 103, 104, 116, 32, 102, 111, 111, 116, 10, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 48, 44, 32, 50, 53, 53, 44, 32, 48, 41, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 103, 114, 101, 101, 110, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 51, 48, 44, 32, 51, 48, 44, 32, 52, 48, 44, 32, 54, 48, 41, 32, 45, 45, 32, 98, 111, 100, 121, 10, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 53, 53, 44, 32, 48, 44, 32, 48, 41, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 114, 101, 100, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 99, 105, 114, 99, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 53, 48, 44, 32, 50, 48, 44, 32, 49, 53, 41, 32, 32, 32, 32, 32, 32, 32, 32, 45, 45, 32, 104, 101, 97, 100, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">Note how the head is in front of and the feet are behind the body
 because of the order we chose to draw them in.</td></tr></table></div>
 <div class="paragraph"><p>LÖVE provides a lot more drawing operations and related functions,
@@ -243,8 +357,47 @@ Before we can make a spaceship move, we need a spaceship though:</p></div>
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">70</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">,</span> <span class="tok-mi">30</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/04_creating-motion/a-ship-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/a-ship/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[5,0,0,0,36,1,0,0,9,0,257,1,30,0,1,0],"constants":["love","draw"],"functions":[{"sourceName":"","lineDefined":1,"lastLineDefined":6,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,1,2,6,0,1,3,6,0,1,4,7,0,1,5,6,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,8,0,1,2,8,0,1,3,8,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,265,1,1,10,0,1,2,11,0,1,3,12,0,1,4,11,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",200,"rectangle","fill",20,100,80,"line",70,30,120],"functions":[],"linePositions":[2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6],"locals":[],"upvalues":[]}],"linePositions":[1,6,1,6],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/a-ship-canvas") });</script></div>
+        <canvas id="world1/04_creating-motion/a-ship-canvas" data-module="world1/04_creating-motion/a-ship"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/04_creating-motion/a-ship-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 48, 48, 44, 32, 50, 48, 48, 44, 32, 50, 48, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 50, 48, 44, 32, 50, 48, 44, 32, 49, 48, 48, 44, 32, 50, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 56, 48, 44, 32, 56, 48, 44, 32, 56, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 55, 48, 44, 32, 51, 48, 44, 32, 49, 50, 48, 44, 32, 51, 48, 41, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="paragraph"><p>I know, I know, that doesn&#8217;t look very aerodynamic.
 But I&#8217;ll tell you what, there&#8217;s no air resistance in space anyway -
 at least there&#8217;s a line to indicate which direction we are facing.</p></div></div>
@@ -276,8 +429,47 @@ We could for example make them always point to the current mouse position:</p></
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/04_creating-motion/an-engine-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/an-engine/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[1,0,2,0,1,1,2,0,7,1,1,0,7,0,0,0,5,0,3,0,36,1,0,0,9,0,260,1,5,0,3,0,36,1,1,0,9,0,261,1,30,0,1,0],"constants":["x","y",20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":3,"lastLineDefined":5,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":3,"instructions":[5,1,2,0,6,1,1,259,6,1,1,260,28,1,1,3,7,2,1,0,7,1,0,0,30,0,1,0],"constants":["x","y","love","mouse","getPosition"],"functions":[],"linePositions":[4,4,4,4,4,4,5],"locals":[{"varname":"dt","startpc":0,"endpc":6}],"upvalues":[]},{"sourceName":"","lineDefined":7,"lastLineDefined":12,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,5,3,7,0,1,4,8,0,1,5,9,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,10,0,1,2,10,0,1,3,10,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,267,5,1,6,0,12,1,1,265,5,2,7,0,12,2,2,268,5,3,6,0,12,3,3,264,5,4,7,0,12,4,4,268,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","x","y",100,20,200,"line",10],"functions":[],"linePositions":[8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,12],"locals":[],"upvalues":[]}],"linePositions":[1,1,1,1,3,5,3,7,12,7,12],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/an-engine-canvas") });</script></div>
+        <canvas id="world1/04_creating-motion/an-engine-canvas" data-module="world1/04_creating-motion/an-engine"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/04_creating-motion/an-engine-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [120, 44, 32, 121, 32, 61, 32, 50, 48, 44, 32, 50, 48, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 117, 112, 100, 97, 116, 101, 40, 100, 116, 41, 10, 32, 32, 120, 44, 32, 121, 32, 61, 32, 108, 111, 118, 101, 46, 109, 111, 117, 115, 101, 46, 103, 101, 116, 80, 111, 115, 105, 116, 105, 111, 110, 40, 41, 10, 101, 110, 100, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 56, 48, 44, 32, 56, 48, 44, 32, 56, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 120, 44, 32, 121, 44, 32, 49, 48, 48, 44, 32, 50, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 48, 48, 44, 32, 50, 48, 48, 44, 32, 50, 48, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 120, 43, 50, 48, 44, 32, 121, 43, 49, 48, 44, 32, 120, 43, 49, 48, 48, 44, 32, 121, 43, 49, 48, 41, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="paragraph"><p>Wait, what happened here?
 First of all, I introduced a new LÖVE callback: <a href="https://love2d.org/wiki/love.update"><code>love.update</code></a>.
 As the name implies, this is where we <em>update</em> the current game state.
@@ -326,8 +518,47 @@ Instead, let&#8217;s introduce a fixed speed for our spaceship, and add keyboard
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-p">.</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-mi">10</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/04_creating-motion/keyboard-controls-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/04_creating-motion/keyboard-controls/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":2,"instructions":[10,0,0,2,9,0,257,258,9,0,259,258,7,0,0,0,1,0,5,0,7,0,4,0,5,0,6,0,36,1,0,0,9,0,263,1,5,0,6,0,36,1,1,0,9,0,264,1,30,0,1,0],"constants":["player","x",20,"y","SPEED",300,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":8,"lastLineDefined":21,"upvalueCount":0,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,5,3,6,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,12,2,2,3,9,1,265,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,10,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,265,5,3,6,0,14,3,3,0,13,2,2,3,9,1,265,2,30,0,1,0],"constants":["love","keyboard","isDown","right","player","x","SPEED","left","down","y","up"],"functions":[],"linePositions":[9,9,9,9,9,9,9,10,10,10,10,10,10,10,12,12,12,12,12,12,12,13,13,13,13,13,13,13,15,15,15,15,15,15,15,16,16,16,16,16,16,16,18,18,18,18,18,18,18,19,19,19,19,19,19,19,21],"locals":[{"varname":"dt","startpc":0,"endpc":56}],"upvalues":[]},{"sourceName":"","lineDefined":23,"lastLineDefined":28,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,1,1,5,0,5,2,6,0,6,2,2,263,5,3,6,0,6,3,3,264,1,4,9,0,1,5,10,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,11,0,1,2,11,0,1,3,11,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,268,5,1,6,0,6,1,1,263,12,1,1,266,5,2,6,0,6,2,2,264,12,2,2,269,5,3,6,0,6,3,3,263,12,3,3,265,5,4,6,0,6,4,4,264,12,4,4,269,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"rectangle","fill","player","x","y",100,20,200,"line",10],"functions":[],"linePositions":[24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,28],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,6,6,8,21,8,23,28,23,28],"locals":[],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/04_creating-motion/keyboard-controls-canvas") });</script></div>
+        <canvas id="world1/04_creating-motion/keyboard-controls-canvas" data-module="world1/04_creating-motion/keyboard-controls"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/04_creating-motion/keyboard-controls-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [112, 108, 97, 121, 101, 114, 32, 61, 32, 123, 10, 32, 32, 120, 32, 61, 32, 50, 48, 44, 10, 32, 32, 121, 32, 61, 32, 50, 48, 10, 125, 10, 10, 83, 80, 69, 69, 68, 32, 61, 32, 51, 48, 48, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 117, 112, 100, 97, 116, 101, 40, 100, 116, 41, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 40, 34, 114, 105, 103, 104, 116, 34, 41, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 43, 32, 83, 80, 69, 69, 68, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 40, 34, 108, 101, 102, 116, 34, 41, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 45, 32, 83, 80, 69, 69, 68, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 40, 34, 100, 111, 119, 110, 34, 41, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 43, 32, 83, 80, 69, 69, 68, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 40, 34, 117, 112, 34, 41, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 45, 32, 83, 80, 69, 69, 68, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 101, 110, 100, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 56, 48, 44, 32, 56, 48, 44, 32, 56, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 112, 108, 97, 121, 101, 114, 46, 120, 44, 32, 112, 108, 97, 121, 101, 114, 46, 121, 44, 32, 49, 48, 48, 44, 32, 50, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 48, 48, 44, 32, 50, 48, 48, 44, 32, 50, 48, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 112, 108, 97, 121, 101, 114, 46, 120, 43, 50, 48, 44, 32, 112, 108, 97, 121, 101, 114, 46, 121, 43, 49, 48, 44, 32, 112, 108, 97, 121, 101, 114, 46, 120, 43, 49, 48, 48, 44, 32, 112, 108, 97, 121, 101, 114, 46, 121, 43, 49, 48, 41, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="paragraph"><p>Great, let&#8217;s go through the changes:
 You can immediately see that <code>x</code> and <code>y</code> have disappeared,
 instead there is now a table called <code>player.</code>
@@ -421,8 +652,47 @@ we use differs, but we could as well do with this "definition".</p></div></block
   <span class="tok-n">love</span><span class="tok-p">.</span><span class="tok-n">graphics</span><span class="tok-p">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
 <span class="tok-k">end</span></code></pre></div></div></div></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/05_better-steering/rotation-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/05_better-steering/rotation/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":4,"instructions":[10,0,0,5,9,0,257,258,9,0,259,258,9,0,260,261,9,0,262,261,9,0,263,261,7,0,0,0,1,0,8,0,1,1,9,0,5,2,10,0,36,3,0,0,0,0,0,0,9,2,267,3,5,2,10,0,36,3,1,0,9,2,268,3,30,0,1,0],"constants":["player","x",150,"y","xvel",0,"yvel","rotation",4,20,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":12,"lastLineDefined":29,"upvalueCount":1,"paramCount":1,"is_vararg":0,"maxStackSize":4,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,6,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,0,0,5,1,0,0,6,1,1,257,6,1,1,258,1,2,8,0,28,1,2,2,26,1,0,0,22,0,0,0,30,0,1,0],"constants":["love","keyboard","isDown","right","player","rotation","left","down","up"],"functions":[],"linePositions":[13,13,13,13,13,13,13,15,15,15,15,15,15,15,17,17,17,17,17,17,17,19,19,19,19,19,19,19,21,21,21,21,21,21,21,25,25,25,25,25,25,25,29],"locals":[{"varname":"dt","startpc":0,"endpc":42}],"upvalues":["ANGACCEL"]},{"sourceName":"","lineDefined":31,"lastLineDefined":38,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,5,1,5,0,6,1,1,262,5,2,5,0,6,2,2,263,28,0,3,1,5,0,0,0,6,0,0,257,6,0,0,264,5,1,5,0,6,1,1,265,28,0,2,1,5,0,0,0,6,0,0,257,6,0,0,266,1,1,11,0,1,2,12,0,1,3,13,0,1,4,14,0,1,5,15,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,16,0,1,2,16,0,1,3,16,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,273,1,1,15,0,1,2,18,0,1,3,19,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"translate","player","x","y","rotate","rotation","rectangle","fill",-50,-10,100,20,200,"line",0,50],"functions":[],"linePositions":[32,32,32,32,32,32,32,33,33,33,33,33,33,33,33,34,34,34,34,34,34,35,35,35,35,35,35,35,35,35,36,36,36,36,36,36,36,37,37,37,37,37,37,37,37,38],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,5,6,7,9,10,12,29,29,12,31,38,31,38],"locals":[{"varname":"ANGACCEL","startpc":8,"endpc":16},{"varname":"ACCELERATION","startpc":9,"endpc":16}],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/05_better-steering/rotation-canvas") });</script></div>
+        <canvas id="world1/05_better-steering/rotation-canvas" data-module="world1/05_better-steering/rotation"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/05_better-steering/rotation-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [112, 108, 97, 121, 101, 114, 32, 61, 32, 123, 10, 32, 32, 120, 32, 61, 32, 49, 53, 48, 44, 10, 32, 32, 121, 32, 61, 32, 49, 53, 48, 44, 10, 32, 32, 120, 118, 101, 108, 32, 61, 32, 48, 44, 10, 32, 32, 121, 118, 101, 108, 32, 61, 32, 48, 44, 10, 32, 32, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 48, 10, 125, 10, 10, 108, 111, 99, 97, 108, 32, 65, 78, 71, 65, 67, 67, 69, 76, 32, 32, 32, 32, 32, 32, 61, 32, 52, 10, 108, 111, 99, 97, 108, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 32, 32, 61, 32, 50, 48, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 117, 112, 100, 97, 116, 101, 40, 100, 116, 41, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 114, 105, 103, 104, 116, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 114, 111, 116, 97, 116, 101, 32, 99, 108, 111, 99, 107, 119, 105, 115, 101, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 43, 32, 65, 78, 71, 65, 67, 67, 69, 76, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 108, 101, 102, 116, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 114, 111, 116, 97, 116, 101, 32, 99, 111, 117, 110, 116, 101, 114, 45, 99, 108, 111, 99, 107, 119, 105, 115, 101, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 45, 32, 65, 78, 71, 65, 67, 67, 69, 76, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 100, 111, 119, 110, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 100, 101, 99, 101, 108, 101, 114, 97, 116, 101, 32, 47, 32, 97, 99, 99, 101, 108, 101, 114, 97, 116, 101, 32, 98, 97, 99, 107, 119, 97, 114, 100, 115, 10, 32, 32, 32, 32, 45, 45, 32, 40, 108, 101, 102, 116, 32, 111, 117, 116, 32, 102, 111, 114, 32, 110, 111, 119, 41, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 117, 112, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 97, 99, 99, 101, 108, 101, 114, 97, 116, 101, 10, 32, 32, 32, 32, 45, 45, 32, 40, 108, 101, 102, 116, 32, 111, 117, 116, 32, 102, 111, 114, 32, 110, 111, 119, 41, 10, 32, 32, 101, 110, 100, 10, 101, 110, 100, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 56, 48, 44, 32, 56, 48, 44, 32, 56, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 116, 114, 97, 110, 115, 108, 97, 116, 101, 40, 112, 108, 97, 121, 101, 114, 46, 120, 44, 32, 112, 108, 97, 121, 101, 114, 46, 121, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 111, 116, 97, 116, 101, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 45, 53, 48, 44, 32, 45, 49, 48, 44, 32, 49, 48, 48, 44, 32, 50, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 48, 48, 44, 32, 50, 48, 48, 44, 32, 50, 48, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 50, 48, 44, 32, 48, 44, 32, 53, 48, 44, 32, 48, 41, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div>
 <div class="paragraph"><p>Okay, some changes.
 We now store values for <code>xvel</code>, <code>yvel</code> and <code>rotation</code> in our <code>player</code> table.
 <code>x</code> and <code>y</code> are still used to track the current position, but our <a href="https://love2d.org/wiki/love.draw"><code>love.draw</code></a> has changed,
@@ -504,8 +774,47 @@ acceleration that apply to each axis, based on the angle the ship is rotated to:
 <code>math.cos</code> and <code>math.sin</code> for the corresponding axis.</td></tr></table></div>
 <div class="paragraph"><p>This already feels a lot like Asteroids!</p></div>
 <div class="livecode">
-<div class="preload"></div>
-<canvas id="world1/05_better-steering/momentum-canvas"></canvas><script>new Punchdrunk({ "game_code": {"format":"moonshine.package","files":{"main.lua.json":{"sourceName":"@book/code/world1/05_better-steering/momentum/main.lua","lineDefined":0,"lastLineDefined":0,"upvalueCount":0,"paramCount":0,"is_vararg":2,"maxStackSize":4,"instructions":[10,0,0,5,9,0,257,258,9,0,259,258,9,0,260,261,9,0,262,261,9,0,263,261,7,0,0,0,1,0,8,0,1,1,9,0,5,2,10,0,36,3,0,0,0,0,0,0,0,0,1,0,9,2,267,3,5,2,10,0,36,3,1,0,9,2,268,3,30,0,1,0],"constants":["player","x",150,"y","xvel",0,"yvel","rotation",4,400,"love","update","draw"],"functions":[{"sourceName":"","lineDefined":12,"lastLineDefined":35,"upvalueCount":2,"paramCount":1,"is_vararg":0,"maxStackSize":6,"instructions":[5,1,0,0,6,1,1,257,6,1,1,258,1,2,3,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,12,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,6,0,28,1,2,2,26,1,0,0,22,0,7,0,5,1,4,0,5,2,4,0,6,2,2,261,4,3,0,0,14,3,3,0,13,2,2,3,9,1,261,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,7,0,28,1,2,2,26,1,0,0,22,0,26,0,5,1,4,0,5,2,4,0,6,2,2,264,4,3,1,0,14,3,3,0,5,4,9,0,6,4,4,266,5,5,4,0,6,5,5,261,28,4,2,2,14,3,3,4,13,2,2,3,9,1,264,2,5,1,4,0,5,2,4,0,6,2,2,267,4,3,1,0,14,3,3,0,5,4,9,0,6,4,4,268,5,5,4,0,6,5,5,261,28,4,2,2,14,3,3,4,13,2,2,3,9,1,267,2,5,1,0,0,6,1,1,257,6,1,1,258,1,2,13,0,28,1,2,2,26,1,0,0,22,0,26,0,5,1,4,0,5,2,4,0,6,2,2,264,4,3,1,0,14,3,3,0,5,4,9,0,6,4,4,266,5,5,4,0,6,5,5,261,28,4,2,2,14,3,3,4,12,2,2,3,9,1,264,2,5,1,4,0,5,2,4,0,6,2,2,267,4,3,1,0,14,3,3,0,5,4,9,0,6,4,4,268,5,5,4,0,6,5,5,261,28,4,2,2,14,3,3,4,12,2,2,3,9,1,267,2,5,1,4,0,5,2,4,0,6,2,2,270,5,3,4,0,6,3,3,264,14,3,3,0,12,2,2,3,9,1,270,2,5,1,4,0,5,2,4,0,6,2,2,271,5,3,4,0,6,3,3,267,14,3,3,0,12,2,2,3,9,1,271,2,5,1,4,0,5,2,4,0,6,2,2,264,14,2,2,272,9,1,264,2,5,1,4,0,5,2,4,0,6,2,2,267,14,2,2,272,9,1,267,2,30,0,1,0],"constants":["love","keyboard","isDown","right","player","rotation","left","down","xvel","math","cos","yvel","sin","up","x","y",0.99],"functions":[],"linePositions":[13,13,13,13,13,13,13,15,15,15,15,15,15,15,17,17,17,17,17,17,17,19,19,19,19,19,19,19,21,21,21,21,21,21,21,23,23,23,23,23,23,23,23,23,23,23,23,23,24,24,24,24,24,24,24,24,24,24,24,24,24,26,26,26,26,26,26,26,28,28,28,28,28,28,28,28,28,28,28,28,28,29,29,29,29,29,29,29,29,29,29,29,29,29,31,31,31,31,31,31,31,31,32,32,32,32,32,32,32,32,33,33,33,33,33,34,34,34,34,34,35],"locals":[{"varname":"dt","startpc":0,"endpc":120}],"upvalues":["ANGACCEL","ACCELERATION"]},{"sourceName":"","lineDefined":37,"lastLineDefined":44,"upvalueCount":0,"paramCount":0,"is_vararg":0,"maxStackSize":6,"instructions":[5,0,0,0,6,0,0,257,6,0,0,258,1,1,3,0,1,2,3,0,1,3,3,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,260,5,1,5,0,6,1,1,262,5,2,5,0,6,2,2,263,28,0,3,1,5,0,0,0,6,0,0,257,6,0,0,264,5,1,5,0,6,1,1,265,28,0,2,1,5,0,0,0,6,0,0,257,6,0,0,266,1,1,11,0,1,2,12,0,1,3,13,0,1,4,14,0,1,5,15,0,28,0,6,1,5,0,0,0,6,0,0,257,6,0,0,258,1,1,16,0,1,2,16,0,1,3,16,0,28,0,4,1,5,0,0,0,6,0,0,257,6,0,0,273,1,1,15,0,1,2,18,0,1,3,19,0,1,4,18,0,28,0,5,1,30,0,1,0],"constants":["love","graphics","setColor",80,"translate","player","x","y","rotate","rotation","rectangle","fill",-50,-10,100,20,200,"line",0,50],"functions":[],"linePositions":[38,38,38,38,38,38,38,39,39,39,39,39,39,39,39,40,40,40,40,40,40,41,41,41,41,41,41,41,41,41,42,42,42,42,42,42,42,43,43,43,43,43,43,43,43,44],"locals":[],"upvalues":[]}],"linePositions":[1,2,3,4,5,6,7,9,10,12,35,35,35,12,37,44,37,44],"locals":[{"varname":"ANGACCEL","startpc":8,"endpc":17},{"varname":"ACCELERATION","startpc":9,"endpc":17}],"upvalues":[],"sourcePath":"main.lua"}},"main":"main.lua.json"}, "canvas": document.getElementById("world1/05_better-steering/momentum-canvas") });</script></div></div></div>
+        <canvas id="world1/05_better-steering/momentum-canvas" data-module="world1/05_better-steering/momentum"></canvas>
+        <script>(function () {
+    var canvas = document.getElementById('world1/05_better-steering/momentum-canvas');
+    var Module = {
+        arguments: ['./'],
+        printErr: console.error.bind(console),
+        setStatus: function (e) {
+            if (!e && Module.didSyncFS && Module.remainingDependencies === 0)
+                Module.callMain(Module.arguments);
+        },
+        canvas: canvas,
+        didSyncFS: false,
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        expectedDataFileDownloads: 1,
+        finishedDataFileDownloads: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        },
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+    };
+    canvas.module = Module;
+
+    function runWithFS () {
+      var fileData1 = [];
+fileData1.push.apply(fileData1, [112, 108, 97, 121, 101, 114, 32, 61, 32, 123, 10, 32, 32, 120, 32, 61, 32, 49, 53, 48, 44, 10, 32, 32, 121, 32, 61, 32, 49, 53, 48, 44, 10, 32, 32, 120, 118, 101, 108, 32, 61, 32, 48, 44, 10, 32, 32, 121, 118, 101, 108, 32, 61, 32, 48, 44, 10, 32, 32, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 48, 10, 125, 10, 10, 108, 111, 99, 97, 108, 32, 65, 78, 71, 65, 67, 67, 69, 76, 32, 32, 32, 32, 32, 32, 61, 32, 52, 10, 108, 111, 99, 97, 108, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 32, 32, 61, 32, 52, 48, 48, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 117, 112, 100, 97, 116, 101, 40, 100, 116, 41, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 114, 105, 103, 104, 116, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 114, 111, 116, 97, 116, 101, 32, 99, 108, 111, 99, 107, 119, 105, 115, 101, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 43, 32, 65, 78, 71, 65, 67, 67, 69, 76, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 108, 101, 102, 116, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 114, 111, 116, 97, 116, 101, 32, 99, 111, 117, 110, 116, 101, 114, 45, 99, 108, 111, 99, 107, 119, 105, 115, 101, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 32, 45, 32, 65, 78, 71, 65, 67, 67, 69, 76, 42, 100, 116, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 100, 111, 119, 110, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 100, 101, 99, 101, 108, 101, 114, 97, 116, 101, 32, 47, 32, 97, 99, 99, 101, 108, 101, 114, 97, 116, 101, 32, 98, 97, 99, 107, 119, 97, 114, 100, 115, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 45, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 42, 100, 116, 32, 42, 32, 109, 97, 116, 104, 46, 99, 111, 115, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 45, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 42, 100, 116, 32, 42, 32, 109, 97, 116, 104, 46, 115, 105, 110, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 101, 110, 100, 10, 32, 32, 105, 102, 32, 108, 111, 118, 101, 46, 107, 101, 121, 98, 111, 97, 114, 100, 46, 105, 115, 68, 111, 119, 110, 34, 117, 112, 34, 32, 116, 104, 101, 110, 10, 32, 32, 32, 32, 45, 45, 32, 97, 99, 99, 101, 108, 101, 114, 97, 116, 101, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 43, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 42, 100, 116, 32, 42, 32, 109, 97, 116, 104, 46, 99, 111, 115, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 43, 32, 65, 67, 67, 69, 76, 69, 82, 65, 84, 73, 79, 78, 42, 100, 116, 32, 42, 32, 109, 97, 116, 104, 46, 115, 105, 110, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 101, 110, 100, 10, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 32, 43, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 42, 100, 116, 10, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 32, 43, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 42, 100, 116, 10, 32, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 120, 118, 101, 108, 32, 42, 32, 48, 46, 57, 57, 10, 32, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 61, 32, 112, 108, 97, 121, 101, 114, 46, 121, 118, 101, 108, 32, 42, 32, 48, 46, 57, 57, 10, 101, 110, 100, 10, 10, 102, 117, 110, 99, 116, 105, 111, 110, 32, 108, 111, 118, 101, 46, 100, 114, 97, 119, 40, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 56, 48, 44, 32, 56, 48, 44, 32, 56, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 116, 114, 97, 110, 115, 108, 97, 116, 101, 40, 112, 108, 97, 121, 101, 114, 46, 120, 44, 32, 112, 108, 97, 121, 101, 114, 46, 121, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 111, 116, 97, 116, 101, 40, 112, 108, 97, 121, 101, 114, 46, 114, 111, 116, 97, 116, 105, 111, 110, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 114, 101, 99, 116, 97, 110, 103, 108, 101, 40, 34, 102, 105, 108, 108, 34, 44, 32, 45, 53, 48, 44, 32, 45, 49, 48, 44, 32, 49, 48, 48, 44, 32, 50, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 115, 101, 116, 67, 111, 108, 111, 114, 40, 50, 48, 48, 44, 32, 50, 48, 48, 44, 32, 50, 48, 48, 41, 10, 32, 32, 108, 111, 118, 101, 46, 103, 114, 97, 112, 104, 105, 99, 115, 46, 108, 105, 110, 101, 40, 50, 48, 44, 32, 48, 44, 32, 53, 48, 44, 32, 48, 41, 10, 101, 110, 100, 10]);
+Module['FS_createDataFile']('.', 'main.lua', fileData1, true, true);
+    }
+
+    if (Module['calledRun']) {
+      runWithFS();
+    } else {
+      if (!Module['preRun']) Module['preRun'] = [];
+      Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+    }
+
+    window.mod = Module;
+})();
+</script>
+      </div></div></div>
 <div class="sect1"><h2 id="world2"><a class="anchor" href="#world2"></a>World 2: The Redo</h2><div class="sectionbody"><div class="paragraph"><p>So that was <a href="#world1">The Prototype</a>. In the last few levels we went from our idea to an actual playable game&#8230;&#8203; so what&#8217;s left to do?</p></div>
 <div class="paragraph"><p>Well, it turns out there is <em>a lot!</em></p></div>
 <div class="paragraph"><p>Even though the game so far is perfectly playable, some of the code has gotten messy during the development process.
