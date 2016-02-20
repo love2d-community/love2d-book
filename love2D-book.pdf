@@ -1335,7 +1335,7 @@ so these small tricks might still be valuable information to you.
 &lt;&lt;&lt;</p></div></div></div></div>
 <div class="sect2"><h3 id="_license">License</h3><div class="paragraph"><p>This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (<em>CC BY-NC 4.0</em>).<br />
 To view a copy of this license, visit <a class="bare" href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</a>.</p></div>
-<div class="sect2"><h3 id="_libraries_tools">Libraries &amp; Tools</h3><div class="ulist"><ul><li><p><a href="https://github.com/asciidoctor/asciidoctor">AsciiDoctor</a> renders this book</p></li><li><p><a href="http://moonshinejs.org/">Moonshine</a> and</p></li><li><p><a href="https://github.com/TannerRogalsky/punchdrunk">punchdrunk</a> by Tanner Rogalsky make LÖVE run in <strong>your</strong> browser</p></li><li><p>&#8230;&#8203;as does of course <a href="https://love2d.org/">LÖVE</a> (licensed under the zlib license), which this book is all about</p></li></ul></div>
+<div class="sect2"><h3 id="_libraries_tools">Libraries &amp; Tools</h3><div class="ulist"><ul><li><p><a href="https://github.com/asciidoctor/asciidoctor">AsciiDoctor</a> renders this book</p></li><li><p><a href="https://github.com/kripken/emscripten">emscripten</a> and</p></li><li><p><a href="https://github.com/TannerRogalsky/love.js">love.js</a> by Tanner Rogalsky make LÖVE run in <strong>your</strong> browser</p></li><li><p>&#8230;&#8203;as does of course <a href="https://love2d.org/">LÖVE</a> (licensed under the zlib license), which this book is all about</p></li></ul></div>
 <div class="paragraph"><p>wherever not listed above, these are licensed under the MIT License:</p></div>
 <div class="literalblock"><div class="title">The MIT License</div>
 <div class="content"><pre>Copyright (C) held by the respective authors, see the LICENSEs in the links provided above
@@ -1356,4 +1356,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</pre></div></div></div></div></div><div id="footer"><div id="footer-text"><br />Last updated 2016-02-16 00:49:47 CET</div></div></body></html>
+SOFTWARE.</pre></div></div>
+<div class="paragraph"><p>for details follow the links above for their respective licensing information.</p></div></div></div></div><div id="footer"><div id="footer-text"><br />Last updated 2016-02-20 21:29:39 UTC</div></div></body></html>
