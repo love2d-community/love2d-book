@@ -44,15 +44,14 @@ wiki:love.graphics[the graphics module] // <7>
 
 == Contributions
 === Prerequisites
-You will need `ruby` to be installed for rendering the book, and `node`, `npm` and `luajit`
-for the livecode examples with punchdrunk currently.
+You will need `ruby` and `bundler` to be installed for rendering the book.
 
-Make sure you have bundler installed:
+With `ruby` set up, you can install bundler like so:
 
 [source,bash]
 $ gem install bundle
 
-then instal the dependencies:
+then install the dependencies:
 
 [source,bash]
 $ bundle install
@@ -91,7 +90,7 @@ Make sure that `book/code` is at the correct revision and staged before releasin
 * Use the code repository for examples that readers may want to try out or modify, use inline livecode for minor changes and demos
 * Style lists with `*`, don't end items with `.`
 * Use wiki block macros when discussing LÖVE functions and concepts (`+wiki:love.graphics.print[print]+` -> wiki:love.graphics.print[print])
-* Use backticks when mentioning Lua values (`+`"string"`+` -> `"string"`)
+* Use backticks when mentioning Lua values (``"string"`` -> `"string"`)
 * Link to sections you reference (`+<<world1-2, last Level>>+` -> <<world1-2, lastLevel>>)
 * Show relevant portions of source code before livecode displays, use callouts (`<1>`) to discuss source code
 

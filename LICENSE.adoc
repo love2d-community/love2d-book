@@ -4,8 +4,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/
 === Libraries & Tools
 
 * https://github.com/asciidoctor/asciidoctor[AsciiDoctor] renders this book
-* http://moonshinejs.org/[Moonshine] and
-* https://github.com/TannerRogalsky/punchdrunk[punchdrunk] by Tanner Rogalsky make LÖVE run in *your* browser
+* https://github.com/kripken/emscripten[emscripten] and
+* https://github.com/TannerRogalsky/love.js[love.js] by Tanner Rogalsky make LÖVE run in *your* browser
 * ...as does of course https://love2d.org/[LÖVE] (licensed under the zlib license), which this book is all about
 
 wherever not listed above, these are licensed under the MIT License:
@@ -32,3 +32,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ....
+
+for details follow the links above for their respective licensing information.
