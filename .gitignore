@@ -1,8 +1,4 @@
-public/*.html
-public/*pdf*
-paged
-tmp
-
-vendor
+.travis/deploy_key.pem
 
 Gemfile.lock
+vendor
