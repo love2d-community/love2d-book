@@ -1,0 +1,20 @@
+language: ruby
+
+rvm:
+- 2.3.0
+
+env:
+- REPO_URI=git@github.com:love2d-community/love2d-book.git
+#  global:
+#  - REPO_IO_URI=git@github.com:love2d-book/love2d-book.github.io.git
+
+bundler_args: "--without production"
+before_install:
+- openssl aes-256-cbc -K $encrypted_df9da5f220ff_key -iv $encrypted_df9da5f220ff_iv
+  -in .travis/deploy_key.pem.enc -out .travis/deploy_key.pem -d
+
+script:
+- bundle exec ./render.sh
+
+after_success:
+- .travis/deploy.sh

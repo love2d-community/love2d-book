@@ -1,6 +1,7 @@
 [submodule "book/code"]
 	path = book/code
-	url = git@github.com:love2D-community/love2D-book-code.git
+	url = https://github.com/love2d-community/love2d-book-code.git
 [submodule "public"]
 	path = public
-	url = git@github.com:love2D-book/love2D-book.github.io.git
+	url = https://github.com/love2d-community/love2d-book.git
+	branch = gh-pages

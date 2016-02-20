@@ -38,8 +38,8 @@ commit=`git show --format=format:%B -s`
 pushd public > /dev/null
 git add .
 echo $commit | git commit "$@" -aF -
-git push origin master:gh-pages
-git push io master
+git push origin
+git push io gh-pages:master
 popd > /dev/null
 
 git add public
