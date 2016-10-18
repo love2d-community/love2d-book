@@ -1,6 +1,8 @@
 = LÖVE for Newbies
+
 A book about LÖVE, Games and Lua.
-image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-community/love2d-book"]
+image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/love2d-community/love2d-book"] +
+View the rendered book with examples at https://love2d-community.github.io/love2d-book[love2d-community.github.io/love2d-book].
 
 The collaborative book will be divided into three main units:
 
