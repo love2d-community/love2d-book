@@ -41,7 +41,7 @@ def package name, files
           this.remainingDependencies = left;
           this.totalDependencies = Math.max(this.totalDependencies, left);
         },
-        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "#canvas"; }]
+        preRun: [function(){ Module.ENV.SDL_EMSCRIPTEN_KEYBOARD_ELEMENT = "##{name}-canvas"; }]
     };
     canvas.module = Module;
 
