@@ -29,7 +29,7 @@ that accepts a table as it's only parameter.
 In that function you can then modify certain fields of the table and thereby
 change the configuration the LÖVE Framework uses when it first creates your window.
 
-Here is a function that sets every possible value to it's default value - and thereby does nothing:
+Here is a function that sets every possible value to its default value - and thereby does nothing:
 
 .Full `conf.lua` example
 [source,lua]

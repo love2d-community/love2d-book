@@ -28,7 +28,7 @@ The player can use two keys to accelerate or decelerate in the direction the shi
 is currently facing. He can also turn the spaceship with two other keys.
 Lastly the player can press a button to fire a shot.
 
-When the spaceships leaves the screen on one side, it will enter from the opposite side,
+When the spaceship leaves the screen on one side, it will enter from the opposite side,
 keeping its velocity.
 
 We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.

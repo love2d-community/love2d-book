@@ -8,7 +8,7 @@ Imagine we are working on a Galaga-type fixed shooter. Every frame we have to si
 There are multiple types of enemies with different behaviours and graphics, but they all need to be drawn in wiki:love.draw[] and updated in `love.update`.
 We also need to handle all the bullets flying around.
 
-The simples way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:
+The simplest way to handle all of this is just storing all these things in a list, then iterate over it in the two callbacks:
 
 [source,lua]
 ----

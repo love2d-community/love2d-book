@@ -17,7 +17,7 @@ at least there's a line to indicate which direction we are facing.
 
 ==== An Engine
 Alright, so how do we make this thing move?
-We will obviously need a variable to keep track of it's current position.
+We will obviously need a variable to keep track of its current position.
 In fact we will be using two, one for each coordinate we are going to simulate the ship on:
 
 .main.lua
@@ -75,7 +75,7 @@ As we add enemies and bullets we will need to keep track of a lot more `x`s and 
 
 As we can see, I have also added a new variable called `SPEED`.
 `SPEED` is never changed in the code, so I could've also replaced every occurence
-further down with it's value, `300` right away.
+further down with its value, `300` right away.
 However keeping it at the top like this makes it easy to modify the speed,
 also I cannot forget to modify it in all the places should I change it some time.
 `SPEED` is uppercased because I use this style to name constant values,

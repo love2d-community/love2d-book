@@ -12,7 +12,7 @@ is currently facing. He can also turn the spaceship with two other keys.
 Lastly the player can press a button to fire a shot.
 
 When the spaceships leaves the screen on one side, it will enter from the opposite side,
-keeping it's velocity.
+keeping its velocity.
 
 We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.
 in <<world1-4, World 1-5>> we will see that the actual way of saving the information
