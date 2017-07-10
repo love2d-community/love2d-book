@@ -29,7 +29,7 @@ is currently facing. He can also turn the spaceship with two other keys.
 Lastly the player can press a button to fire a shot.
 
 When the spaceships leaves the screen on one side, it will enter from the opposite side,
-keeping it's velocity.
+keeping its velocity.
 
 We can see that the spaceship needs to have a `position`, `velocity` and `rotation`.
 In <<world1-5, World 1-5>> we will see that the actual way of saving the information
@@ -38,7 +38,7 @@ we use differs, but we could as well do with this "definition".
 ==== The Asteroids
 Asteroids move in a straight line, also wrapping around the Screen in the same way
 the spaceship does.
-They larger an asteroid is, the slower it should move.
+The larger an asteroid is, the slower it should move.
 Therefore all we need to know about every asteroid is his `position`, `size` and his `rotation`.
 
 Whenever an asteroid is hit, we split it into two smaller ones, unless it is already
