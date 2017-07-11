@@ -1,0 +1,33 @@
+[[world1-6]]
+=== Adding some action
+Our prototype is getting better. Cool, isn't it?
+Now we have the most aerodynamic ship ever and we can already go flying around. But what if something comes up and tries to attack us? The outer space is a very mysterious place. We don't know what to expect.
+So, it could be interesting if we take with us a weapon to defend ourselves right?
+Let's jump right in.
+
+What we basically want is, when the player presses an action button, a group of bullets will be launched in the direction the ship is facing and each bullet will have a constant speed.
+We will make something called `object pool`. So, when the player presses the action button, a new element will be inserted in this object pool. The algorithm of creation and manipulation of object pools is better explained in <<world3-1, World 3-1>>. I'd recommend you to give it a look.
+
+code_example::world1/06_adding-some-action/creating-bullets[]
+livecode::world1/06_adding-some-action/creating-bullets[]
+
+As you can see in this example, we created a table of `bullets`. This table stores every bullet that the player shoots.
+So, as soon as the player presses `SPACE` key (in LÖVE, we use a blank space to do that), the function `shoot` is called. This function inserts a new bullet in the bullets table.
+Every new bullet is created at the player's ship position as well as being launched in the direction the player's ship is facing. All bullets in `bullets` table will have a constant speed. Nothing much fearsome, but already it works very well.
+Now that we've created our bullets, we need to create an algorithm for destroying them. Like Asteroids, our bullets must be destroyed in two situations:
+1. When they go outside from the screen.
+2. When they reach some asteroid.
+For now we will focus only on the first situation, since we haven't asteroids to worry (yet).
+
+code_example::world1/06_adding-some-action/destroying-bullets[]
+
+So, we made some changes in our code:
+
+1. We created a `bullets.trash` that is nothing but a table to place bullets that need to be destroyed.
+2. Then, we created a `destroy_bullets` function that will verify which bullets are in the trash and delete them from our `bullets` table. After this mapping, we clean our trash.
+We use a auxiliary table because we want to destroy bullets as they were created, to avoid future problems.
+3. In the wiki:love.update[] function, as the bullets moved, we check if any of them came out of the horizontal and vertical limits of the game screen. If so, we put this bullet on our trash table. And then, at the very end of this function, we call our function `destroy_bullets` to remove all unnecessary bullets from memory
+
+livecode::world1/06_adding-some-action/destroying-bullets[]
+
+Note that, apparently, the game looks the same. But now we have a little less greedy version in relation to computer memory.
